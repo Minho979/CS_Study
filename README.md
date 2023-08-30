@@ -1,4 +1,4 @@
-# CS_Study
+# CS Study
 
 # Data Structure
 
