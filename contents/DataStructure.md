@@ -47,6 +47,6 @@
   - 자료의 논리적인 순서와 물리적인 순서가 불일치
  
     ![Array의 논리-물리순서](https://github.com/Minho979/CS_Study/blob/main/contents/images/Array2.png)
-    ![LinkedList의 논리-물리순서]()
+    ![LinkedList의 논리-물리순서](https://github.com/Minho979/CS_Study/blob/main/contents/images/LinkedList1.png)
 - 
 
