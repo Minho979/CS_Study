@@ -1,6 +1,6 @@
 # 1. DataStructure
 
-##### contents
+#### Contents
 - Array
 - LinkedList
 - HashTable
