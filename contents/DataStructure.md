@@ -45,8 +45,9 @@
   - 각 노드가 데이터와 포인터를 가지고 연결되어 있는 방식으로 데이터를 저장
     - 여러 개의 작은 공간을 연결하여 전체의 자료구조를 형성
   - 자료의 논리적인 순서와 물리적인 순서가 불일치
- 
-    ![Array의 논리-물리순서](https://github.com/Minho979/CS_Study/blob/main/contents/images/Array2.png)
-    ![LinkedList의 논리-물리순서](https://github.com/Minho979/CS_Study/blob/main/contents/images/LinkedList1.png)
+
+    <img src="[/img/myImg.png](https://github.com/Minho979/CS_Study/blob/main/contents/images/LinkedList2.png)" width="300" height="300">
+    ![LinkedList 논리구조](https://github.com/Minho979/CS_Study/blob/main/contents/images/LinkedList2.png)
+    ![LinkedList 물리구조](https://github.com/Minho979/CS_Study/blob/main/contents/images/LinkedList1.png)
 - 
 
