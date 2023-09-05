@@ -76,4 +76,7 @@
     
     - data 필드와 두 개의 link 필드로 구성
   
-    ![이중 연결 리스트 구조](https://github.com/Minho979/CS_Study/bl념
+    ![이중 연결 리스트 구조](https://github.com/Minho979/CS_Study/blob/main/contents/images/CDLinkedList.png)
+
+### HashTable
+- HashTable의 개념
