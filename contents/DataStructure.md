@@ -1,8 +1,8 @@
 # 1. DataStructure
 
 #### Contents
-- Array
-- LinkedList
+- [Array](#array)
+- [LinkedList](#LinkedList)
 - HashTable
 - Stack
 - Queue
