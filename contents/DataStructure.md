@@ -11,7 +11,7 @@
 - [Graph와 Tree의 차이점](#Graph와-Tree의-차이점)
 - [Binary Heap](#Binary-Heap)
 - [Red-Black Tree](#Red-Black-Tree)
-- [B+ Tree](#B+-Tree)
+- [B+ Tree](#B+_Tree)
 ***
 
 ### Array
