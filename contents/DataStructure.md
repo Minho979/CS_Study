@@ -53,6 +53,8 @@
   - 연결 방식에 따라 구분
   - 단순 연결 리스트 (singly linked list)
   ![단순 연결 리스트 구조](https://github.com/Minho979/CS_Study/blob/main/contents/images/SLinkedList.png)
+    - 첫번째 노드를 모를 시 접근이 불가능하며, 첫 노드를 알면 모든 노드에 접근 가능
+    - 첫 원소 접근 시간은 O(1)이며 마지막 원소 접근 시간은 O(n)
   - 원형 연결 리스트 (circular linked list)
     
   - 이중 연결 리스트 (doubly linked list)
