@@ -75,6 +75,7 @@
   <img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/DLinkedListNode.png" width="100" height="50">
     
     - data 필드와 두 개의 link 필드로 구성
+  
   ![이중 연결 리스트 구조](https://github.com/Minho979/CS_Study/blob/main/contents/images/DLinkedList.png)
     - 양쪽 방향을 순회할 수 있도록 노드를 연결한 리스트
       
