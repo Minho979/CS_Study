@@ -71,7 +71,8 @@
     - 단순 연결 리스트에서 마지막 노드가 리스트의 첫번째 노드와 연결되어 리스트를 원형으로 구성
       
   - 이중 연결 리스트 (doubly linked list)
-  ![이중 연결 리스트 노드 구조](https://github.com/Minho979/CS_Study/blob/main/contents/images/DLinkedListNode.png)
+  
+  <img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/DLinkedListNode.png" width="100" height="50">
     - data 필드와 두 개의 link 필드로 구성
   ![이중 연결 리스트 구조](https://github.com/Minho979/CS_Study/blob/main/contents/images/DLinkedList.png)
     - 양쪽 방향을 순회할 수 있도록 노드를 연결한 리스트
