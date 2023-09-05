@@ -52,7 +52,7 @@
 - LinkedList의 종류
   - 연결 방식에 따라 구분
   - 단순 연결 리스트 (singly linked list)
-  
+  ![단순 연결 리스트 구조](https://github.com/Minho979/CS_Study/blob/main/contents/images/SLinkedList.png)
   - 원형 연결 리스트 (circular linked list)
     
   - 이중 연결 리스트 (doubly linked list)
