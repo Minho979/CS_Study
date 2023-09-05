@@ -82,4 +82,4 @@
   - 원형 이중 연결 리스트 (circular doubly linked list)
   ![원형 이중 연결 리스트 구조](https://github.com/Minho979/CS_Study/blob/main/contents/images/CDLinkedList.png)
     - 이중 연결 리스트를 원형으로 구성
-      - 첫 노드에 마지막 노드의 주소와 다음 노드의 주소를 저장하고 마지막 노드는 첫 노드의 이전 노드의 주소와 첫번째 노드의 주소를 저장
+      - 첫 노드에 마지막 노드의 주소와 다음 노드의 주소를 저장, 마지막 노드는 첫 노드의 이전 노드의 주소와 첫번째 노드의 주소를 저장
