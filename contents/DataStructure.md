@@ -49,5 +49,13 @@
     <img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/LinkedList2.png" width="300" height="200">
     <img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/LinkedList1.png" width="300" height="200">
     
-- 
+- LinkedList의 종류
+  - 연결 방식에 따라 구분
+  - 단순 연결 리스트 (singly linked list)
+  
+  - 원형 연결 리스트 (circular linked list)
+    
+  - 이중 연결 리스트 (doubly linked list)
+    
+  - 원형 이중 연결 리스트 (circular doubly linked list)
 
