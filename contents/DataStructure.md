@@ -60,7 +60,7 @@
     - 노드에 링크 필드가 하나이며, 링크 필드를 통해 다음 노드와 연결되는 구조
     - 첫번째 노드를 모를 시 접근이 불가능하며, 첫 노드를 알면 모든 노드에 접근 가능
   - 원형 연결 리스트 (circular linked list)
-
+  ![원형 연결 리스트 구조](https://github.com/Minho979/CS_Study/blob/main/contents/images/CLinkedList.png)
     - 단순 연결 리스트에서 마지막 노드가 리스트의 첫번째 노드와 연결되어 리스트를 원형으로 구성
   - 이중 연결 리스트 (doubly linked list)
     
