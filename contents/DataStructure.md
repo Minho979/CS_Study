@@ -48,15 +48,20 @@
 
     <img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/LinkedList2.png" width="300" height="200">
     <img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/LinkedList1.png" width="300" height="200">
-    
+
+  - 접근, 탐색의 시간 복잡도: O(n)
+    - 인덱스 i의 노드의 접근할 시 Head에서 i번 이동 / 탐색 시 Array와 동일하게 첫 노드부터 선형 탐색을 진행 
+  - 삽입, 삭제의 시간 복잡도: O(1)
+    - 삽입, 삭제할 노드의 주변 노드의 Link만 수정
 - LinkedList의 종류
   - 연결 방식에 따라 구분
   - 단순 연결 리스트 (singly linked list)
   ![단순 연결 리스트 구조](https://github.com/Minho979/CS_Study/blob/main/contents/images/SLinkedList.png)
+    - 노드에 링크 필드가 하나이며, 링크 필드를 통해 다음 노드와 연결되는 구조
     - 첫번째 노드를 모를 시 접근이 불가능하며, 첫 노드를 알면 모든 노드에 접근 가능
-    - 첫 원소 접근 시간은 O(1)이며 마지막 원소 접근 시간은 O(n)
   - 원형 연결 리스트 (circular linked list)
-    
+
+    - 단순 연결 리스트에서 마지막 노드가 리스트의 첫번째 노드와 연결되어 리스트를 원형으로 구성
   - 이중 연결 리스트 (doubly linked list)
     
   - 원형 이중 연결 리스트 (circular doubly linked list)
