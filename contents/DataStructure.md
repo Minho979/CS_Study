@@ -45,7 +45,7 @@
   - 각 노드가 데이터와 포인터를 가지고 연결되어 있는 방식으로 데이터를 저장 
     - 노드는 data 필드와 link 필드로 구성
       
-  ![노드 구조](https://github.com/Minho979/CS_Study/blob/main/contents/images/Node.png)
+    ![노드 구조](https://github.com/Minho979/CS_Study/blob/main/contents/images/Node.png)
   
       - data 필드: 원소 값을 저장, 원소의 형태에 따라 하나 이상의 필드로 구성
       - link 필드: 다음 노드의 주소 저장, 마지막 노드는 null을 저장
