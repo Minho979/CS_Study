@@ -130,11 +130,45 @@
      - 추가 메모리 공간을 사용하지 않고, HashTable 배열의 빈 공간을 사용하는 방법
      - Separating Chaining 방식에 비해 적은 메모리 사용
      - Linear Probing, Quadratic Probing, Double Hashing 방식으로 나뉨
+       ![LinearProbing 방식](https://github.com/Minho979/CS_Study/blob/main/contents/images/Linearopen.png)
+       [⬆️ h(x) = x % 5의 경우 Linear Probing]
+       - 충돌이 발생할 시 다음 버킷을 조사하는 방식으로 검색, 저장
+         - 검색의 경우 다음 버킷이 비어있거나, 마지막 버킷에 도달한 경우 검색 실패
        
   3. Resizing
      - 저장 공간이 일정 수준 채워지면 Separating Chaining의 경우 성능 향상을 위해, Open addressing의 경우 배열 크기 확장을 위해 Resizing
      - 보통 2배로 확장
-     - 확장 임계점은 현재 데이터 개수가 현재 Hash Table(Bucket)개수의 75%가 될 때
+     - 확장 임계점은 현재 데이터 개수가 현재 Hash Bucket개수의 75%가 될 때
+
+- Hash Table 장점
+  - 적은 리소스로 많은 데이터를 효율적으로 관리 가능
+    - ex. HDD, Cloud에 있는 많은 데이터를 Hash로 매핑하여 작은 크기의 캐시 메모리로 프로세스 관리 가능
+  - 배열의 인덱스를 사용하기 때문에 빠른 검색, 삽입, 삭제 가능 (O(1))
+    - Hash Table의 경우 인덱스는 데이터의 고유 위치이기 떄문에 삽입 삭제 시 다른 데이터를 이동할 필요가 없어 삽입, 삭제도 빠른 속도로 수행
+  - Key와 Hash에 연관성이 없어 보안 유리
+  - 데이터 캐싱에 많이 사용
+    - get, put 기능에 캐시 로직 추가 시 자주 hit하는 데이터 바로 검색 가능
+  - 중복 제거 유용
+- Hash Table 단점
+  - 충돌 발생 가능성
+  - 공간 복잡도 증가
+  - 순서 무시
+  - 해시 함수 의존도
+- HashTable vs HashMap
+  - Key-Value 구조 및 Key에 대한 Hash로 Value를 관리하는 것은 동일
+  - Hash Table
+    - 동기
+    - Key-Value 값으로 null 미허용(Why? Key가 hashcode(), equals()를 사용)
+    - 보조 Hash Function과 Separating Chaining을 사용하여 비교적 충돌 가능성을 낮춤 (Key의 Hash 변형)
+  - Hash Map
+    - 비동기 (멀티 스레드 환경에서 사용시 주의)
+    - Key-Value 값으로 null 허용
+- Hash Table 성능
+  ||평균|최악|
+  |---|---|---|
+  |탐색|O(1)|O(N)|
+  |삽입|O(1)|O(N)|
+  |삭제|O(1)|O(N)|
 
 ### Stack
 
