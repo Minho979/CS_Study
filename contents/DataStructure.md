@@ -130,8 +130,11 @@
      - 추가 메모리 공간을 사용하지 않고, HashTable 배열의 빈 공간을 사용하는 방법
      - Separating Chaining 방식에 비해 적은 메모리 사용
      - Linear Probing, Quadratic Probing, Double Hashing 방식으로 나뉨
+       
   3. Resizing
-     - 저장 공간이 일정 수준 채워지면 
+     - 저장 공간이 일정 수준 채워지면 Separating Chaining의 경우 성능 향상을 위해, Open addressing의 경우 배열 크기 확장을 위해 Resizing
+     - 보통 2배로 확장
+     - 확장 임계점은 현재 데이터 개수가 현재 Hash Table(Bucket)개수의 75%가 될 때
 
 ### Stack
 
