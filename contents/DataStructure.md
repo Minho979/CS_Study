@@ -119,6 +119,8 @@
   - 충돌이 많아질수록 탐색 시간 복잡도가 O(1)에서 O(n)으로 증가
 - Hash 충돌 해결 방법
   1. Separating Chaining
+     - JDK 내부에서 사용하는 충돌 처리 방식
+     - Linked List(data 6개 이하) 또는 Red-Black Tree(data 8개 이상) 사용
      - 
   2. Open addressing
   3. Resizing
