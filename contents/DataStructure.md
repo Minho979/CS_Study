@@ -90,7 +90,7 @@
   - 기존 Key에 새로운 Value가 주어졌을 때, 기존 Value를 새로운 Value로 대체
   - Key가 주어졌을 때, 해당 Key에 연관된 Value 삭제
 - HashTable 구조
-  ![HashTable구조](https://github.com/Minho979/CS_Study/blob/main/contents/images/HashTable)
+  ![HashTable구조](https://github.com/Minho979/CS_Study/blob/main/contents/images/HashTable.png)
   - Key, Hash Function, Hash, Value, 저장소(Bucket, Slot)로 구성
   - Key
     - 고유의 값
@@ -99,6 +99,10 @@
   - Hash Function
     - Key를 Hash로 바꾸주는 역할
     - 해시 충돌(서로 다른 Key가 동일한 Hash가 되는 경우)이 발생할 확률을 최대한 줄이는 함수를 만드는 것이 중요
+    - Key들을 Hash Table에 골고루 분포 시킬 수 있도록 Hash를 계산이 필요
+      - 빈 공간이 있는데 충돌이 발생하는 경우 오버플로우를 유발해 좋은 Hash Function이  아님
+    - 계산이 쉽고 빨라야 함
+      - Key 값의 비교 연산을 수행하는 시간보다 빨라야 Hash를 사용하는 의미가 있음
   - Hash
     - Hash Function의 결과
     - 저장소에서 Value와 매칭되어 저장
@@ -113,7 +117,11 @@
 - Hash 충돌 (Collision)
   - 서로 다른 Key가 Hash Function에서 중복 Hash가 나오는 경우
   - 충돌이 많아질수록 탐색 시간 복잡도가 O(1)에서 O(n)으로 증가
-
+- Hash 충돌 해결 방법
+  1. Separating Chaining
+     - 
+  2. Open addressing
+  3. Resizing
 
 ### Stack
 
