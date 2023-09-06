@@ -121,9 +121,16 @@
   1. Separating Chaining
      - JDK 내부에서 사용하는 충돌 처리 방식
      - Linked List(data 6개 이하) 또는 Red-Black Tree(data 8개 이상) 사용
-     - 
+       ![Chaining구조](https://github.com/Minho979/CS_Study/blob/main/contents/images/HashChaining.png)
+      [⬆️ h(x) = x % 5의 경우 chaining]
+     - Linked List 사용 시 충돌이 발생하면 충돌 발생한 Index가 가리키고 있는 Linked List 노드 추가하여 Value 삽입
+     - Key에 대한 Value 탐색 시에는 인덱스가 가리키고 있는 Linked List를 선형 검색하여 Value 반환 (삭제도 동일한 방식으로 진행)
+     - Linked List 구조의 특성상 추가 데이터 수 제약이 적음
   2. Open addressing
-  3. Resizing
+     - 추가 메모리 공간을 사용하지 않고, HashTable 배열의 빈 공간을 사용하는 방법
+     - Separating Chaining 방식에 비해 적은 메모리 사용
+     - Linear Probing, Quadratic Probing, Double Hashing 방식으로 나뉨
+  4. Resizing
 
 ### Stack
 
