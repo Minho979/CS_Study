@@ -82,8 +82,16 @@
 - HashTable의 개념
   - Key와 Value를 1:1로 연관지어 저장하는 자료구조(연관배열 구조)
   - Key를 Hash Function를 통해 주소를 찾아 Value를 도출
+    - 키 값 비교를 통한 검색이 아닌 산술적인 연산을 이용
+- HashTable 기능
+  - 연관배열 구조와 동일한 기능 지원
+  - Key, Value가 주어질 때, 두 값을 저장
+  - Key가 주어졌을 때, Key와 연결된 Value 조회
+  - 기존 Key에 새로운 Value가 주어졌을 때, 기존 Value를 새로운 Value로 대체
+  - Key가 주어졌을 때, 해당 Key에 연관된 Value 삭제
 - HashTable 구조
-  - 
+  ![HashTable구조](https://github.com/Minho979/CS_Study/blob/main/contents/images/Hash)
+  
 
 ### Stack
 
