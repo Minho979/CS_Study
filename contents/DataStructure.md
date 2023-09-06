@@ -130,7 +130,8 @@
      - 추가 메모리 공간을 사용하지 않고, HashTable 배열의 빈 공간을 사용하는 방법
      - Separating Chaining 방식에 비해 적은 메모리 사용
      - Linear Probing, Quadratic Probing, Double Hashing 방식으로 나뉨
-  4. Resizing
+  3. Resizing
+     - 저장 공간이 일정 수준 채워지면 
 
 ### Stack
 
