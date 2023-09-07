@@ -181,6 +181,7 @@
     - peek(): 스택의 가장 위에 있는 항목을 반환한다.
     - isEmpty(): 스택이 비어 있을 떄에 true를 반환한다.
 - 순차 자료구조 Stack
+  ![LinearStack 구조](https://github.com/Minho979/CS_Study/blob/main/contents/images/LinearStack.png)
   - 1차원 배열을 이용하여 구현
   - 배열의 크기만큼 자료 저장 가능
   - 삽입/삭제 시 자료이동 오버헤드가 발생하지 않음
@@ -193,6 +194,7 @@
     - 스택 크기 변경의 비효율성
     - 빈 공간으로 메모리 낭비
 - 연결 자료구조 Stack
+  ![LinkedStack 구조](https://github.com/Minho979/CS_Study/blob/main/contents/images/LinkedStack.png)
   - 단순 연결 리스트를 이용하여 구현
   - 크기 변경에 자유로우며, 빈 공간으로 인한 메모리 낭비가 없음
   - 모든 연산 시간 복잡도는 O(1)
@@ -218,6 +220,7 @@
 
 ### Queue
 - Queue의 개념
+  ![Queue의 구조](https://github.com/Minho979/CS_Study/blob/main/contents/images/Queue.png)
   - 컴퓨터의 기본적인 자료구조의 한 가지로, 먼저 집어 넣은 데이터가 먼저 나오는 FIFO(First In First Out)구조로 저장
   - 순차 자료구조, 연결 자료구조 Queue의 삽입, 삭제 연산의 시간 복잡도는 O(1)  
 - Queue의 연산
@@ -229,15 +232,22 @@
 - 배열을 이용한 Queue
   - Queue의 크기 = 배열의 크기
   - 선형 Queue
+    ![LinearQueue 구조](https://github.com/Minho979/CS_Study/blob/main/contents/images/LinearQueue.png)
     - 구현 간편하나 삽입, 삭제가 반복될 시 빈자리가 있지만 포화상태로 인식하는 문제 발생 가능
   - 원형 Queue
+
+    ![CircularQueue 구조](https://github.com/Minho979/CS_Study/blob/main/contents/images/CircularQueue.png)
     - 1차 배열을 사용하되 논리적으로 처음과 끝이 연결되어 있다고 가정하고 사용
     - 선형 Queue의 포화상태 문제를 해결
 - 연결리스트를 이용한 Queue
+
+  <img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/LinkedQueue.png" width="430" height="200">
+  
   - 단순 연결리스트를 이용
     - 두 개의 포인터를 가짐
     - 크기 조절 용이
 - Deque (Double-ended queue)
+  ![Deque 구조](https://github.com/Minho979/CS_Study/blob/main/contents/images/Deque.png)
   - 양 끝에서 삽입, 삭제 연산이 모두 가능한 선형 자료구조
     - 양 쪽에서 연산이 이루어지므로 순차자료구조를 이용할 시 순서 변화가 많아 비효율적
   - 이중 연결리스트를 이용하여 구현
