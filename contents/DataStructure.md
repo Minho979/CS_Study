@@ -62,11 +62,13 @@
 - LinkedList의 종류
   - 연결 방식에 따라 구분
   - 단순 연결 리스트 (singly linked list)
+  
   ![단순 연결 리스트 구조](https://github.com/Minho979/CS_Study/blob/main/contents/images/SLinkedList.png)
     - 노드에 링크 필드가 하나이며, 링크 필드를 통해 다음 노드와 연결되는 구조
     - 첫번째 노드를 모를 시 접근이 불가능하며, 첫 노드를 알면 모든 노드에 접근 가능
       
   - 원형 연결 리스트 (circular linked list)
+  
   ![원형 연결 리스트 구조](https://github.com/Minho979/CS_Study/blob/main/contents/images/CLinkedList.png)
     - 단순 연결 리스트에서 마지막 노드가 리스트의 첫번째 노드와 연결되어 리스트를 원형으로 구성
       
@@ -90,6 +92,7 @@
   - 기존 Key에 새로운 Value가 주어졌을 때, 기존 Value를 새로운 Value로 대체
   - Key가 주어졌을 때, 해당 Key에 연관된 Value 삭제
 - HashTable 구조
+
   ![HashTable구조](https://github.com/Minho979/CS_Study/blob/main/contents/images/HashTable.png)
   - Key, Hash Function, Hash, Value, 저장소(Bucket, Slot)로 구성
   - Key
@@ -121,6 +124,7 @@
   1. Separating Chaining
      - JDK 내부에서 사용하는 충돌 처리 방식
      - Linked List(data 6개 이하) 또는 Red-Black Tree(data 8개 이상) 사용
+
        ![Chaining구조](https://github.com/Minho979/CS_Study/blob/main/contents/images/HashChaining.png)
       [⬆️ h(x) = x % 5의 경우 chaining]
      - Linked List 사용 시 충돌이 발생하면 충돌 발생한 Index가 가리키고 있는 Linked List 노드 추가하여 Value 삽입
@@ -130,6 +134,7 @@
      - 추가 메모리 공간을 사용하지 않고, HashTable 배열의 빈 공간을 사용하는 방법
      - Separating Chaining 방식에 비해 적은 메모리 사용
      - Linear Probing, Quadratic Probing, Double Hashing 방식으로 나뉨
+
        ![LinearProbing 방식](https://github.com/Minho979/CS_Study/blob/main/contents/images/Linearopen.png)
        [⬆️ h(x) = x % 5의 경우 Linear Probing]
        - 충돌이 발생할 시 다음 버킷을 조사하는 방식으로 검색, 저장
@@ -172,6 +177,7 @@
 
 ### Stack
 - Stack의 개념
+
   ![Stack의 구조](https://github.com/Minho979/CS_Study/blob/main/contents/images/Stack.png)
   - 한 끝에서만 자료를 삽입, 삭제할 수 있는 LIFO(Last In First Out) 형식의 자료 구조
 - Stack의 연산
@@ -181,6 +187,7 @@
     - peek(): 스택의 가장 위에 있는 항목을 반환한다.
     - isEmpty(): 스택이 비어 있을 떄에 true를 반환한다.
 - 순차 자료구조 Stack
+
   ![LinearStack 구조](https://github.com/Minho979/CS_Study/blob/main/contents/images/LinearStack.png)
   - 1차원 배열을 이용하여 구현
   - 배열의 크기만큼 자료 저장 가능
@@ -194,6 +201,7 @@
     - 스택 크기 변경의 비효율성
     - 빈 공간으로 메모리 낭비
 - 연결 자료구조 Stack
+
   ![LinkedStack 구조](https://github.com/Minho979/CS_Study/blob/main/contents/images/LinkedStack.png)
   - 단순 연결 리스트를 이용하여 구현
   - 크기 변경에 자유로우며, 빈 공간으로 인한 메모리 낭비가 없음
@@ -220,6 +228,7 @@
 
 ### Queue
 - Queue의 개념
+
   ![Queue의 구조](https://github.com/Minho979/CS_Study/blob/main/contents/images/Queue.png)
   - 컴퓨터의 기본적인 자료구조의 한 가지로, 먼저 집어 넣은 데이터가 먼저 나오는 FIFO(First In First Out)구조로 저장
   - 순차 자료구조, 연결 자료구조 Queue의 삽입, 삭제 연산의 시간 복잡도는 O(1)  
@@ -232,6 +241,7 @@
 - 배열을 이용한 Queue
   - Queue의 크기 = 배열의 크기
   - 선형 Queue
+
     ![LinearQueue 구조](https://github.com/Minho979/CS_Study/blob/main/contents/images/LinearQueue.png)
     - 구현 간편하나 삽입, 삭제가 반복될 시 빈자리가 있지만 포화상태로 인식하는 문제 발생 가능
   - 원형 Queue
@@ -247,6 +257,7 @@
     - 두 개의 포인터를 가짐
     - 크기 조절 용이
 - Deque (Double-ended queue)
+
   ![Deque 구조](https://github.com/Minho979/CS_Study/blob/main/contents/images/Deque.png)
   - 양 끝에서 삽입, 삭제 연산이 모두 가능한 선형 자료구조
     - 양 쪽에서 연산이 이루어지므로 순차자료구조를 이용할 시 순서 변화가 많아 비효율적
@@ -271,6 +282,9 @@
 
 ### Graph
 - Graph의 개념
+
+  <img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/Graph.png" width="500" height="310">
+
   - 단순히 정점(V, vertex)와 그 노드를 연결하는 간선(E, edge)를 하나로 모아 놓은 자료구조
     - 연결되어 있는 객체 간의 관계를 표현할 수 있음
     - 정점은 대상을 나타내고, 간선은 대상들 간의 관계를 나타냄
@@ -279,17 +293,26 @@
     - 예) 지도, 지하철 노선도의 최단 경로,회로의 소자들, 도로(교차점과 일방통행길), 선수 과목 등
 - Graph의 종류
   - 무방향 그래프(undirected graph)
+
+    <img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/undirectedGraph.png" width="500" height="310">
+    
     - 간선에 방향이 없는 그래프
     - (v1, v2)와 (v2, v1)은 동일한 간선
   - 방향 그래프(directed graph)
+
+    ![digraph](https://github.com/Minho979/CS_Study/blob/main/contents/images/digraph.png)
     - 간선에 방향이 있는 그래프
     - 다이그래프(digraph)라고도 부름
     - <v1, v2>와 <v2, v1>은 다른 간선
       - v1(tail) -> v2(head)로 가는 간선을 <v1, v2>로 표현
   - 완전 그래프(complete graph)
+
+    ![completeGraph](https://github.com/Minho979/CS_Study/blob/main/contents/images/completeGraph.png)
     - 각 정점에서 다른 모든 정점으로의 간선이 존재하는 그래프
       - 주어진 정점 수에 대해 간선 수가 최대
   - 가중 그래프(weighted graph)
+
+    ![weightedGraph](https://github.com/Minho979/CS_Study/blob/main/contents/images/weightedGraph.png)
     - 간선에 가중치(weight)가 주어진 그래프
       - 가중치는 두 정점 사이의 비용이나 거리, 시간 등을 의미하는 값
     - 가중치를 이용하여 최소 비용, 최대 비용 등을 계산하는데 이용 가능
@@ -298,6 +321,10 @@
   - 하나의 정점에서 시작하여 그래프의 모든 정점을 한번씩 방문
   - 깊이 우선 탐색(Depth First Search: DFS), 너비 우선 탐색(Breadth First Search: BFS)로 구분
     - DFS
+
+      <img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/DFS.png" width="300" height="210">
+      <img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/DFS1.png" width="300" height="210">
+      
       - 한 방향으로 가장 먼(깊은) 정점을 방문하는 것을 반복하는 순회 방식
         1. 시작 정점에서 한 방향으로 가장 먼 경로까지 깊이 탐색
         2. 더이상 진출이 불가능할 시 갈림길 간선이 있는 정점으로 복귀
@@ -305,6 +332,10 @@
         4. b, c를 반복하여 시작 정점으로 복귀
       - 스택을 이용하여 구현하거나 재귀 알고리즘을 이용하여 구현
     - BFS
+
+      <img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/BFS.png" width="300" height="210">
+      <img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/BFS1.png" width="300" height="210">
+      
       - 가장 가까운 정점들을 방문하고 멀리있는 정점은 가장 나중에 방문하는 순회 방식
         1. 시작 정점에서 인접한 정점들을 방문
         2. 방문했던 정점을 기준으로 다시 인접한 정점들을 방문
