@@ -94,6 +94,7 @@
 - HashTable 구조
 
   ![HashTable구조](https://github.com/Minho979/CS_Study/blob/main/contents/images/HashTable.png)
+
   - Key, Hash Function, Hash, Value, 저장소(Bucket, Slot)로 구성
   - Key
     - 고유의 값
