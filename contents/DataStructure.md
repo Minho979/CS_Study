@@ -292,6 +292,7 @@
     - 그래프는 여러 개의 고립된 부분 그래프(Isolated Subgraphs)로 구성될 수 있음
     - 원소들 간의 n:n관계를 표현할 수 있음
     - 예) 지도, 지하철 노선도의 최단 경로,회로의 소자들, 도로(교차점과 일방통행길), 선수 과목 등
+
 - Graph의 종류
   - 무방향 그래프(undirected graph)
 
@@ -299,24 +300,28 @@
     
     - 간선에 방향이 없는 그래프
     - (v1, v2)와 (v2, v1)은 동일한 간선
-  - 방향 그래프(directed graph)
+
+   - 방향 그래프(directed graph)
 
     ![digraph](https://github.com/Minho979/CS_Study/blob/main/contents/images/digraph.png)
     - 간선에 방향이 있는 그래프
     - 다이그래프(digraph)라고도 부름
     - <v1, v2>와 <v2, v1>은 다른 간선
       - v1(tail) -> v2(head)로 가는 간선을 <v1, v2>로 표현
+
   - 완전 그래프(complete graph)
 
     ![completeGraph](https://github.com/Minho979/CS_Study/blob/main/contents/images/completeGraph.png)
     - 각 정점에서 다른 모든 정점으로의 간선이 존재하는 그래프
       - 주어진 정점 수에 대해 간선 수가 최대
+
   - 가중 그래프(weighted graph)
 
     ![weightedGraph](https://github.com/Minho979/CS_Study/blob/main/contents/images/weightedGraph.png)
     - 간선에 가중치(weight)가 주어진 그래프
       - 가중치는 두 정점 사이의 비용이나 거리, 시간 등을 의미하는 값
     - 가중치를 이용하여 최소 비용, 최대 비용 등을 계산하는데 이용 가능
+
 - 그래프 순회(Graph Traversal)
   - 그래프 탐색(Graph Search)라고도 함
   - 하나의 정점에서 시작하여 그래프의 모든 정점을 한번씩 방문
@@ -341,6 +346,7 @@
         1. 시작 정점에서 인접한 정점들을 방문
         2. 방문했던 정점을 기준으로 다시 인접한 정점들을 방문
       - 차례대로 탐색을 진행하므로 선입선출 구조의 큐를 이용하여 구현
+     
 - Graph의 특징
   - 네트워크 모델
   - 2개 이상의 경로가 가능
@@ -354,10 +360,57 @@
   - 간선의 유무는 그래프에 따라 다름
 
 ### Tree
+- Tree의 개념
+  - 트리는 노드 구조로 이루어진 자료구조
+    1. 트리는 하나의 루트 노드를 가짐
+    2. 루트 노드는 0개 이상의 자식 노드를 가짐
+    3. 자식 노드 또한 0개 이상의 자식 노드를 가지며, 이는 반복적으로 정의됨
+  - 노드(node)들과 노드들 사이를 연결하는 간선(edge)들로 구성
+    - 트리에는 사이클(cycle)이 존재 불가
+    - 노드들은 특정 순서로 나열될 수도 있고 그럴 수 없을 수도 있음
+    - 각 노드는 부모 너드로의 연결이 있을 수도 있고 없을 수도 있음
+    - 각 노드는 어떤 자료형으로도 표현 가능
+  - 비선형(1:n) 자료구조로 계층적 관계를 표현
+    - 예) 디렉터리 구조, 조직도, 가계도
+  - 그래프의 한 종류
+    - 사이클(cycle)이 없는 하나의 연결 그래프(Connected Graph)
+    - DAG(Directed Acyclic Graph, 방향성이 있는 비순환 그래프)의 한 종류
+    - 최소 신장 트리(MST, Minimum Spanning Tree)라고도 불림
+
+- 
+
+- Tree의 특징
+  - 그래프의 한 종류로 '최소 신장 트리(MST, Minimum Spanning Tree)'라고도 불림
+  - Tree는 계층 모델
+  - Tree는 DAG(Directed Acyclic Graph, 방향성이 있는 비순환 그래프)의 한 종류
+    - loop나 circuit이 없으며 self-loop도 없음
+    - 사이클이 존재하지 않음
+  - 노드가 N개인 트리는 항상 N-1개의 간선(edge)를 가짐
+    - 간선은 항상 (정점의 개수 - 1)개를 가짐
+  - 루트에서 어떤 노드로 가는 경로는 유일
+    - 임의의 두 노드 간 경로도 유일
+    - 두 개의 정점 사이에 반드시 1개의 경로만을 가짐
+  - 한 개의 루트 노드만이 존재하며 모든 자식 노드는 한 개의 부모 노드만을 가짐
+    - 부모-자식 관계이므로 흐름은 top-bottom 혹은 bottom-top
+  - 순회는 Pre-order, In-order 혹은 Post-order로 이루어짐
+    - 3가지 모두 DFS/BFS 안에 속함
+  - 트리는 이진 트리(Binary Tree), 이진 탐색 트리(Binary Search Tree), 군형 트리(AVL 트리, Red-Black 트리 등), 이진 힙(최대힙, 최소힙) 등이 있음
+
 
 
 ### Graph와 Tree의 차이점
-
+||그래프|트리|
+|:-----:|---|---|
+|정의|노드(node)와 노드를 연결하는 간선(edge)를 하나로 모아 놓은 자료 구조|그래프의 한 종류 <br> DAG(Directed Acyclic Graph, 방향성이 있는 비순환 그래프)의 한 종류|
+|방향성|방향그래프(Directed), <br> 무방향 그래프(Undirected) 모두 존재|방향 그래프(Directed Graph)|
+|사이클|사이클(Cylce) 가능, 자체 간선(self-loop)가능, 순환 그래프(Cyclic), 비순환 그래프(Acyclic) 모두 존재|사이클(Cycle) 불가능, 자체 간선(self-loop)도 불가능, 비순환 그래프(Acyclic Graph)|
+|루트 노드|루트 노드의 개념이 없음|한 개의 루트 노드만이 존재, 모든 자식 노드는 한 개의 부모 노드만을 가짐|
+|부모-자식|부모-자식의 개념이 없음|부모-자식 관계 top-bottom 또는 bottom-top으로 이루어짐|
+|모델|네트워크 모델|계층 모델|
+|순회|DFS, BFS|DFS, BFS 속의 Pre-,In-,Post-order|
+|간선의 수|그래프에 따라 간선의 수가 다름, 간선이 없을 수도 있음|노드가 N인 트리는 항상 N-1개의 간선을 가짐|
+|경로|-|임의의 두 노드 간의 경로는 유일|
+|예시 및 종류|지도, 지하철 노선도의 최단 경로, 전기 회로의 소자들, 도로(교차점과 일반 통행길), 선수과목|이진 트리, 이진 탐색 트리, 균형 트리(AVL 트리, Red-Black 트리), 이진 힙(최대힙, 최소힙)등|
 
 ### Binary Heap
 
