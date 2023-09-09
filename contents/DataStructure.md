@@ -419,9 +419,16 @@
     - AVL Tree, Red-Black Tree, B Tree, B+ Tree 등이 있음
   - 이진 힙 (Binary Heap)
     - Key 값이 가장 크거나 작은 노드를 쉽게 찾기 위해 만들어진 완전 이진 트리
-    - 최대 힙(Max Heap) 
-
+    - 최대 힙(Max Heap)
+      - Key 값이 가장 큰 노드를 빠르게 찾기 위한 자료구조
+      - 완전 이진 트리
+        - 부모 노드의 Key 값 ≥ 자식 노드의 Key 값
+        - Key 값이 가장 큰 노드가 루트 노드
     - 최소 힙(Min Heap)
+      - Key 값이 가장 작은 노드를 빠르게 찾기 위한 자료구조
+      - 완전 이진 트리
+        - 부모 노드의 Key 값 ≤ 자식 노드의 Key 값
+        - Key 값이 가장 작은 노드가 루트 노드
 
 - Tree의 특징
   - 그래프의 한 종류로 '최소 신장 트리(MST, Minimum Spanning Tree)'라고도 불림
