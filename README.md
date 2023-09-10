@@ -9,4 +9,4 @@
 
 ### 1. Data Structure
 
-![내용 전체보기](https://github.com/Minho979/CS_Study/blob/main/contents/DataStructure.md)
+[내용 전체보기](https://github.com/Minho979/CS_Study/blob/main/contents/DataStructure.md)
