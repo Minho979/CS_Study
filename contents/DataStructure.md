@@ -361,6 +361,8 @@
 
 ### Tree
 - Tree의 개념
+
+  ![Tree](https://github.com/Minho979/CS_Study/blob/main/contents/images/Tree.png)
   - 트리는 노드 구조로 이루어진 자료구조
     1. 트리는 하나의 루트 노드를 가짐
     2. 루트 노드는 0개 이상의 자식 노드를 가짐
@@ -419,6 +421,7 @@
     - AVL Tree, Red-Black Tree, B Tree, B+ Tree 등이 있음
   - 이진 힙 (Binary Heap)
     - Key 값이 가장 크거나 작은 노드를 쉽게 찾기 위해 만들어진 완전 이진 트리
+    - n개의 노드의 힙에서 삽입/삭제 연산의 시간 복잡도는 ()
     - 최대 힙(Max Heap)
       - Key 값이 가장 큰 노드를 빠르게 찾기 위한 자료구조
       - 완전 이진 트리
@@ -482,3 +485,7 @@
 
 ### B+ Tree
 - 
+
+
+
+
