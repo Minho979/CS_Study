@@ -386,7 +386,7 @@
     - Tree의 차수를 2이하가 되도록 제한한 트리
       - 왼쪽, 오른쪽 자식 노드만을 가지도록 제한
     - 이진 트리가 아닌 트리도 이진 트리로 변환하여 다룰 수 있음
-      ![general-binary](https://github.com/Minho979/CS_Study/blob/main/contents/images/genenal-binaryTree.png)
+      ![general-binary](https://github.com/Minho979/CS_Study/blob/main/contents/images/general-binaryTree.png)
 
     - 재귀적 구성
       
@@ -409,6 +409,17 @@
         ![skewedbinarytree](https://github.com/Minho979/CS_Study/blob/main/contents/images/skewedbinarytree.png)
         - 높이 h에 대한 최소 노드 개수(h+1)를 가지면서 한쪽 방향 자식 노드만을 가진 이진 트리
           - 좌편향 이진 트리, 우편향 이진 트리로 나뉨
+    - 이진 트리의 순회(traversal)
+      - 전위 순회(Pre-oredr traversal)
+        1. 현재 노드 T를 방문하여 처리: D
+        2. 현재 노드 T의 왼쪽 서브트리를 전위 순회: L
+        3. 현재 노드 T의 오른쪽 서브트리를 전위 순회: R
+       
+        ![preoredr](https://github.com/Minho979/CS_Study/blob/main/contents/images/.png)
+        - D-L-R 순서로 진행
+      - 중위 순회
+        1. 
+      - 후위 순회
 
   - 이진 탐색 트리 (Binary Search Tree)
     - 시간 복잡도를 O(n) -> O(logn)으로 줄일 수 있음
@@ -417,12 +428,16 @@
       2. 왼쪽 서브트리 원소들의 Key는 그 루트의 Key보다 작다
       3. 오른쪽 서브트리 원소들의 Key는 그 루트의 Key보다 크다
       4. 왼쪽 서브트리와 오른쪽 서브트리도 이진 탐색 트리이다
-    - 원소의 수가 아닌 트리 높에 비례한 시간이 소요 
-    - 연산의 시간 복잡도
-      - 노드 수가 n, 높이가 h인 경우 삽입/삭제/검색 시간은 O(h)
-        - 좌우 균형이 맞는 경우 O(logn)
-        - 편향 이진 트리의 경우 O(n)
-        - 높이를 낮게 유지할 수록 시간 복잡도가 낮아짐
+    - 원소의 수가 아닌 트리 높에 비례한 시간이 소요
+    - 이진 탐색 트리의 연산
+      - 검색
+      - 삽입
+      - 삭제 
+      - 연산의 시간 복잡도
+        - 노드 수가 n, 높이가 h인 경우 삽입/삭제/검색 시간은 O(h)
+          - 좌우 균형이 맞는 경우 O(logn)
+          - 편향 이진 트리의 경우 O(n)
+          - 높이를 낮게 유지할 수록 시간 복잡도가 낮아짐
   - 균형 트리 (Balance Binary Search Tree)
     - 오른쪽 서브트리의 높이와 왼쪽 서브트리의 높이의 차가 1이하인 이진 탐색 트리
       - 이 높이 차이를 균형인수(Balance factor)라고 부름
