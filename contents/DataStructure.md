@@ -381,22 +381,32 @@
 
 - Tree의 종류
   - 이진 트리 (Binary Tree)
+    
+    ![BinaryTree](https://github.com/Minho979/CS_Study/blob/main/contents/images/BinaryTree.png)
     - Tree의 차수를 2이하가 되도록 제한한 트리
       - 왼쪽, 오른쪽 자식 노드만을 가지도록 제한
     - 이진 트리가 아닌 트리도 이진 트리로 변환하여 다룰 수 있음
+      ![general-binary](https://github.com/Minho979/CS_Study/blob/main/contents/images/genenal-binaryTree.png)
+
     - 재귀적 구성
+      
+      ![subTree](https://github.com/Minho979/CS_Study/blob/main/contents/images/subTree.png)
       - 루트 노드의 왼쪽 자식 노드를 루트로 하는 서브트리도 이진트리
       - 루트 노드이 오른쪽 자식 노드를 루트로 하는 서브트리도 이진트리
       - 공백 트리 또한 이진트리
     - 노드 수가 N인 경우 간선의 수는 N-1개
     - 높이가 h인 경우 가질 수 있는 노드 수는 $(h+1)$ ~  $(h ^{h+1} -1)$
     - 이진 트리의 종류
-      - 포화 이진 트리
+      - 포화 이진 트리(Full Binary Tree)
         - 모든 레벨에서 최대 개수의 노드를 가진 이진 트리
-      - 완전 아진 트리
+      - 완전 이진 트리(Complete Binary Tree)
+        
+        ![completebinarytree](https://github.com/Minho979/CS_Study/blob/main/contents/images/completebinarytree.png)
         - 높이가 h일 때, 레벨 0부터 h-1 까진 포화 상태이고 h레벨에서는 왼쪽부터 차례대로 노드가 채워진 이진 트리
         - 포화 이진 트리도 완전 이진 트리의 한 종류
-      - 편향 이진 트리
+      - 편향 이진 트리(Skewed Binary Tree)
+        
+        ![skewedbinarytree](https://github.com/Minho979/CS_Study/blob/main/contents/images/skewedbinarytree.png)
         - 높이 h에 대한 최소 노드 개수(h+1)를 가지면서 한쪽 방향 자식 노드만을 가진 이진 트리
           - 좌편향 이진 트리, 우편향 이진 트리로 나뉨
 
@@ -420,8 +430,10 @@
     - 자료의 삽입,삭제가 잦은 경우 균형 유지를 위한 재배치 오버헤드가 성능을 저하시킬 수 있음
     - AVL Tree, Red-Black Tree, B Tree, B+ Tree 등이 있음
   - 이진 힙 (Binary Heap)
+    
+    ![binaryHeap](https://github.com/Minho979/CS_Study/blob/main/contents/images/Heap.png)
     - Key 값이 가장 크거나 작은 노드를 쉽게 찾기 위해 만들어진 완전 이진 트리
-    - n개의 노드의 힙에서 삽입/삭제 연산의 시간 복잡도는 ()
+    - n개의 노드의 힙에서 삽입/삭제 연산의 시간 복잡도는 O(logn)
     - 최대 힙(Max Heap)
       - Key 값이 가장 큰 노드를 빠르게 찾기 위한 자료구조
       - 완전 이진 트리
