@@ -451,7 +451,8 @@
             - 루트 노드의 왼쪽 서브트리에 대해 검색 연산 수행
           - key > 루트 노드의 경우
             - 루트 노드의 오른족 서브트리에 대해 검색 연산 수행
-        이미지
+        
+        ![TreeSearch](https://github.com/Minho979/CS_Study/blob/main/contents/images/tree-search.png)
         
       - 삽입
         - 특정 키 값을 삽입하는 연산
@@ -459,22 +460,28 @@
           - 검색이 성공할 시 원소의 유일성이 깨지므로 수행하지 않음
           - 검색 실패 시 삽입 가능
             - 검색 과정은 원소를 삽입할 위치를 찾는 과정이기도 함
-이미지
+      
+        ![TreeInsert](https://github.com/Minho979/CS_Study/blob/main/contents/images/tree-insert.png)
 
       - 삭제
         - 특정 키를 삭제하는 연산
         - 검색을 수행하고 검색 성공 시 해당 노드 삭제
           - [case1] 삭제할 노드가 단말 노드인 경우
             - 해당 노드만 삭제
+              
+            ![TreeDelCase1](https://github.com/Minho979/CS_Study/blob/main/contents/images/tree-del-case1.png)
           - [case2] 삭제할 노드가 하나의 자식 노드를 가진 경우 (후속처리 필요)
             - 해당 노드 삭제 후 삭제된 노드의 자리를 자식 노드가 위치하게 한다
+              
+            ![TreeDelCase2](https://github.com/Minho979/CS_Study/blob/main/contents/images/tree-del-case2.png)
           - [case3] 삭제할 노드가 두개의 자식 노드를 가진 경우 (후속처리 필요)
             - 해당 노드 삭제 후 자식 노드 중 후계자를 선택하여 위치하게 한다
               - 왼쪽 서브트리에서 가장 큰 노드
                 - 오른쪽 링크 필드가 null인 노드를 후계자 노드로 선정할 수 있음
               - 오른쪽 서브트리에서 가장 작은 노드
                 - 왼쪽 링크 필드가 null인 노드를 후계자 노드로 선정할 수 있음
-                
+                  
+            ![TreeDelCase3](https://github.com/Minho979/CS_Study/blob/main/contents/images/tree-del-case3.png)
 
         - 삭제 후 이진 탐색 트리 유지를 위해 이진 탐색 트리의 재구성 과정(후속 처리)이 필요
       - 연산의 시간 복잡도
