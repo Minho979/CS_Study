@@ -592,7 +592,8 @@
        - 현재 위치에서 부모 노드와 비교하여 크기 관계를 확인
        - (현재 부모 노드의 키 값 ≥ 삽입 원소의 키 값)의 관계가 성립하지 않으면, 현재 부모 노드의 원소와 삽입 원소의 자리를 서로 바꿈
     - 노드 수가 n 일때 연산 시간 복잡도는 O(log n)
-    - 이미지 추가 예정 자리
+    ![Heap_insert1](https://github.com/Minho979/CS_Study/blob/main/contents/images/heap_insert_case1.png)
+    ![Heap_insert2](https://github.com/Minho979/CS_Study/blob/main/contents/images/Heap_insert_case2.png)
   - 삭제
     - 힙에서는 루트 노드의 원소만을 삭제 가능
     1. 루트 노드의 원소를 삭제하여 반환
@@ -603,7 +604,7 @@
        - 현재 위치에서 자식 노드와 비교하여 크기 관계를 확인
        - (임시 저장한 원소의 키 값 ≥ 현재 자식 노드의 키 값)의 관계가 성리밯지 않으면, 현재 자식 노드의 원소와 임시 저장한 원소의 자리를 서로 바꿈
     - 노드 수가 n일때 연산 시간 복잡도는 O(log n)
-    - 이미지 추가 예정
+    ![Heap_del](https://github.com/Minho979/CS_Study/blob/main/contents/images/Heap_del.png)
   
 ### Red-Black Tree
 
