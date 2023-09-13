@@ -616,6 +616,7 @@
 - 개념
   - Binary Search Tree의 일종
   - 항상 균형잡힌 트리 상태를 유지하여 높이가 log n
+    - 완벽하게 균형이 맞다는 것이 아니라 높이의 차이가 2배 이내
   - 검색, 삽입, 삭제 연산을 최악의 경우에도 O(log n) 시간복잡도를 지원
     - 삽입, 삭제의 알고리즘을 수정하여 항상 트리의 균형을 유지하도록 함
   - 각 노드는 하나의 키(Key), 왼쪽 자식(Left), 오른족 자식(Right), 부모노드(p)의 주소를 저장
@@ -638,7 +639,47 @@
   - 높이가 h인 노드의 블랙-높이 bh ≥ (h/2)
     - 조건 4에 의해 레드 노드는 연속될 수 없기에 블랙 노드의 수가 높이의 절반 이상
   - 노드 x를 루트로 하는 임의의 서브트리는 적어도 $2^{bh(x)}-1$개의 내부노드를 포함(수학적 귀납법)
+  - 위의 두 가지 증명으로 n개의 내부노드를 가지는 red-black tree의 높이는 2log(n+1) 이하
+    - $n ≥ 2^{bh}-1 ≥ 2^{h/2}-1$ (bh: 루트 노드의 블랙-높이, h: 루트 노드의 높이)
+  - 5가지 조건을 만족하는 red-black tree라면 자동으로 높이는 O(log n)
 
+- Left and Right Rotation
+  - 삽입과 삭제 연산이 필요로 하는 Left,Right Rotation 연산
+  - 한 노드를 중심으로 회전하여 부분적으로 트리의 모양을 수정하는 연산
+  - 이진 탐색 트리(BST)의 특성을 유지
+    - Rotate(회전)를 해서 서브트리가 옮겨지더라도, BST의 특성은 유지 
+  - x와 y의 자식들은 모두 서브트리
+  - 연산의 시간 복잡도는 O(1)
+  - Left Rotation
+    - y = right[x] =! NIL 가정 (a != b a는 b와 같지 않다, a =! b a = !b)
+    - 루트 노드의 부모도 NIL 가정
+    - pseudo code(의사 코드)
+      ``` java
+      LEFT-ROTATE(T, x)
+      01  y <- right[x]        //Set y
+      02  right[x] <- left[y]  //Turn y's left subtree into x's right 
+      03  p[left[y]] <- x
+      04  p[y] <- p[x]         //Link x's parent to y
+      05  if p[x] = NIL[T]
+      06    then root[T] <- y
+      07    else if x = left[p[x]]
+      08      then left[p[x]] <- y
+      09      else right[p[x]] <- y
+      10  left[y] <- x         //Put x on y's left
+      11  p[x] <- y
+      ``` 
+      1. x의 오른쪽 자식 노드를 y에 저장
+      2. x의 오른쪽 자식 노드를 y의 왼쪽 자식 노드로 설정
+      3. B의 부모 노드를 x로 만드는 link를 연결
+      4. y의 부모 노드를 현재 x부모 노드로 할당
+      5. x가 루트일 경우
+      6. y를 루트로 설정
+      7. x의 부모 노드가 존재하고 x가 왼쪽 자식인 경우
+      8. y를 x의 부모 노드의 왼쪽 자식 노드로 설정
+      9. 그렇지 않은 경우 y는 x의 부모 노드의 오른쪽 자식으로 설정
+      10. x를 y의 왼쪽 자식으로 설정하고
+      11. y가 x의 부모노드가 되도록 함
+    - 순서대로 수행하기에 시간복잡도는 O(1)
 
 
 ### B+ Tree
