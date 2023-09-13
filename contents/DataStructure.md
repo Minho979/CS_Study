@@ -656,32 +656,21 @@
     - pseudo code(의사 코드)
       ``` java
       LEFT-ROTATE(T, x)
-      01  y <- right[x]        //Set y
-      02  right[x] <- left[y]  //Turn y's left subtree into x's right 
-      03  p[left[y]] <- x
-      04  p[y] <- p[x]         //Link x's parent to y
-      05  if p[x] = NIL[T]
-      06    then root[T] <- y
-      07    else if x = left[p[x]]
-      08      then left[p[x]] <- y
-      09      else right[p[x]] <- y
-      10  left[y] <- x         //Put x on y's left
-      11  p[x] <- y
+      01  y <- right[x]        // x의 오른쪽 자식 노드를 y에 저장
+      02  right[x] <- left[y]  // x의 오른쪽 자식 노드를 y의 왼쪽 자식 노드로 설정
+      03  p[left[y]] <- x      // y의 왼쪽 자식 노드의 부모 노드를 x로 만드는 link 연결
+      04  p[y] <- p[x]         // y의 부모 노드를 현재 x부모 노드로 할당
+      05  if p[x] = NIL[T]     // x가 루트인 경우
+      06    then root[T] <- y  // y를 루트로 설정정
+      07    else if x = left[p[x]]  // x의 부모 노드가 존재하고 x가 왼쪽 자식인 경우
+      08      then left[p[x]] <- y  // y를 x의 부모 노드의 왼쪽 자식 노드로 설정
+      09      else right[p[x]] <- y // 그렇지 않은 경우 y는 x의 부모 노드의 오른쪽 자식으로 설정
+      10  left[y] <- x         // x를 y의 왼쪽 자식으로 설정
+      11  p[x] <- y            // y가 x의 부모노드가 되도록 설정
       ``` 
-      1. x의 오른쪽 자식 노드를 y에 저장
-      2. x의 오른쪽 자식 노드를 y의 왼쪽 자식 노드로 설정
-      3. B의 부모 노드를 x로 만드는 link를 연결
-      4. y의 부모 노드를 현재 x부모 노드로 할당
-      5. x가 루트일 경우
-      6. y를 루트로 설정
-      7. x의 부모 노드가 존재하고 x가 왼쪽 자식인 경우
-      8. y를 x의 부모 노드의 왼쪽 자식 노드로 설정
-      9. 그렇지 않은 경우 y는 x의 부모 노드의 오른쪽 자식으로 설정
-      10. x를 y의 왼쪽 자식으로 설정하고
-      11. y가 x의 부모노드가 되도록 함
     - 순서대로 수행하기에 시간복잡도는 O(1)
 
-- 삽입(insert)
+- 삽입(Insert)
   - BST에서 삽입 방법으로 노드를 삽입
   - 새로 삽입된 노드 x를 red로 변경
     - 비어있는 트리에 처음 삽입되는 노드는 루트 노드이므로 블랙으로 설정
@@ -690,8 +679,27 @@
     - red이면 red-black 특성 4번에 위배되어 조정이 필요
     - p가 red인 경우만 고려
 
-
-
+  - pseudo code
+  ``` java
+  RB-INSERT(T, x) 
+  01 b <- nil[T]
+  02 a <- root[T]
+  03 while a != nil[T]
+  04   do b <- a
+  05     if key[x] < key[a]
+  06       then a <- left[a]
+  07       else a <- right[a]
+  08 p[x] <- b
+  09 if b = nil[T]
+  10   then root[T] <- x
+  11   else if key [x] < key[b]
+  12     then left[b] <- x
+  13     else right[b] <- x
+  14 left[x] <- nil[T]
+  15 right[x] <- nil[T]
+  16 color[x] <- RED
+  17 RB-INSERT_FIXUP(T, z)
+  ``` 
 
 
 ### B+ Tree
