@@ -607,6 +607,35 @@
     ![Heap_del](https://github.com/Minho979/CS_Study/blob/main/contents/images/Heap_del.png)
   
 ### Red-Black Tree
+- 개요
+  - BST(Binary Search Tree)의 검색, 삽입, 삭제 연산의 시간복잡도는 O(h) (h는 트리의 높이)
+  - 편향 이진트리의 경우 h=n이 되며 O(n)의 시간 복잡도를 가짐
+  - BST에 데이터가 random하게 구성될 경우 평균 트리의 높이는 log n으로 O(log n)의 시간복잡도를 가짐
+  - Tree의 밸런스를 유지하면서 최악의 경우에도 O(log n)의 시간복잡도를 갖게하기 위해 고안
+
+- 개념
+  - Binary Search Tree의 일종
+  - 항상 균형잡힌 트리 상태를 유지하여 높이가 log n
+  - 검색, 삽입, 삭제 연산을 최악의 경우에도 O(log n) 시간복잡도를 지원
+    - 삽입, 삭제의 알고리즘을 수정하여 항상 트리의 균형을 유지하도록 함
+  - 각 노드는 하나의 키(Key), 왼쪽 자식(Left), 오른족 자식(Right), 부모노드(p)의 주소를 저장
+  - 자식 노드가 없는 경우 NIL 노드라는 특수한 노드가 있다고 가정
+    - 모든 리프노드는 NIL 노드
+  - 노드들은 내부노드와 NIL 노드로 분류
+    - 실제 구현시 NIL 노드는 포함하지 않음
+    - 개념을 쉽게 정의하기 위해 가상적으로 NIL 노드 사용
+
+- 정의
+  1. 각 노드는 red 혹은 black
+  2. 루트 노드는 black
+  3. NIL 노드는 전부 black
+  4. red 노드의 자식 노드들은 black (red 노드는 연속해서 등장할 수 없음)
+  5. 모든 노드에 대해 그 노드로 부터 자손인 리프 노드(NIL 노드)에 이르는 모든 경로에는 동일한 개수의 black 노드가 존재
+
+- Red-Balck Tree의 높이
+  - 
+
+
 
 
 ### B+ Tree
