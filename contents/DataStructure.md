@@ -626,12 +626,16 @@
     - 실제 구현시 NIL 노드는 포함하지 않음
     - 개념을 쉽게 정의하기 위해 가상적으로 NIL 노드 사용
 
+  ![Red-Black-Tree](https://github.com/Minho979/CS_Study/blob/main/contents/images/red-black1.jpeg)
+
 - 조건
   1. 각 노드는 red 혹은 black
   2. 루트 노드는 black
   3. NIL 노드는 전부 black
   4. red 노드의 자식 노드들은 black (red 노드는 연속해서 등장할 수 없음)
   5. 모든 노드에 대해 그 노드로 부터 자손인 리프 노드(NIL 노드)에 이르는 모든 경로에는 동일한 개수의 black 노드가 존재
+
+  ![Red-Black-Tree](https://github.com/Minho979/CS_Study/blob/main/contents/images/red-black2.png)
 
 - Red-Balck Tree의 높이
   - 노드 x의 높이 h(x)는 자신으로부터 NIL 노드까지의 가장 긴 경로에 포함된 edge(간선)의 개수
@@ -644,6 +648,9 @@
   - 5가지 조건을 만족하는 red-black tree라면 자동으로 높이는 O(log n)
 
 - Left and Right Rotation
+
+  ![L-R-Rotation](https://github.com/Minho979/CS_Study/blob/main/contents/images/red-black-rotation.png)
+  
   - 삽입과 삭제 연산이 필요로 하는 Left,Right Rotation 연산
   - 한 노드를 중심으로 회전하여 부분적으로 트리의 모양을 수정하는 연산
   - 이진 탐색 트리(BST)의 특성을 유지
