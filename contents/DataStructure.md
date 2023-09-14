@@ -689,23 +689,23 @@
   - pseudo code
   ``` java
   RB-INSERT(T, x) 
-  01 b <- nil[T]
-  02 a <- root[T]
-  03 while a != nil[T]
-  04   do b <- a
-  05     if key[x] < key[a]
-  06       then a <- left[a]
-  07       else a <- right[a]
-  08 p[x] <- b
-  09 if b = nil[T]
-  10   then root[T] <- x
-  11   else if key [x] < key[b]
-  12     then left[b] <- x
-  13     else right[b] <- x
-  14 left[x] <- nil[T]
+  01 b <- nil[T]        // a의 한 칸 뒤를 쫒아 내려오는 포인터, insert 자리 괸리를 위함, NIL노드를 사용하지만 실제 구현시 null
+  02 a <- root[T]       // 루트노드 포인터
+  03 while a != nil[T]  // 루트 노드가 NIL이 아닌 경우 반복문 실행(새로운 노드 x가 들어갈 자리 찾기)
+  04   do b <- a        // b에 루트 노드 저장
+  05     if key[x] < key[a]  // 삽입 노드 < 루트 노드
+  06       then a <- left[a]  // a에 a의 왼쪽 자식 노드 저장 -> a 갱신, 이때 b도 갱신됨
+  07       else a <- right[a]  // 삽입 노드 > 루트 노드이면 a에 a의 오른쪽 자식 노드 저장 
+  08 p[x] <- b        // x의 부모 노드를 b로 변경
+  09 if b = nil[T]    // 루트 노드 b가 NIL이면 (예외적인 경우 b가 null인 경우)
+  10   then root[T] <- x  // x를 루트 노드로 변경 
+  11   else if key [x] < key[b]  // x 데이터 < 루트 노드 데이티
+  12     then left[b] <- x  // b의 왼쪽 자식 노드를 x로 변경
+  13     else right[b] <- x  //  x 데이터 > 루트 노드 데이터, b의 오른쪽 자식 노드를 x로
+  14 left[x] <- nil[T]  // 14-15 새로운 노드는 BST의 leaf 노드이기에 새로운 노드의 자식들을 null로 설정
   15 right[x] <- nil[T]
-  16 color[x] <- RED
-  17 RB-INSERT_FIXUP(T, z)
+  16 color[x] <- RED  // 삽입된 노드의 색을 RED로 설정
+  17 RB-INSERT_FIXUP(T, z)  // 특성 중 위반되는게 있는지 확인하고 조정하기 위해 호출
   ``` 
 
 
