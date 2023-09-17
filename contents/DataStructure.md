@@ -747,17 +747,18 @@
     - 그 뒤, 할아버지 노드 $p^2$를 새로운 노드 x로 설정하여 위로 타고 올라가면서 레드블랙트리의 조건을 위반하는지를 검사
     - Case 1의 경우 문제가 완전히 해결되지 않았다. x가 두 칸 위로 올라가서 해당 위치부터 재귀적으로 해결해야 함
       - $p^2$의 부모가 블랙이면 삽입연산이 완료되지만 레드일 경우 재귀적으로 해결해야 함
-    - 이미지
+    ![RBTInsertCase1](https://github.com/Minho979/CS_Study/blob/main/contents/images/RBT-InsertCase1.jpeg)
       
   - Case 2: x의 부모의 형제가 BLACK인 경우
     - x의 부모의 형제가 BLACK인 경우 실제로 BLACK 노드일 수도 있고, NIL 노드일 수도 있다
     - Case 2-1: x가 오른쪽 자식인 경우
       - p[x]에 대해서 left-rotation한 후 원래 p[x]를 x로 변경
       - Case 2-2로 이동
+      ![RBTInsertCase2-1](https://github.com/Minho979/CS_Study/blob/main/contents/images/RBT-InsertCase2-1.jpeg)
     - Case 2-2: x가 왼쪽 자식인 경우
       - p[p[x]]에 대해 right-rotation을 진행
       - p[x]를 BLACK, p[p[x]]를 RED로 변경
-    - 이미지
+        ![RBTInsertCase2-2](https://github.com/Minho979/CS_Study/blob/main/contents/images/RBT-InsertCase2-2.jpeg)
 
   - Case 1, 2-1, 2-2 요약
     - Case 1의 문제를 해결하고 나면 문제가 종료되지 않는다. Case 2-1, Case 2-2의 문제가 발생할 수 있으며, Case 1의 문제가 반복해서 발생할 수도 있다. 최악의 경우 루트 노드까지 올라가게 되어 레드블랙트리의 조건 2 루트 노드가 레드인 경우를 블랙으로 변경하면서 종료
@@ -802,7 +803,10 @@
   - INSERT의 시간복잡도는 O(log n)
 
 - RB-INSERT-FIXUP 처리 흐름
-이미지
+  1. RED - RED 문제 발생
+  2. Case 1에 해당할 경우 Case 1 수행, 이 경우 추가적인 연산  1, 2-1, 2-2에 해당하는 연산 필요
+  3. Case 2-1에 해당하는 경우 2-1을 수행한 후 2-2 연산 진행
+  4. Case 2-2에 해당하는 경우 2-2를 수행한 후 종료
 
 
 ### B+ Tree
