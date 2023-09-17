@@ -808,6 +808,14 @@
   3. Case 2-1에 해당하는 경우 2-1을 수행한 후 2-2 연산 진행
   4. Case 2-2에 해당하는 경우 2-2를 수행한 후 종료
 
+- 삭제(Delete)
+  - 보통의 BST처럼 Delete
+  - 실제로 삭제된 노드 m이 RED 였으면 종료
+  - m이 black이었을 경우 RB-DELETE-FIXUP 호출
+  - pseudo code
+    ``` java
+    RB-DELETE(T, m)
+    ```
 
 ### B+ Tree
 - 
