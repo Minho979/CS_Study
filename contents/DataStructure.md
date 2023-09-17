@@ -661,7 +661,7 @@
     - y = right[x] =! NIL 가정 (a != b a는 b와 같지 않다, a =! b a = !b)
     - 루트 노드의 부모도 NIL 가정
     - pseudo code(의사 코드)
-      ``` java
+``` java
       LEFT-ROTATE(T, x)
       01  y <- right[x]        // x의 오른쪽 자식 노드를 y에 저장
       02  right[x] <- left[y]  // x의 오른쪽 자식 노드를 y의 왼쪽 자식 노드로 설정
@@ -674,8 +674,8 @@
       09      else right[p[x]] <- y // 그렇지 않은 경우 y는 x의 부모 노드의 오른쪽 자식으로 설정
       10  left[y] <- x         // x를 y의 왼쪽 자식으로 설정
       11  p[x] <- y            // y가 x의 부모노드가 되도록 설정
-      ```
-    - 순서대로 수행하기에 시간복잡도는 O(1)
+```
+  - 순서대로 수행하기에 시간복잡도는 O(1)
 
 - 삽입(Insert)
   - BST에서 삽입 방법으로 노드를 삽입
@@ -687,7 +687,7 @@
     - p가 red인 경우만 고려
 
   - pseudo code
-  ``` java
+``` java
   RB-INSERT(T, x) 
   01 b <- nil[T]        // a의 한 칸 뒤를 쫒아 내려오는 포인터, insert 자리 괸리를 위함, NIL노드를 사용하지만 실제 구현시 null
   02 a <- root[T]       // 루트노드 포인터
@@ -706,7 +706,7 @@
   15 right[x] <- nil[T]
   16 color[x] <- RED  // 삽입된 노드의 색을 RED로 설정
   17 RB-INSERT_FIXUP(T, z)  // 특성 중 위반되는게 있는지 확인하고 조정하기 위해 호출
-  ``` 
+``` 
 
 - 조정 (RB-INSERT-FIXUP)
   - 레드블랙트리의 규칙이 위반될 가능성이 있는 조건
@@ -774,7 +774,7 @@
       - Case 4-1의 경우 Case 4-2를 거쳐서 해결 후 종료
 
   - RB-INSERT-FIXUP Psudo Code
-    ```java
+```java
     RB-INSERT-FIXUP(T, x)          // x는 새로운 노드
     01 while color[p[x]] = RED      // x의 부모가 RED인 동안 RED-RED 위반, 탈출조건은 color[p[x]] = RED && p[x] != null (p[x] = BLACK) 
     02   do if p[x] = left[[p[x]]]  // x의 할아버지 노드의 왼쪽자식이 p[x]인 경우
@@ -792,7 +792,7 @@
     14        RIGHT-ROTATE(T, p[p[x]])  >> CASE 2-2   // 조부모를 중심으로 RIGHT-ROTATE 수행
     15    else(same as then clause with "right" and "left" exchanged) // CASE 3, 4-1, 4-2는 대칭적으로 똑같이 동작
     16 color[root[T]] <- BLACK // CASE 2-2, 4-2에서 문제를 해결하고 while문 탈출, CASE1, 3을 반복하다 루트 노드까지 올라간 후 while문이 종료된다면 RED이기 때문에 마지막 루트 노드를 BLACK
-    ```
+ ```
 
 - INSERT의 시간복잡도
   - BST에서의 INSERT: O(log n)
@@ -812,8 +812,9 @@
   - 보통의 BST처럼 Delete
   - 실제로 삭제된 노드 y가 RED 였으면 종료
   - y가 black이었을 경우 RB-DELETE-FIXUP 호출
+
   - pseudo code
-    ```java
+```java
     RB-DELETE(T, z)
     01 if left[z] = nil[T] or right[z] = nil[T]  // 삭제할 노드 자식이 없다면
     02   then y <- z                             // y에 z 저장
@@ -833,8 +834,8 @@
     16 if color[y] = BLACK                       // 삭제한 노드 y가 BLACK인 경우
     17   then RB-DELETE-FIXUP(T, x)              // 문제를 해결하기 위해 RB-DELETE-FIXUP(T, x)를 통해 규칙을 맞추기 위한 작업 수행. y의 자식인 x를 넘겨서 정렬
     18 return y                                  // 삭제된 노드 y 반환
-    ```
-    - 삭제한 노드가 BLACK인 경우 (Line 16)
+```
+  - 삭제한 노드가 BLACK인 경우 (Line 16)
       - 삭제된 노드가 루트노드인데, 그 자식인 레드노드가 올라와서 루트가 된 경우
       - 중간의 black노드가 삭제되어서 RED-RED 위반이 생긴 경우
       - 트리를 따라 내려가면서 black노드의 개수가 일치하지 않는 경우가 생길 수 있음
@@ -851,7 +852,5 @@
     - 
 ### B+ Tree
 - 
-
-
 
 
