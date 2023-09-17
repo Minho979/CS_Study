@@ -776,15 +776,15 @@
   - RB-INSERT-FIXUP Psudo Code
     ``` java
     RB-INSERT-FIXUP(T, x)          // x는 새로운 노드
-    1 while color[p[x]] = RED      // x의 부모가 RED인 동안 RED-RED 위반, 탈출조건은 color[p[x]] = RED && p[x] != null (p[x] = BLACK) 
-    2   do if p[x] = left[[p[x]]]  // x의 할아버지 노드의 왼쪽자식이 p[x]인 경우
-    3     then b <- right[p[p[x]]] // 부모의 형제를 b에 저장
-    4       if color[b] = RED      // b노드의 색상에 따라 CASE 구분 
-    5         then color[p[x]] <- BLACK  >> CASE 1    // 부모 RED -> BLACK
-    6              color[b] <- BLACK     >> CASE 1    // 부모 형제 RED -> BLACK
-    7              color[p[p[x]]] <-RED  >> CASE 1    // 조부모 BLACK -> RED
-    8              x <- p[p[x]]                       // 조무모 노드를 다시 x로 설정하여 트리를 타고 올라가면서 문제 해결 (포인터 2단계 상승 이동)
-    9       else if x =  right[p[x]]  // 부모 RED, 부모 형제 BLACK, x가 p 오른쪽 자식
+    01 while color[p[x]] = RED      // x의 부모가 RED인 동안 RED-RED 위반, 탈출조건은 color[p[x]] = RED && p[x] != null (p[x] = BLACK) 
+    02   do if p[x] = left[[p[x]]]  // x의 할아버지 노드의 왼쪽자식이 p[x]인 경우
+    03     then b <- right[p[p[x]]] // 부모의 형제를 b에 저장
+    04       if color[b] = RED      // b노드의 색상에 따라 CASE 구분 
+    05         then color[p[x]] <- BLACK  >> CASE 1    // 부모 RED -> BLACK
+    06              color[b] <- BLACK     >> CASE 1    // 부모 형제 RED -> BLACK
+    07              color[p[p[x]]] <-RED  >> CASE 1    // 조부모 BLACK -> RED
+    08              x <- p[p[x]]                       // 조무모 노드를 다시 x로 설정하여 트리를 타고 올라가면서 문제 해결 (포인터 2단계 상승 이동)
+    09       else if x =  right[p[x]]  // 부모 RED, 부모 형제 BLACK, x가 p 오른쪽 자식
     10          then x <- p[x]          >> CASE 2-1   // 부모 노드를 x로 설정(포인터 1단계 상승 이동)
     11            LEFT-ROTATE(T, x)     >> CASE 2-1   // LEFT-ROTATE 연산 후 2-2로 이동
     12        color[p[x]] <-BLACK       >> CASE 2-2   // x의 부모 노드 RED -> BLACK
@@ -810,12 +810,34 @@
 
 - 삭제(Delete)
   - 보통의 BST처럼 Delete
-  - 실제로 삭제된 노드 m이 RED 였으면 종료
-  - m이 black이었을 경우 RB-DELETE-FIXUP 호출
+  - 실제로 삭제된 노드 y가 RED 였으면 종료
+  - y가 black이었을 경우 RB-DELETE-FIXUP 호출
   - pseudo code
     ``` java
-    RB-DELETE(T, m)
+    RB-DELETE(T, z)
+    01 if left[z] = nil[T] or right[z] = nil[T]  // 삭제할 노드 자식이 없다면
+    02   then y <- z                             // y에 z 저장
+    03 else y <- TREE-SUCCESSOR(z)               // 자식이 있다면 z의 Successor을 찾아 y에 저장. BST에서 Successor 찾는 과정과 동일
+    04 if left[y] != nil[T]                      // y의 왼쪽자식이 널이 아니라면 (1-3을 통해 y는 자식이 하나 이거나 없는 상태)
+    05   then x <- left[y]                       // y의 왼쪽 자식을 x로
+    06 else x <- right[y]                        // 그렇지 않다면, y의 오른쪽 자식을 x로 저장
+    07 p[x] <- p[y]                              // y의 부모를 x의 부모로 설정
+    08 if p[y] = nil[T]                          // y의 부모가 NULL이라면
+    09   then root[T] <- x                       // x를 트리의 root로 설정
+    10 else if y = left[p[y]]                    // y의 부모노드가 NULL이 아니고, y가 y의 부모의 왼쪽 자식 노드라면
+    11   then right[p[y]] <- x                   // 저장한 x를 y의 부모의 왼쪽 자식노드로 설정
+    12 else right[p[y]]                          // y가 y의 부모의 오른쪽 자식노드라면, 저장된 x를 부모노드의 오른쪽 자식으로 설정(여기까지가 실제로 노드를 삭제하는 작업)
+    13 if y != z                                 // 삭제하는 노드 대신 Successor를 삭제한 경우 y != z, y노드의 데이터를 카피하는 작업 필요
+    14   then key[z] <- key[y]                   // z에 y 데이터를 이전
+    15     copy y's satellite data into z        // 14-15 y의 데이터를 z노드로 copy하는 작업
+    16 if color[y] = BLACK                       // 삭제한 노드 y가 BLACK인 경우
+    17   then RB-DELETE-FIXUP(T, x)              // 문제를 해결하기 위해 RB-DELETE-FIXUP(T, x)를 통해 규칙을 맞추기 위한 작업 수행. y의 자식인 x를 넘겨서 정렬
+    18 return y                                  // 삭제된 노드 y 반환
     ```
+    - 삭제한 노드가 BLACK인 경우 (Line 16)
+      - 삭제된 노드가 루트노드인데, 그 자식인 레드노드가 올라와서 루트가 된 경우
+      - 중간의 black노드가 삭제되어서 RED-RED 위반이 생긴 경우
+      - 트리를 따라 내려가면서 black노드의 개수가 일치하지 않는 경우가 생길 수 있음
 
 ### B+ Tree
 - 
