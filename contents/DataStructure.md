@@ -774,7 +774,23 @@
 
   - RB-INSERT-FIXUP Psudo Code
     ``` java
-    
+    RB-INSERT-FIXUP(T, x)          // x는 새로운 노드
+    1 while color[p[x]] = RED      // x의 부모가 RED인 동안 RED-RED 위반, 탈출조건은 color[p[x]] = RED && p[x] != null (p[x] = BLACK) 
+    2   do if p[x] = left[[p[x]]]  // x의 할아버지 노드의 왼쪽자식이 p[x]인 경우
+    3     then b <- right[p[p[x]]] // 부모의 형제를 b에 저장
+    4       if color[b] = RED      // b노드의 색상에 따라 CASE 구분 
+    5         then color[p[x]] <- BLACK  >> CASE 1
+    6              color[b] <- BLACK     >> CASE 1
+    7              color[p[p[x]]] <-RED  >> CASE 1 
+    8              x <- p[p[x]]
+    9       else if x =  right[p[x]]
+    10          then x <- p[x]          >> CASE 2-1
+    11            LEFT-ROTATE(T, x)     >> CASE 2-1
+    12        color[p[x]] <-BLACK       >> CASE 2-2
+    13        color[p[p[x]]] <- RED     >> CASE 2-2
+    14        RIGHT-ROTATE(T, p[p[x]])  >> CASE 2-2
+    15    else(same as then clause with "right" and "left" exchanged)
+    16 color[root[T]] <- BLACK
     ```
   
 
