@@ -774,7 +774,7 @@
       - Case 4-1의 경우 Case 4-2를 거쳐서 해결 후 종료
 
   - RB-INSERT-FIXUP Psudo Code
-    ``` java
+    ```java
     RB-INSERT-FIXUP(T, x)          // x는 새로운 노드
     01 while color[p[x]] = RED      // x의 부모가 RED인 동안 RED-RED 위반, 탈출조건은 color[p[x]] = RED && p[x] != null (p[x] = BLACK) 
     02   do if p[x] = left[[p[x]]]  // x의 할아버지 노드의 왼쪽자식이 p[x]인 경우
@@ -813,7 +813,7 @@
   - 실제로 삭제된 노드 y가 RED 였으면 종료
   - y가 black이었을 경우 RB-DELETE-FIXUP 호출
   - pseudo code
-    ``` java
+    ```java
     RB-DELETE(T, z)
     01 if left[z] = nil[T] or right[z] = nil[T]  // 삭제할 노드 자식이 없다면
     02   then y <- z                             // y에 z 저장
@@ -839,6 +839,16 @@
       - 중간의 black노드가 삭제되어서 RED-RED 위반이 생긴 경우
       - 트리를 따라 내려가면서 black노드의 개수가 일치하지 않는 경우가 생길 수 있음
 
+- RB-DELETE-FIXUP(T, x)
+  - x가 NIL 노드일 수도 있다. 그리고 x가 RED인 경우 쉽게 해결 가능
+  - 실제로 DELETE에서 문제가 되는 것은 x가 BLACK인 경우
+  - 위반 될 수 있는 규칙
+    - 각 노드는 RED 또는 BLACK
+    - 루트 노드는 BLACK
+    - 모든 리프 노드(NIL 노드)는 BLACK
+    - RED 노드의 자식 노드들은 전부 BLACK(RED 노드는 연속으로 등장 불가)
+    - 모든 노드에 대해 그 노드로 부터 자손인 리프 노드(NIL 노드)에 이르는 모든 경로에는 동일한 개수의 BLACK 노드가 존재
+    - 
 ### B+ Tree
 - 
 
