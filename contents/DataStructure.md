@@ -779,20 +779,31 @@
     2   do if p[x] = left[[p[x]]]  // x의 할아버지 노드의 왼쪽자식이 p[x]인 경우
     3     then b <- right[p[p[x]]] // 부모의 형제를 b에 저장
     4       if color[b] = RED      // b노드의 색상에 따라 CASE 구분 
-    5         then color[p[x]] <- BLACK  >> CASE 1
-    6              color[b] <- BLACK     >> CASE 1
-    7              color[p[p[x]]] <-RED  >> CASE 1 
-    8              x <- p[p[x]]
-    9       else if x =  right[p[x]]
-    10          then x <- p[x]          >> CASE 2-1
-    11            LEFT-ROTATE(T, x)     >> CASE 2-1
-    12        color[p[x]] <-BLACK       >> CASE 2-2
-    13        color[p[p[x]]] <- RED     >> CASE 2-2
-    14        RIGHT-ROTATE(T, p[p[x]])  >> CASE 2-2
-    15    else(same as then clause with "right" and "left" exchanged)
-    16 color[root[T]] <- BLACK
+    5         then color[p[x]] <- BLACK  >> CASE 1    // 부모 RED -> BLACK
+    6              color[b] <- BLACK     >> CASE 1    // 부모 형제 RED -> BLACK
+    7              color[p[p[x]]] <-RED  >> CASE 1    // 조부모 BLACK -> RED
+    8              x <- p[p[x]]                       // 조무모 노드를 다시 x로 설정하여 트리를 타고 올라가면서 문제 해결 (포인터 2단계 상승 이동)
+    9       else if x =  right[p[x]]  // 부모 RED, 부모 형제 BLACK, x가 p 오른쪽 자식
+    10          then x <- p[x]          >> CASE 2-1   // 부모 노드를 x로 설정(포인터 1단계 상승 이동)
+    11            LEFT-ROTATE(T, x)     >> CASE 2-1   // LEFT-ROTATE 연산 후 2-2로 이동
+    12        color[p[x]] <-BLACK       >> CASE 2-2   // x의 부모 노드 RED -> BLACK
+    13        color[p[p[x]]] <- RED     >> CASE 2-2   // 조부모 BLACK -> RED
+    14        RIGHT-ROTATE(T, p[p[x]])  >> CASE 2-2   // 조부모를 중심으로 RIGHT-ROTATE 수행
+    15    else(same as then clause with "right" and "left" exchanged) // CASE 3, 4-1, 4-2는 대칭적으로 똑같이 동작
+    16 color[root[T]] <- BLACK // CASE 2-2, 4-2에서 문제를 해결하고 while문 탈출, CASE1, 3을 반복하다 루트 노드까지 올라간 후 while문이 종료된다면 RED이기 때문에 마지막 루트 노드를 BLACK
     ```
-  
+
+- INSERT의 시간복잡도
+  - BST에서의 INSERT: O(log n)
+  - RB-INSERT-FIXUP
+    - Case 1, 3의 경우 x가 2레벨 상승
+    - Case 2-1, 2-2, 4-1, 4-2에 해당할 경우 O(1)
+    - 트리의 높이에 비례하는 시간복잡도를 가짐
+  - INSERT의 시간복잡도는 O(log n)
+
+- RB-INSERT-FIXUP 처리 흐름
+이미지
+
 
 ### B+ Tree
 - 
