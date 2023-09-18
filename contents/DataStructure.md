@@ -886,6 +886,9 @@
     - x의 형제 노드인 노드 w는 반드시 존재하고, NIL일 수 없음
     - x는 자신의 부모의 왼쪽 자식
   - Case 5, 6, 7, 8: x가 부모의 오른쪽 자식노드인 경우
+  
+  ![RBTDeleteCaseVer4](https://github.com/Minho979/CS_Study/blob/main/contents/images/RBT-DelCase.png)
+  ![RBTDeleteCaseVer5](https://github.com/Minho979/CS_Study/blob/main/contents/images/RBT-DelCase5.jpeg)
 
   - Case 1: x의 형제노드 w가 RED인 경우
     - Case 1,2,3,4의 공통 조건에 해당
@@ -895,6 +898,9 @@
     - x의 새로운 형제 노드는 원래 w의 자식 노드
     - 따라서 새로운 w노드는 black 노드. 이 경우 Case 2, 3, 4로 넘어감
     - Case 1의 경우 x의 부모 노드에 대해 left-rotation을 수행하면, 새로운 w노드가 red가 아닌 black이 되기에 Case 2, 3, 4로 넘어감
+   
+    ![RBTDeleteCase1](https://github.com/Minho979/CS_Study/blob/main/contents/images/RBT-DelCase1.png)
+    ![RBTDeleteCase1](https://github.com/Minho979/CS_Study/blob/main/contents/images/RBT-DelCase1.jpeg)
 
   - Case 2: w는 BLACK, w의 자식들도 BLACK인 경우
     - 해당 Case의 문제는 p[x]의 부모 노드가 RED인 경우, BLACK인 경우 두 Case로 분류하여 다루기도 함
@@ -910,12 +916,19 @@
     - 만약 Case 1에서 Case 2에 도달한 경우면 p[x]는 RED였기에 새로운 x는 red & black이 되어 종료
     - Case 2로 바로온 경우 p[x]가 BLACK이었다면, p[x]가 double black이 되어 반복해서 문제를 해야할 수 있음
       - 다만 extra-black이 한 level 올라감
+     
+    ![RBTDeleteCase2](https://github.com/Minho979/CS_Study/blob/main/contents/images/RBT-DelCase2.png)
+    ![RBTDeleteCase2](https://github.com/Minho979/CS_Study/blob/main/contents/images/RBT-DelCase2-1.jpeg)
+    ![RBTDeleteCase2](https://github.com/Minho979/CS_Study/blob/main/contents/images/RBT-DelCase2-2.jpeg)
 
   - Case 3: w는 BLACK, w의 왼쪽 자식이 RED
     - w를 RED로, w의 왼쪽 자식 노드를 BLACK으로 변환
     - w에 대해 right-rotation을 수행
     - x의 새로운 형제 w는 오른쪽 자식이 RED
     - 해당 경우는 Case 4에 해당
+   
+    ![RBTDeleteCase3](https://github.com/Minho979/CS_Study/blob/main/contents/images/RBT-DelCase3.png)
+    ![RBTDeleteCase3](https://github.com/Minho979/CS_Study/blob/main/contents/images/RBT-DelCase3.jpeg)
 
   - Case 4: w는 BLACK, w의 오른쪽 자식이 RED
     - w의 색을 p[x]의 색(unknown color)으로 변경
@@ -923,6 +936,9 @@
     - p[x]에 대해 left-rotation을 수행
     - x의 extra black을 제거하고 종료
     - double black 노드가 없어졌음에도 불구하고 기존 A노드를 지나는 블랙노드의 개수가 로테이션 전과 동일, 나머지 C와 E를 지나는 블랙노드의 개수도 기존과 동일하게 유지됨
+   
+    ![RBTDeleteCase4](https://github.com/Minho979/CS_Study/blob/main/contents/images/RBT-DelCase4.png)
+    ![RBTDeleteCase4](https://github.com/Minho979/CS_Study/blob/main/contents/images/RBT-DelCase4.jpeg)
 
 - pesudo code
   - 레드블랙트리에서 실제로 삭제한 노드는 y
@@ -985,6 +1001,9 @@ RB-DELETE-FIXUP(T, x)
   - Case 2인 경우 Case 1에서 넘어온 것이면 Case2를 해결하고 종료되지만 바로 Case 2로 진행된 경우 반복적으로 문제를 해결해야할 수 있음
   - Case 2가 만복되는 동안 extra-black 노드는 계속해서 트리의 위로 이동, 이 상황에서 Case 1, 3, 4로 이동하게 되면 흐름에 따라 2step 이내에 종료
   - Case 5, 6, 7, 8로 넘어가 Case 2와 대칭인 Case 6의 경우와 순환할 수도 있고, Case 5, 7, 8로 이동하여 종료될 수도 있음
+
+  ![RBTDeleteFlow](https://github.com/Minho979/CS_Study/blob/main/contents/images/RBT-DelFlow.png)
+
 
 - DELETE의 시간복잡도
   - BST에서의 DELETE: O(log n)
