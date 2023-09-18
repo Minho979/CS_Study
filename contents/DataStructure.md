@@ -896,6 +896,37 @@
     - 따라서 새로운 w노드는 black 노드. 이 경우 Case 2, 3, 4로 넘어감
     - Case 1의 경우 x의 부모 노드에 대해 left-rotation을 수행하면, 새로운 w노드가 red가 아닌 black이 되기에 Case 2, 3, 4로 넘어감
 
+  - Case 2: w는 BLACK, w의 자식들도 BLACK인 경우
+    - 해당 Case의 문제는 p[x]의 부모 노드가 RED인 경우, BLACK인 경우 두 Case로 분류하여 다루기도 함
+    - Case 2, 3, 4는 x의 형제노드 w가 BLACK인 경우, w의 자식들도 모두 BLACK인 경우가 Case 2
+    - x와 w가 모두 BLACK이므로 부모인 B노드는 RED일수도 있고, BLACK 일수도 있음
+    - 현재 x는 double black 노드이고, w는 black 노드
+    - 이 상황에서 x와 w로부터 black을 하나씩 뺏어서 부모노드에 전달
+    - 결과적으로 x는 extra black이 사라져 black 노드, w는 black을 뺏겨 red 노드가 됨
+    - 다음으로 p[x]에게 extra black을 전달
+      - 트리 위에서 부터 내려오면서 유지하던 BLACK 노드의 개수를 유지하기 위함
+    - 만약 p[x]가 RED였다면, red & black노드가 되어 BLACK노드로 변환하여 종료
+    - p[x]가 BLACK이었다면 p[x]를 새로운 x로 설정하여 계속 진행
+    - 만약 Case 1에서 Case 2에 도달한 경우면 p[x]는 RED였기에 새로운 x는 red & black이 되어 종료
+    - Case 2로 바로온 경우 p[x]가 BLACK이었다면, p[x]가 double black이 되어 반복해서 문제를 해야할 수 있음
+      - 다만 extra-black이 한 level 올라감
+
+  - Case 3: w는 BLACK, w의 왼쪽 자식이 RED
+    - w를 RED로, w의 왼쪽 자식 노드를 BLACK으로 변환
+    - w에 대해 right-rotation을 수행
+    - x의 새로운 형제 w는 오른쪽 자식이 RED
+    - 해당 경우는 Case 4에 해당
+
+  - Case 4: w는 BLACK, w의 오른쪽 자식이 RED
+    - w의 색을 p[x]의 색(unknown color)으로 변경
+    - p[x]를 BLACK으로, w의 오른쪽 자식을 BLACK으로 변경
+    - p[x]에 대해 left-rotation을 수행
+    - x의 extra black을 제거하고 종료
+    - double black 노드가 없어졌음에도 불구하고 기존 A노드를 지나는 블랙노드의 개수가 로테이션 전과 동일, 나머지 C와 E를 지나는 블랙노드의 개수도 기존과 동일하게 유지됨
+
+
+
+
 
   
 ### B+ Tree
