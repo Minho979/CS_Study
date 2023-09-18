@@ -924,9 +924,73 @@
     - x의 extra black을 제거하고 종료
     - double black 노드가 없어졌음에도 불구하고 기존 A노드를 지나는 블랙노드의 개수가 로테이션 전과 동일, 나머지 C와 E를 지나는 블랙노드의 개수도 기존과 동일하게 유지됨
 
+- pesudo code
+  - 레드블랙트리에서 실제로 삭제한 노드는 y
+  - 삭제한 노드 y의 자식인 x를 넘겨주면서 Delete Fixup
+```java
+RB-DELETE-FIXUP(T, x)
+01 while x != root[T] and color[x] = BLACK
+02   do if x = left[p[x]]
+03        then w <- right[p[x]] 
+04          if color[w] = RED
+05            then color[w] <- BLACK                                  // Case1
+06                 color[p[x]] <- RED                                 // Case1
+07                 LEFT-ROTATE(T, p[x])                               // Case1
+08                 w <- right[p[x]]                                   // Case1
+09          if color[left[w]] = BLACK and color[right[w]] = BLACK
+10            then color[w] <- RED                                    // Case2
+11                 x <- p[x]                                          // Case2
+12          else if color[right[w]] = BLACK 
+13              then color[left[w]] <- BLACK                          // Case3
+14                   color[w] <- RED                                  // Case3
+15                   RIGHT-ROTATE(T, w)                               // Case3
+16                   w <- right[p[x]]                                 // Case3
+17            color[w] <- color[p[x]]                                 // Case4
+18            color[p[x]] <- BLACK                                    // Case4
+19            color[right[w]] <- BLACK                                // Case4
+20            LEFT-ROTATE(T, p[x])                                    // Case4
+21            x <- root[T]                                            // Case4
+22        else (same as then clause with "right" and "left" exchanged)
+23 color[x] <- BLACK
+```
+- 01: x가 루트노드이거나, x가 레드노드라면 while문 탈출 후 x를 BLACK으로 만들고 종료
+- 02: 왼쪽 자식인 경우, 오른쪽 자식인 경우로 크게 둘로 나뉨. 해당 경우는 x가 부모의 왼쪽 자식인 경우 수행(Case 1, 2, 3, 4), 오른쪽 자식인 경우 대칭적으로 수행(Case 5, 6, 7, 8)
+- 03: 노드 x의 형제 노드인 w를 저장
+- 04: 형제 노드 w가 RED인 경우 Case1
+- 05: w노드를 BLACK으로 만든다
+- 06: p[x]노드를 RED로 만든다
+- 07: p[x]를 기준으로 LEFT-ROTATE
+- 08: 새로운 w는 p[x]의 right 이때, 새로운 노드 w는 BLACK이므로 다시 while문으로 들어왔을 때, Case 2, 3, 4로 이동
+- 09: Case 2, 3, 4를 구분. w의 왼쪽, 오른쪽 자식 노드가 둘 다 BALCK인 경우 Case 2
+- 10: w와 x에서 black을 하나씩 차출하여 부모 노드에게 전달하는 과정에서 w가 RED가 되고
+- 11: p[x]를 새로운 x로 설정. p[x]가 RED였다면 while을 돌지 않고 x를 RED로 만든 후 종료, p[x]가 BLACK이었다면 x를 p[x]로 두고 double-black 노드가 된 x를 다시 반복해서 처리
+- 12: w의 오른쪽 자식이 BLACK이고, 왼쪽 자식이 RED인 Case 3
+- 13: RIGHT-ROTATE의 대상인 노드 색 변경, w의 왼쪽 자식 노드 BLACK
+- 14: RIGHT-ROTATE의 대상인 노드 색 변경, w를 RED
+- 15: w를 기준으로 RIGHT-ROTATE
+- 16: w는 p[x]의 새로운 오른쪽 자식 노드가 되며 색이 RED가 되어 Case 4로 이동
+- 17: LEFT-ROTATE의 대상인 노드 색 변경, w를 p[x]의 색으로 변경
+- 18: LEFT-ROTATE의 대상인 노드 색 변경, p[x]의 색을 BLACK으로 변경
+- 19: w의 오른쪽 자식 노드 색을 BLACK으로 변경
+- 20: p[x]를 기준으로 LEFT-ROTATE
+- 21: 포인트 변수 x를 root[T]로 변경하여 Case 4가 종료되면 while문 종료(실제 트리에는 변화 없음, 트리의 루트의 변화도 없음)
+- 22: Case 5, 6, 7, 8을 대칭적으로 처리 (x가 p[x]의 오른쪽 자식인 경우)
+- 23: 트리의 루트 색을 BLACK으로 변경
 
+- RB-DELETE-FIXUP의 Case 흐름
+  - 전체 Case는 1 - 8의 경우지만 1, 2, 3, 4와 5, 6, 7, 8은 대칭적인 관계 
+  - 처음부터 Case 4의 경우에 해당하면 left-rotation과 extra-black노드를 뺏는 것으로 Case 종료
+  - Case 3인 경우 right-rotation으로 Case 3를 해결하고 Case 4로 진행
+  - Case 1인 경우 Case 1을 해결하고 Case 2, 3, 4 중 하나로 진행
+  - Case 2인 경우 Case 1에서 넘어온 것이면 Case2를 해결하고 종료되지만 바로 Case 2로 진행된 경우 반복적으로 문제를 해결해야할 수 있음
+  - Case 2가 만복되는 동안 extra-black 노드는 계속해서 트리의 위로 이동, 이 상황에서 Case 1, 3, 4로 이동하게 되면 흐름에 따라 2step 이내에 종료
+  - Case 5, 6, 7, 8로 넘어가 Case 2와 대칭인 Case 6의 경우와 순환할 수도 있고, Case 5, 7, 8로 이동하여 종료될 수도 있음
 
-
+- DELETE의 시간복잡도
+  - BST에서의 DELETE: O(log n)
+  - RB-DELETE-FIXUP: O(log n)
+    - 가장 최악의 경우인 Case 2와 Case 6가 반복되는 경우에도 최대 트리의 높이만큼 실행
+  - DELETE와 FIXUP을 합쳐도 O(log n)
 
   
 ### B+ Tree
