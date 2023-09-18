@@ -741,12 +741,14 @@
     - Case 3, 3-1, 3-2는 p[x]가 p[p[x]]의 오른쪽 자식인 경우
     - Case 1, 2-1, 2-2와 3, 4-1, 4-2은 대칭적, 코드상에서 left와 right만 바꿔주면 됨
     - Case 1, 2-1, 2-2에 대해서만 다룸
+
   - Case 1: x의 부모의 형제가 RED인 경우
     - 새로운 노드 x의 부모가 RED이면서, 부모의 형제 노드 s가 RED인 경우
     - 이 경우 부모 노드와 부모 노드의 형제 노드를 BLACK으로 바꾸고, 할아버지 노드를 RED로 바꾼다
     - 그 뒤, 할아버지 노드 $p^2$를 새로운 노드 x로 설정하여 위로 타고 올라가면서 레드블랙트리의 조건을 위반하는지를 검사
     - Case 1의 경우 문제가 완전히 해결되지 않았다. x가 두 칸 위로 올라가서 해당 위치부터 재귀적으로 해결해야 함
       - $p^2$의 부모가 블랙이면 삽입연산이 완료되지만 레드일 경우 재귀적으로 해결해야 함
+    
     ![RBTInsertCase1](https://github.com/Minho979/CS_Study/blob/main/contents/images/RBT-InsertCase1.jpeg)
       
   - Case 2: x의 부모의 형제가 BLACK인 경우
@@ -754,10 +756,13 @@
     - Case 2-1: x가 오른쪽 자식인 경우
       - p[x]에 대해서 left-rotation한 후 원래 p[x]를 x로 변경
       - Case 2-2로 이동
+      
       ![RBTInsertCase2-1](https://github.com/Minho979/CS_Study/blob/main/contents/images/RBT-InsertCase2-1.jpeg)
+
     - Case 2-2: x가 왼쪽 자식인 경우
       - p[p[x]]에 대해 right-rotation을 진행
       - p[x]를 BLACK, p[p[x]]를 RED로 변경
+
         ![RBTInsertCase2-2](https://github.com/Minho979/CS_Study/blob/main/contents/images/RBT-InsertCase2-2.jpeg)
 
   - Case 1, 2-1, 2-2 요약
@@ -765,6 +770,7 @@
     - Case 2-1은 Case 2-2를 거쳐서 해결하면 종료
     - Case 2-2의 경우 x의 할아버지 노드를 기준으로 right-rotate하면 문제가 해결되고 종료
     - Case 1, 2-1, 2-2의 경우에 해당하는 내용이며, Case 1에서 Case 3, 4-1, 4-2로 넘어갈 수도 있음
+      
   - Case 3, 4-1, 4-2
     - Case 1, 2-1, 2-2는 p[x]가 p[p[x]]의 왼쪽 자식인 겅우
     - Case 3, 4-1, 4-2는 p[x]가 p[p[x]]의 오른쪽 자식인 경우
@@ -872,6 +878,25 @@
     - NIL 노드일 시 x의 부모에 대해 조건5 위반
 
 - 문제 정의
+  - DELETE의 경우 8가지 Case로 분류할 수 있음
+    - Case 2의 상황을 p[x]가 RED, BLACK 두 가지로 나누어 다룰 경우 10가지 Case로 분류 가능
+  - INSERT와 마찬가지로 1, 2, 3, 4와 5, 6, 7, 8은 대칭
+  - Case 1, 2, 3, 4: x가 부모의 왼쪽 자식 노드인 경우
+    - x는 double black 노드이거나, NIL 노드 일 수도 있음
+    - x의 형제 노드인 노드 w는 반드시 존재하고, NIL일 수 없음
+    - x는 자신의 부모의 왼쪽 자식
+  - Case 5, 6, 7, 8: x가 부모의 오른쪽 자식노드인 경우
+
+  - Case 1: x의 형제노드 w가 RED인 경우
+    - Case 1,2,3,4의 공통 조건에 해당
+    - 자식 노드가 NIL일 수 없고, BLACK 노드
+    - 문제를 해결하기 위해 w를 BLACK으로 p[x]를 RED로 변경
+    - p[x]에 대해 left-rotation을 수행. 현재 x는 여전히 double-black 노드
+    - x의 새로운 형제 노드는 원래 w의 자식 노드
+    - 따라서 새로운 w노드는 black 노드. 이 경우 Case 2, 3, 4로 넘어감
+    - Case 1의 경우 x의 부모 노드에 대해 left-rotation을 수행하면, 새로운 w노드가 red가 아닌 black이 되기에 Case 2, 3, 4로 넘어감
+
+
   
 ### B+ Tree
 - 
