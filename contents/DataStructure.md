@@ -845,11 +845,34 @@
   - 실제로 DELETE에서 문제가 되는 것은 x가 BLACK인 경우
   - 위반 될 수 있는 규칙
     - 각 노드는 RED 또는 BLACK
+      - 문제 사항 없음
     - 루트 노드는 BLACK
+      - y가 루트였고, x가 RED인 경우 위반
     - 모든 리프 노드(NIL 노드)는 BLACK
+      - 문제 사항 없음
     - RED 노드의 자식 노드들은 전부 BLACK(RED 노드는 연속으로 등장 불가)
+      - p[y]와 x가 모두 RED인 경우 위반
+      - x가 red인 경우 red를 black으로 바꾸어 주면 됨
     - 모든 노드에 대해 그 노드로 부터 자손인 리프 노드(NIL 노드)에 이르는 모든 경로에는 동일한 개수의 BLACK 노드가 존재
-    - 
+      - 원래 y를 포함했던 모든 경로는 black노드가 하나 부족
+        - 노드 x에 'extra black'을 부여하여 임시로 조건5 만족
+        - 노드 x는 'double black' 또는 'red & black'이 됨
+        - 이 노드를 black노드로 바꾸는 것이 해결해야할 문제
+
+- 문제 해결 방법
+  - Extra black을 순차적으로 트리의 위쪽으로 올려보냄
+    - x의 부모가 double black이 되는 방식
+  - x가 red & black 상태가 되면 black 노드로 바꾸고 종료
+  - x가 루트가 되는 순간까지 올라가면 extra black을 제거
+ 
+- Loop Invariant(루프를 돌면서 변하지 않고 유지되는 조건)
+  - x는 루트가 아닌 double-black노드
+  - w는 x의 형제노드
+  - w는 NIL 노드가 될 수 없음
+    - NIL 노드일 시 x의 부모에 대해 조건5 위반
+
+- 문제 정의
+  
 ### B+ Tree
 - 
 
