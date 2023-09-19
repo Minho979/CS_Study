@@ -86,6 +86,10 @@
   
     ![이중 연결 리스트 구조](https://github.com/Minho979/CS_Study/blob/main/contents/images/CDLinkedList.png)
 
+> ⬆️:[Top](#1-DataStructure)
+> ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#1-data-structure)
+> 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
+
 ### HashTable
 - HashTable의 개념
   - Key와 Value를 1:1로 연관지어 저장하는 자료구조(연관배열 구조)
@@ -182,6 +186,10 @@
   |삽입|O(1)|O(N)|
   |삭제|O(1)|O(N)|
 
+> ⬆️:[Top](#1-DataStructure)
+> ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#1-data-structure)
+> 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
+
 ### Stack
 - Stack의 개념
 
@@ -232,6 +240,10 @@
     - 수식의 괄호 검사(연산자 우선순위 표현을 위한 괄호 검사)
       - 예) 올바른 괄호 문자열(VPS, Valid Parenthesis String) 판단한기
     - 후위 표기법 계산
+
+> ⬆️:[Top](#1-DataStructure)
+> ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#1-data-structure)
+> 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
 
 ### Queue
 - Queue의 개념
@@ -286,6 +298,10 @@
     - 시뮬레이션에서의 큐잉 시스템
       - 수학적 모델링에서 대기 행렬과 대기 시간 등을 모델링하기 위해 큐잉 이론(Queue Theory) 사용
       - 큐잉 이론에서 대기 행렬과 대기 시간을 실험하는데 Queue 사용
+
+> ⬆️:[Top](#1-DataStructure)
+> ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#1-data-structure)
+> 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
 
 ### Graph
 - Graph의 개념
@@ -364,6 +380,10 @@
   - 그래프는 순환(Cyclic) 혹은 비순환(Acyclic)
   - 그래프는 크게 방향 그래프와 무방향 그래프가 있음
   - 간선의 유무는 그래프에 따라 다름
+
+> ⬆️:[Top](#1-DataStructure)
+> ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#1-data-structure)
+> 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
 
 ### Tree
 - Tree의 개념
@@ -545,7 +565,9 @@
     - 3가지 모두 DFS/BFS 안에 속함
   - 트리는 이진 트리(Binary Tree), 이진 탐색 트리(Binary Search Tree), 군형 트리(AVL 트리, Red-Black 트리 등), 이진 힙(최대힙, 최소힙) 등이 있음
 
-
+> ⬆️:[Top](#1-DataStructure)
+> ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#1-data-structure)
+> 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
 
 ### Graph와 Tree의 차이점
 ||그래프|트리|
@@ -611,6 +633,10 @@
        - (임시 저장한 원소의 키 값 ≥ 현재 자식 노드의 키 값)의 관계가 성리밯지 않으면, 현재 자식 노드의 원소와 임시 저장한 원소의 자리를 서로 바꿈
     - 노드 수가 n일때 연산 시간 복잡도는 O(log n)
     ![Heap_del](https://github.com/Minho979/CS_Study/blob/main/contents/images/Heap_del.png)
+
+> ⬆️:[Top](#1-DataStructure)
+> ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#1-data-structure)
+> 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
   
 ### Red-Black Tree
 - 개요
@@ -1017,6 +1043,9 @@ RB-DELETE-FIXUP(T, x)
     - 가장 최악의 경우인 Case 2와 Case 6가 반복되는 경우에도 최대 트리의 높이만큼 실행
   - DELETE와 FIXUP을 합쳐도 O(log n)
 
+> ⬆️:[Top](#1-DataStructure)
+> ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#1-data-structure)
+> 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
   
 ### B Tree
 - 개념
@@ -1173,6 +1202,10 @@ RB-DELETE-FIXUP(T, x)
     - B 트리가 BST보다 상수 시간만큼 더 빠르다
 
   ![BTreeTime](https://github.com/Minho979/CS_Study/blob/main/contents/images/BTreeTime.jpeg)
+
+> ⬆️:[Top](#1-DataStructure)
+> ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#1-data-structure)
+> 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
 
 ### B+ Tree
 
