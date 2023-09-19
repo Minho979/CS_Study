@@ -1032,14 +1032,21 @@ RB-DELETE-FIXUP(T, x)
   4. 특정 노드의 왼쪽 서브 트리는 특정 노드의 Key보다 작은 값들로, 오른쪽 서브 트리는 큰 값들로 구성된다
   5. 노드 내에 데이터는 floor(M/2)-1개부터 최대 M-1개까지 포함될 수 있다
   6. 모든 리프 노드들이 같은 레벨에 존재한다
+     
+  ![BTreeLeaf](https://github.com/Minho979/CS_Study/blob/main/contents/images/BTreeleaf.webp)
 
 - B Tree의 노드 구조
   - 하나의 페이지(블록)
+
+  ![BTreeNode](https://github.com/Minho979/CS_Study/blob/main/contents/images/BTreeNode.jpeg)
+  
 - B Tree에서의 M 값
   - Key와 분기 포인터 공간을 반영하여 디스크 한 블록이 수용할 수 있는 최대 값
  
 - B Tree에서 레코드에 접근하는 과정
-  - 블럭 포인터를 통해 키 값의 데이터에 접근 
+  - 블럭 포인터를 통해 키 값의 데이터에 접근
+ 
+  ![BTreeRecord](https://github.com/Minho979/CS_Study/blob/main/contents/images/BTreeRecord.jpeg)
 
 - B Tree의 탐색 과정
   - B Tree는 루트 노드에서 탐색을 시작하여 하향식으로 탐색을 진행
@@ -1048,6 +1055,11 @@ RB-DELETE-FIXUP(T, x)
     3. K와 노드의 Key 값을 비교해 알맞은 자식 노드로 내려간다
     4. 해당 과정을 리프 노드에 도달할 때까지 반복한다
     5. 리프 노드에서도 K를 찾지 못했다면 트리에 값이 존재하지 않는 것
+   
+    ![BTreeSearch](https://github.com/Minho979/CS_Study/blob/main/contents/images/BTreeSearch1.webp)
+    ![BTreeSearch](https://github.com/Minho979/CS_Study/blob/main/contents/images/BTreeSearch2.webp)
+    ![BTreeSearch](https://github.com/Minho979/CS_Study/blob/main/contents/images/BTreeSearch3.webp)
+    ![BTreeSearch](https://github.com/Minho979/CS_Study/blob/main/contents/images/BTreeSearch4.webp)
 
 - B Tree의 삽입 과정
   - B Tree에 데이터를 삽입하는 과정은 탐색과는 달리 상향식으로 진행
@@ -1061,11 +1073,18 @@ RB-DELETE-FIXUP(T, x)
   - 삽입 Case
     - Case 1: 분리가 일어나지 않는 경우
       1. 데이터를 삽입할 리프 노드를 탐색하고, 해당 노드에 데이터를 삽입
-      2. 해당 노드가 적절한 상태이기에 삽입 종료 
+      2. 해당 노드가 적절한 상태이기에 삽입 종료
+ 
+      ![BTreeInsertCase1](https://github.com/Minho979/CS_Study/blob/main/contents/images/BTreeInsertCase1.jpeg)
+  
     - Case 2: 분리가 일어나는 경우
       1. 데이터를 삽입할 리프 노드를 탐색하고, 해당 노드에 데이터를 삽입
       2. 해당 노드의 왼쪽 키들은 왼쪽 자식으로, 오른쪽 키들은 오른쪽 자식으로 분리
       3. 부모 노드를 검사해 부모 노드가 부적절 상태에 있다면 위와 같은 분리를 반복
+     
+      ![BTreeInsertCase2](https://github.com/Minho979/CS_Study/blob/main/contents/images/BTreeInsertCase2.jpeg)
+      ![BTreeInsertCase2](https://github.com/Minho979/CS_Study/blob/main/contents/images/BTreeInsertCase2-2.jpeg)
+      ![BTreeInsertCase2](https://github.com/Minho979/CS_Study/blob/main/contents/images/BTreeInsertCase2-3.jpeg)
      
 - B Tree의 삭제 과정
   - B Tree의 데이터 삽입 과정보다 복잡
@@ -1087,6 +1106,8 @@ RB-DELETE-FIXUP(T, x)
     - Case 1: 리프 노드에서 삭제되는 경우
       - Case 1-1: 값을 삭제하더라도 최소 유지 개수 조건을 만족하는 경우
         - 최소 유지 개수를 만족하므로 바로 삭제
+ 
+        ![BTreeDeleteCase1-1](https://github.com/Minho979/CS_Study/blob/main/contents/images/BTree-delCase1-1.webp)
           
       - Case 1-2: 최소 유지 개수를 만족하지 못하지만 바로 옆 형제 노드들에게 값을 빌려올 수 있는 경우
 
@@ -1096,12 +1117,24 @@ RB-DELETE-FIXUP(T, x)
 
         2-2. 오른쪽 형제 노드에서 빌려올 수 있다면 Rmin과 Parent를 바꿈
         - 둘 다 수행이 가능할 경우 둘 중 하나를 선택하여 수행
+   
+        ![BTreeDeleteCase1-2](https://github.com/Minho979/CS_Study/blob/main/contents/images/BTree-delCase1-2-1.webp)
+        ![BTreeDeleteCase1-2](https://github.com/Minho979/CS_Study/blob/main/contents/images/BTree-delCase1-2-2.webp)
+        ![BTreeDeleteCase1-2](https://github.com/Minho979/CS_Study/blob/main/contents/images/BTree-delCase1-2-3.webp)
+        ![BTreeDeleteCase1-2](https://github.com/Minho979/CS_Study/blob/main/contents/images/BTree-delCase1-2-4.webp)
      
       - Case 1-3: 최소 유지 개수를 만족하지 못하고 형제 노드에게 값을 빌려올 수 없지만 부모 노드를 분할할 수 있는 경우
         - K를 삭제하고 Parent를 부모 노드에서 분할하여 형제 노드에 병합
+       
+        ![BTreeDeleteCase1-3](https://github.com/Minho979/CS_Study/blob/main/contents/images/BTree-delCase1-3-1.webp)
+        ![BTreeDeleteCase1-3](https://github.com/Minho979/CS_Study/blob/main/contents/images/BTree-delCase1-3-2.webp)
+        ![BTreeDeleteCase1-3](https://github.com/Minho979/CS_Study/blob/main/contents/images/BTree-delCase1-3-3.webp)
 
       - Case 1-4: 최소 유지 개수를 만족하지 못하고 형제 노드에게 값을 빌려올 수 없고 부모 노드도 분할할 수 없는 경우
         - 모든 노드의 개수가 최소인 경우로 Case 2-2와 동일
+          
+        ![BTreeDeleteCase1-4](https://github.com/Minho979/CS_Study/blob/main/contents/images/BTree-delCase1-4.jpeg)
+        ![BTreeDeleteCase1-4](https://github.com/Minho979/CS_Study/blob/main/contents/images/BTree-delCase1-4-2.jpeg)
     
     - Case 2: 리프 노드가 아닌 내부 노드에서 삭제되는 경우
       - Case 2-1: 현재 노드 혹은 자식 노드의 최소 유지 개수의 최소보다 큰 경우
@@ -1109,6 +1142,9 @@ RB-DELETE-FIXUP(T, x)
         1\. K의 Lmax 혹은 Rmin과 자리 교체
         
         2\. 이후 리프 노드의 삭제 케이스와 동일하게 수행
+   
+        ![BTreeDeleteCase2-1](https://github.com/Minho979/CS_Study/blob/main/contents/images/BTree-delCase2-1-1.webp)
+        ![BTreeDeleteCase2-1](https://github.com/Minho979/CS_Study/blob/main/contents/images/BTree-delCase2-1-2.webp)
 
       - Case 2-2: 현재 노드와 자식 노드 모두 Key 개수가 최소인 경우
 
@@ -1122,11 +1158,16 @@ RB-DELETE-FIXUP(T, x)
         
         4-2. 만약 N2의 Key 개수가 최소보다 작다면 2번 과정으로 돌아가 동일한 과정 반복
 
+        ![BTreeDeleteCase2-2](https://github.com/Minho979/CS_Study/blob/main/contents/images/BTree-delCase2-2-1.webp)
+        ![BTreeDeleteCase2-2](https://github.com/Minho979/CS_Study/blob/main/contents/images/BTree-delCase2-2-2.webp)
+        ![BTreeDeleteCase2-2](https://github.com/Minho979/CS_Study/blob/main/contents/images/BTree-delCase2-2-3.webp)
+
 - B Tree의 시간복잡도
   - 탐색/삽입/삭제 연산의 수행 시간은 O(log n)
   - 균형잡힌 BST와 동일한 시간 복잡도를 가지지만 BST에 비해 상수인자가 적음
     - B 트리가 BST보다 상수 시간만큼 더 빠르다
 
+  ![BTreeTime](https://github.com/Minho979/CS_Study/blob/main/contents/images/BTreeTime.jpeg)
 
 ### B+ Tree
 
