@@ -11,7 +11,7 @@
 - [Graph와 Tree의 차이점](#Graph와-Tree의-차이점)
 - [Binary Heap](#Binary-Heap)
 - [Red-Black Tree](#Red-Black-Tree)
-- [B+ Tree](#B+-Tree)
+- [B Tree](#B-Tree)
 ***
 
 ### Array
@@ -1012,7 +1012,7 @@ RB-DELETE-FIXUP(T, x)
   - DELETE와 FIXUP을 합쳐도 O(log n)
 
   
-### B+ Tree
+### B Tree
 - 
 
 
