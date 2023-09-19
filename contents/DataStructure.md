@@ -45,6 +45,8 @@
 > ⬆️:[Top](#1-DataStructure)
 > ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#1-data-structure)
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
+> - Reference
+> - [이지영. 지바로 배우는 쉬운 자료구조. 한빛아카데미]
 
 ### LinkedList
 - LinkedList의 개념
@@ -89,6 +91,8 @@
 > ⬆️:[Top](#1-DataStructure)
 > ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#1-data-structure)
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
+> - Reference
+> - [이지영. 지바로 배우는 쉬운 자료구조. 한빛아카데미]
 
 ### HashTable
 - HashTable의 개념
@@ -189,6 +193,8 @@
 > ⬆️:[Top](#1-DataStructure)
 > ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#1-data-structure)
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
+> - Reference
+> - [이지영. 지바로 배우는 쉬운 자료구조. 한빛아카데미]
 
 ### Stack
 - Stack의 개념
@@ -244,6 +250,9 @@
 > ⬆️:[Top](#1-DataStructure)
 > ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#1-data-structure)
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
+> - Reference
+> - [이지영. 지바로 배우는 쉬운 자료구조. 한빛아카데미]
+> - [[자료구조] 스택(Stack)이란](https://gmlwjd9405.github.io/2018/08/03/data-structure-stack.html)
 
 ### Queue
 - Queue의 개념
@@ -302,6 +311,9 @@
 > ⬆️:[Top](#1-DataStructure)
 > ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#1-data-structure)
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
+> - Reference
+> - [이지영. 지바로 배우는 쉬운 자료구조. 한빛아카데미]
+> - [[자료구조] 큐(Queue)란](https://gmlwjd9405.github.io/2018/08/02/data-structure-queue.html)
 
 ### Graph
 - Graph의 개념
@@ -384,6 +396,9 @@
 > ⬆️:[Top](#1-DataStructure)
 > ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#1-data-structure)
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
+> - Reference
+> - [이지영. 지바로 배우는 쉬운 자료구조. 한빛아카데미]
+> - [[자료구조] 그래프(Graph)란](https://gmlwjd9405.github.io/2018/08/13/data-structure-graph.html)
 
 ### Tree
 - Tree의 개념
@@ -568,6 +583,9 @@
 > ⬆️:[Top](#1-DataStructure)
 > ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#1-data-structure)
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
+> - Reference
+> - [이지영. 지바로 배우는 쉬운 자료구조. 한빛아카데미]
+> - [[자료구조] 트리(Tree)란](https://gmlwjd9405.github.io/2018/08/12/data-structure-tree.html)
 
 ### Graph와 Tree의 차이점
 ||그래프|트리|
@@ -582,6 +600,12 @@
 |간선의 수|그래프에 따라 간선의 수가 다름, 간선이 없을 수도 있음|노드가 N인 트리는 항상 N-1개의 간선을 가짐|
 |경로|-|임의의 두 노드 간의 경로는 유일|
 |예시 및 종류|지도, 지하철 노선도의 최단 경로, 전기 회로의 소자들, 도로(교차점과 일반 통행길), 선수과목|이진 트리, 이진 탐색 트리, 균형 트리(AVL 트리, Red-Black 트리), 이진 힙(최대힙, 최소힙)등|
+
+> ⬆️:[Top](#1-DataStructure)
+> ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#1-data-structure)
+> 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
+> > - Reference
+> - [이지영. 지바로 배우는 쉬운 자료구조. 한빛아카데미]
 
 ### Binary Heap
 - Heap의 개념
@@ -637,6 +661,8 @@
 > ⬆️:[Top](#1-DataStructure)
 > ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#1-data-structure)
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
+> - Reference
+> - [이지영. 지바로 배우는 쉬운 자료구조. 한빛아카데미]
   
 ### Red-Black Tree
 - 개요
@@ -1001,29 +1027,53 @@ RB-DELETE-FIXUP(T, x)
 22        else (same as then clause with "right" and "left" exchanged)
 23 color[x] <- BLACK
 ```
-- 01: x가 루트노드이거나, x가 레드노드라면 while문 탈출 후 x를 BLACK으로 만들고 종료
-- 02: 왼쪽 자식인 경우, 오른쪽 자식인 경우로 크게 둘로 나뉨. 해당 경우는 x가 부모의 왼쪽 자식인 경우 수행(Case 1, 2, 3, 4), 오른쪽 자식인 경우 대칭적으로 수행(Case 5, 6, 7, 8)
-- 03: 노드 x의 형제 노드인 w를 저장
-- 04: 형제 노드 w가 RED인 경우 Case1
-- 05: w노드를 BLACK으로 만든다
-- 06: p[x]노드를 RED로 만든다
-- 07: p[x]를 기준으로 LEFT-ROTATE
-- 08: 새로운 w는 p[x]의 right 이때, 새로운 노드 w는 BLACK이므로 다시 while문으로 들어왔을 때, Case 2, 3, 4로 이동
-- 09: Case 2, 3, 4를 구분. w의 왼쪽, 오른쪽 자식 노드가 둘 다 BALCK인 경우 Case 2
-- 10: w와 x에서 black을 하나씩 차출하여 부모 노드에게 전달하는 과정에서 w가 RED가 되고
-- 11: p[x]를 새로운 x로 설정. p[x]가 RED였다면 while을 돌지 않고 x를 RED로 만든 후 종료, p[x]가 BLACK이었다면 x를 p[x]로 두고 double-black 노드가 된 x를 다시 반복해서 처리
-- 12: w의 오른쪽 자식이 BLACK이고, 왼쪽 자식이 RED인 Case 3
-- 13: RIGHT-ROTATE의 대상인 노드 색 변경, w의 왼쪽 자식 노드 BLACK
-- 14: RIGHT-ROTATE의 대상인 노드 색 변경, w를 RED
-- 15: w를 기준으로 RIGHT-ROTATE
-- 16: w는 p[x]의 새로운 오른쪽 자식 노드가 되며 색이 RED가 되어 Case 4로 이동
-- 17: LEFT-ROTATE의 대상인 노드 색 변경, w를 p[x]의 색으로 변경
-- 18: LEFT-ROTATE의 대상인 노드 색 변경, p[x]의 색을 BLACK으로 변경
-- 19: w의 오른쪽 자식 노드 색을 BLACK으로 변경
-- 20: p[x]를 기준으로 LEFT-ROTATE
-- 21: 포인트 변수 x를 root[T]로 변경하여 Case 4가 종료되면 while문 종료(실제 트리에는 변화 없음, 트리의 루트의 변화도 없음)
-- 22: Case 5, 6, 7, 8을 대칭적으로 처리 (x가 p[x]의 오른쪽 자식인 경우)
-- 23: 트리의 루트 색을 BLACK으로 변경
+
+01: x가 루트노드이거나, x가 레드노드라면 while문 탈출 후 x를 BLACK으로 만들고 종료
+
+02: 왼쪽 자식인 경우, 오른쪽 자식인 경우로 크게 둘로 나뉨. 해당 경우는 x가 부모의 왼쪽 자식인 경우 수행(Case 1, 2, 3, 4), 오른쪽 자식인 경우 대칭적으로 수행(Case 5, 6, 7, 8)
+
+03: 노드 x의 형제 노드인 w를 저장
+
+04: 형제 노드 w가 RED인 경우 Case1
+
+05: w노드를 BLACK으로 만든다
+
+06: p[x]노드를 RED로 만든다
+
+07: p[x]를 기준으로 LEFT-ROTATE
+
+08: 새로운 w는 p[x]의 right 이때, 새로운 노드 w는 BLACK이므로 다시 while문으로 들어왔을 때, Case 2, 3, 4로 이동
+
+09: Case 2, 3, 4를 구분. w의 왼쪽, 오른쪽 자식 노드가 둘 다 BALCK인 경우 Case 2
+
+10: w와 x에서 black을 하나씩 차출하여 부모 노드에게 전달하는 과정에서 w가 RED가 되고
+
+11: p[x]를 새로운 x로 설정. p[x]가 RED였다면 while을 돌지 않고 x를 RED로 만든 후 종료, p[x]가 BLACK이었다면 x를 p[x]로 두고 double-black 노드가 된 x를 다시 반복해서 처리
+
+12: w의 오른쪽 자식이 BLACK이고, 왼쪽 자식이 RED인 Case 3
+
+13: RIGHT-ROTATE의 대상인 노드 색 변경, w의 왼쪽 자식 노드 BLACK
+
+14: RIGHT-ROTATE의 대상인 노드 색 변경, w를 RED
+
+15: w를 기준으로 RIGHT-ROTATE
+
+16: w는 p[x]의 새로운 오른쪽 자식 노드가 되며 색이 RED가 되어 Case 4로 이동
+
+17: LEFT-ROTATE의 대상인 노드 색 변경, w를 p[x]의 색으로 변경
+
+18: LEFT-ROTATE의 대상인 노드 색 변경, p[x]의 색을 BLACK으로 변경
+
+19: w의 오른쪽 자식 노드 색을 BLACK으로 변경
+
+20: p[x]를 기준으로 LEFT-ROTATE
+
+21: 포인트 변수 x를 root[T]로 변경하여 Case 4가 종료되면 while문 종료(실제 트리에는 변화 없음, 트리의 루트의 변화도 없음)
+
+22: Case 5, 6, 7, 8을 대칭적으로 처리 (x가 p[x]의 오른쪽 자식인 경우)
+
+23: 트리의 루트 색을 BLACK으로 변경
+
 
 - RB-DELETE-FIXUP의 Case 흐름
   - 전체 Case는 1 - 8의 경우지만 1, 2, 3, 4와 5, 6, 7, 8은 대칭적인 관계 
@@ -1046,6 +1096,10 @@ RB-DELETE-FIXUP(T, x)
 > ⬆️:[Top](#1-DataStructure)
 > ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#1-data-structure)
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
+> - Reference
+> - [01. Red-Black Tree 개요](https://github.com/namjunemy/TIL/blob/master/Algorithm/red_black_tree_01.md)
+> - [02. Red-Black Tree insert fix-up](https://github.com/namjunemy/TIL/blob/master/Algorithm/red_black_tree_02.md)
+> - [03. Red-Black Tree delete, fix-up](https://github.com/namjunemy/TIL/blob/master/Algorithm/red_black_tree_03.md)
   
 ### B Tree
 - 개념
@@ -1206,6 +1260,7 @@ RB-DELETE-FIXUP(T, x)
 > ⬆️:[Top](#1-DataStructure)
 > ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#1-data-structure)
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
-
+> - Reference
+> - [[자료구조] B-트리(B-Tree)란? B트리 그림으로 쉽게 이해하기, B트리 탐색, 삽입, 삭제 과정](https://code-lab1.tistory.com/217)
 ### B+ Tree
 
