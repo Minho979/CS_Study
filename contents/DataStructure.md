@@ -12,7 +12,7 @@
 - [Binary Heap](#Binary-Heap)
 - [Red-Black Tree](#Red-Black-Tree)
 - [B Tree](#B-Tree)
-- [B+ Tree](#B+-Tree)
+- [B+ Tree](#B-Tree-1)
 ***
 
 ### Array
