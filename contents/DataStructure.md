@@ -12,7 +12,7 @@
 - [Binary Heap](#Binary-Heap)
 - [Red-Black Tree](#Red-Black-Tree)
 - [B Tree](#B-Tree)
-- [B+Tree](#B+Tree)
+- [B+ Tree](#B+Tree)
 ***
 
 ### Array
@@ -1016,5 +1016,5 @@ RB-DELETE-FIXUP(T, x)
 ### B Tree
 - 
 
-### B+Tree
+### B+ Tree
 
