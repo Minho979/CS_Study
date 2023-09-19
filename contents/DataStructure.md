@@ -1,4 +1,4 @@
-![image](https://github.com/Minho979/CS_Study/assets/83263085/118264c8-272e-4b53-88f1-51d5a6a0b630)# 1. DataStructure
+# 1. DataStructure
 
 #### Contents
 - [Array](#array)
