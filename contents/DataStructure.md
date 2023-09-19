@@ -23,6 +23,7 @@
   - 인덱스를 통해 배열의 요소에 접근 가능
 
     ![Array구조](https://github.com/Minho979/CS_Study/blob/main/contents/images/array1.png)
+
 - Array의 시간복잡도
   - 인덱스를 알고 있으면 인덱스 접근 시간복잡도는 O(1)
   - 데이터 삽입시 기존 데이터를 한 칸씩 shift 한 후 데이터를 삽입하기에 O(n)
@@ -40,6 +41,8 @@
     - 크기를 수정하기 위해서는 새로운 배열을 생성하고, 기존 데이터를 이전해야 한다.
   - 메모리 낭비가 발생
     - 선언된 배열의 사용하지 않는 공간에 메모리가 할당되어 메모리 낭비가 발생한다.
+
+> ⬆️:[Top](#1-Data-Structure)
 
 ### LinkedList
 - LinkedList의 개념
