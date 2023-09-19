@@ -1,4 +1,4 @@
-# 1. DataStructure
+![image](https://github.com/Minho979/CS_Study/assets/83263085/118264c8-272e-4b53-88f1-51d5a6a0b630)# 1. DataStructure
 
 #### Contents
 - [Array](#array)
@@ -195,6 +195,7 @@
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
 > - Reference
 > - [이지영. 지바로 배우는 쉬운 자료구조. 한빛아카데미]
+> - [문병로. 쉽게 배우는 알고리즘. 한빛아카데미]
 
 ### Stack
 - Stack의 개념
@@ -398,6 +399,7 @@
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
 > - Reference
 > - [이지영. 지바로 배우는 쉬운 자료구조. 한빛아카데미]
+> - [문병로. 쉽게 배우는 알고리즘. 한빛아카데미]
 > - [[자료구조] 그래프(Graph)란](https://gmlwjd9405.github.io/2018/08/13/data-structure-graph.html)
 
 ### Tree
@@ -585,6 +587,7 @@
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
 > - Reference
 > - [이지영. 지바로 배우는 쉬운 자료구조. 한빛아카데미]
+> - [문병로. 쉽게 배우는 알고리즘. 한빛아카데미]
 > - [[자료구조] 트리(Tree)란](https://gmlwjd9405.github.io/2018/08/12/data-structure-tree.html)
 
 ### Graph와 Tree의 차이점
@@ -606,6 +609,7 @@
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
 > > - Reference
 > - [이지영. 지바로 배우는 쉬운 자료구조. 한빛아카데미]
+> - [문병로. 쉽게 배우는 알고리즘. 한빛아카데미]
 
 ### Binary Heap
 - Heap의 개념
@@ -1097,6 +1101,7 @@ RB-DELETE-FIXUP(T, x)
 > ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#1-data-structure)
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
 > - Reference
+> - [문병로. 쉽게 배우는 알고리즘. 한빛아카데미]
 > - [01. Red-Black Tree 개요](https://github.com/namjunemy/TIL/blob/master/Algorithm/red_black_tree_01.md)
 > - [02. Red-Black Tree insert fix-up](https://github.com/namjunemy/TIL/blob/master/Algorithm/red_black_tree_02.md)
 > - [03. Red-Black Tree delete, fix-up](https://github.com/namjunemy/TIL/blob/master/Algorithm/red_black_tree_03.md)
@@ -1261,6 +1266,7 @@ RB-DELETE-FIXUP(T, x)
 > ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#1-data-structure)
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
 > - Reference
+> - [문병로. 쉽게 배우는 알고리즘. 한빛아카데미]
 > - [[자료구조] B-트리(B-Tree)란? B트리 그림으로 쉽게 이해하기, B트리 탐색, 삽입, 삭제 과정](https://code-lab1.tistory.com/217)
 ### B+ Tree
 
