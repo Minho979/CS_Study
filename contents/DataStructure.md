@@ -1273,6 +1273,9 @@ RB-DELETE-FIXUP(T, x)
 
 ### B+ Tree
 - B+Tree 개념
+
+  ![B+Tree](https://github.com/Minho979/CS_Study/blob/main/contents/images/B%2BTree.jpg)
+  
   - B트리를 linear하게 탐색해야하는 경우 중위 탐색을 통해 트리 전체를 탐색하게 되어 발생하는 성능 저하를 개선하기 위해 고안
   - 모든 키 값이 리프 노드에 정렬되어 있는 트리 구조
     - 오름차순으로 정렬
@@ -1333,6 +1336,8 @@ RB-DELETE-FIXUP(T, x)
     - Case 2: 분할이 일어나지 않고, 삽입 위치가 리프 노드의 가장 앞 Key 자리인 경우
       - 삽입 후 부모 Key를 삽입된 Key로 갱신하고, data 삽입
 
+      ![B+TreeInsertCase2](https://github.com/Minho979/CS_Study/blob/main/contents/images/B%2BTree-Insert2-1.jpg)
+
     - Case 3: 분할이 일어나는 삽입 과정
       - 분할이 일어나는 노드가 리프 노드가 아닌 경우
         - B트리와 동일하게 분할을 진행
@@ -1341,6 +1346,9 @@ RB-DELETE-FIXUP(T, x)
         - 중간 Key를 부모 Key로 올림
         - 오른쪽 노드에 중간 Key를 포함하여 분할
         - 왼쪽 자식 노드와 오른쪽 자식 노드를 이어줘 연결리스트 형태를 유지
+       
+      ![B+TreeInsertCase3](https://github.com/Minho979/CS_Study/blob/main/contents/images/B%2BTree-Insert3-1.jpg)
+      ![B+TreeInsertCase3](https://github.com/Minho979/CS_Study/blob/main/contents/images/B%2BTree-Insert3-5.jpg)
 
 - B+Tree 삭제 과정
   - 삭제시 트리의 Key가 변경되는 경우로 설명
@@ -1351,6 +1359,9 @@ RB-DELETE-FIXUP(T, x)
       - Case 1-1: 리프 노드의 Key 개수가 t-1보다 클 때
         - B트리의 삭제 과정과 동일
         - 리프 노드의 Key만 삭제하고 종료
+      
+      ![B+TreeDeleteCase1-1](https://github.com/Minho979/CS_Study/blob/main/contents/images/B%2BTree-Del1-1.jpg)
+
       - Case 1-2: 리프 노드의 Key 개수가 t-1일 때
         - B트리의 삭제 과정과 동일
         1. 형제 노드 중 하나라도 Key의 개수가 t-1보다 큰 경우 (빌려올 수 있는 경우)
@@ -1367,11 +1378,16 @@ RB-DELETE-FIXUP(T, x)
            - 오른쪽 노드와 병합
              - 우측 노드의 부모 Key 값 변경
            - 부모 노드의 Key 개수가 1 감소한 경우 부모 노드의 Key 개수가 t-1 미만이면 재구성
+        
+        ![B+TreeDeleteCase1](https://github.com/Minho979/CS_Study/blob/main/contents/images/B%2BTree-Del1.png)
 
     - Case 2: 삭제할 K가 리프노드의 가장 처음 Key인 경우(index에 K가 존재하는 경우)
       - Key의 개수가 최소 Key의 개수일 때 형제 노드의 Key를 빌려오거나 부모 Key와 병합하는 등 과정은 B트리와 동일하게 수행
       - Case 2-1: 리프 노드의 Key 개수가 t-1보다 클 때
         - 리프 노드를 삭제하고 기존 Key가 있던 인덱스 노드 자리에 inorder successor(후계자) 값으로 변경
+   
+        ![B+TreeDeleteCase2-1](https://github.com/Minho979/CS_Study/blob/main/contents/images/B%2BTree-Del2-1-1.jpg)
+        ![B+TreeDeleteCase2-1](https://github.com/Minho979/CS_Study/blob/main/contents/images/B%2BTree-Del2-1-2.jpg)
 
        - Case 2-2: 리프 노드의 Key 개수가 t-1 일때
          - 형제 노드 중 하나라도 Key 개수가 t-1보다 큰 경우
@@ -1387,6 +1403,8 @@ RB-DELETE-FIXUP(T, x)
                - 오른쪽 형제 노드와 병합한 경우
                  - 오른쪽 노드의 부모 Key를 삭제
              - 부모 Key가 삭제되었으므로 부모 노드의 Key 개수가 t-1 미만이면 재구성
+
+      ![B+TreeDeleteCase2](https://github.com/Minho979/CS_Study/blob/main/contents/images/B%2BTree-Del2.png)
 
 > ⬆️:[Top](#1-DataStructure)
 > ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#1-data-structure)
