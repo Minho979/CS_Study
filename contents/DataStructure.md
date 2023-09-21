@@ -1369,6 +1369,10 @@ RB-DELETE-FIXUP(T, x)
            - 부모 노드의 Key 개수가 1 감소한 경우 부모 노드의 Key 개수가 t-1 미만이면 재구성
 
     - Case 2: 삭제할 K가 리프노드의 가장 처음 Key인 경우(index에 K가 존재하는 경우)
+      - Key의 개수가 최소 Key의 개수일 때 형제 노드의 Key를 빌려오거나 부모 Key와 병합하는 등 과정은 B트리와 동일하게 수행
+      - Case 2-1: 리프 노드의 Key 개수가 t-1보다 클 때
+        - 리프 노드를 삭제하고 기존 Key가 인덱스 노드 자리에 inorder successor(후계자) 값으로 변경
+      - Case 2-2: 리프 노드의 Key 개수가 t-1 일때 
 
 > ⬆️:[Top](#1-DataStructure)
 > ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#1-data-structure)
