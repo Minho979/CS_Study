@@ -12,7 +12,7 @@
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
 > - Reference
 
-### 시간복잡도와 공간복잡도
+### 시간복잡도(Time Complexity)와 공간복잡도(Space Complexity)
 
 > ⬆️:[Top](#1-Algorithm)
 > ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#2-Algorithm)
