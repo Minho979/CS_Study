@@ -2,7 +2,7 @@
 
 #### Contents
 - [알고리즘](#알고리즘)
-- [시간복잡도(Time Complexity)와 공간복잡도(Space Complexity)](시간복잡도TimeComplexity와-공간복잡도SpaceComplexity)
+- [시간복잡도(Time Complexity)와 공간복잡도(Space Complexity)](#시간복잡도Time-Complexity와-공간복잡도Space-Complexity)
 
 
 ### 알고리즘
@@ -12,7 +12,7 @@
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
 > - Reference
 
-### 시간복잡도(Time Complexity)와 공간복잡도(Space Complexity)
+### 시간복잡도와 공간복잡도
 
 > ⬆️:[Top](#1-Algorithm)
 > ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#2-Algorithm)
