@@ -47,8 +47,38 @@
   - 연산 횟수가 다항식으로 표현될 경우, 최고차항을 제외한 모든 항과 최고차항의 계수를 제외한다
     - 최고차항의 계수를 제외하는 것은 상수이기에 유의미한 차이가 발생하지 않기 때문
     - Ex) $T(n) = 3n^2 + 10n +100 = O(n^2)$
+   
+- $O(1)$ 상수 시간(Constant time)
+  - 입력의 크기(n)에 상관 없이 항상 일정한 시간이 걸리는 알고리즘
+  - 데이터 크기가 성능에 영향을 미치지 않음
+  - Stack의 push, pop 연산이 해당
+
+- $O(log n)$ 로그 시간(Logarithmic time)
+  - 입력 데이터의 크기가 커질 수록 처리 시간이 로그만큼 짧아지는 알고리즘
+  - 이진 트리의 탐색, 재귀의 순기능이 해당
+
+- $O(n)$ 선형 시간(Linear time)
+  - 입력 크기(n)에 비례하여 연산 시간이 선형적으로 증가하는 알고리즘
+  - 1차원 for문이 해당
+
+- $O(nlog n)$ 선형 로그 시간(Linearithmic time)
+  - 입력 크기(n)이 증가할 수록 처리 시간이 로그 배만큼 증가하는 알고리즘
+  - 퀵 정렬(quick sort), 병합 정렬(merge sort), 힙 정렬(heap Sort) 등이 해당
+
+- $O(n^2)$ 2차 시간(Quadratic time)
+  - 입력 크기(n)이 증가할 수록 처리 시간이 급수적으로 증가하는 알고리즘
+  - 이중 for문, 삽입 정렬(insertion sort), 버블 정렬(bubble sort), 선택 정렬(selection sort) 등이 해당
+
+- $O(2^n)$ 지수 시간(Exponential time)
+  - 입력 크기(n)이 증가할 수록 처리 시간이 기하급수적으로 증가하는 알고리즘
+  - 파보나치 수열, 재귀의 역기능이 해당
+
+
+- Faster $O(1) < O(log n) < O(n) < O(nlog n) < O(n^2) < O(2^n) < O(n!)$  Slower
 
 > ⬆️:[Top](#2-Algorithm)
 > ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#2-Algorithm)
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
 > - Reference
+> - [문병로. 쉽게 배우는 알고리즘. 한빛아카데미]
+> - 
