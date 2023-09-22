@@ -73,6 +73,7 @@
   - 입력 크기(n)이 증가할 수록 처리 시간이 기하급수적으로 증가하는 알고리즘
   - 파보나치 수열, 재귀의 역기능이 해당
 
+![Big-O Complexity Chart](https://github.com/Minho979/CS_Study/blob/main/contents/images/Big-O-Complexity-Chart.png)
 
 - Faster $O(1) < O(log n) < O(n) < O(nlog n) < O(n^2) < O(2^n) < O(n!)$  Slower
 
@@ -81,4 +82,4 @@
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
 > - Reference
 > - [문병로. 쉽게 배우는 알고리즘. 한빛아카데미]
-> - 
+> - [Big-O Algorithm Complexity Cheat Sheet(Know Thy Complexities!)](https://www.bigocheatsheet.com/)
