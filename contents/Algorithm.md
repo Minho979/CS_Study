@@ -1,8 +1,8 @@
 # 1. Algorithm
 
 #### Contents
-- 알고리즘(#알고리즘)
-- 시간복잡도(Time Complexity)와 공간복잡도(Space Complexity)(#시간복잡도Time Complexity와-공간복잡도Space Complexity)
+- [알고리즘](#알고리즘)
+- [시간복잡도(Time Complexity)와 공간복잡도(Space Complexity)](#시간복잡도Time Complexity와-공간복잡도Space Complexity)
 
 
 ### 알고리즘
