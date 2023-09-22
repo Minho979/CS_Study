@@ -5,8 +5,12 @@
 > CS를 공부하는 Repository인 만큼 내용에 오류가 있을 수 있습니다.
 
 #### Contents
-- Data Structure
+- [Data Structure](#1-Data-Structure)
+- [Algorithm](#2-Algorithm)
 
 ### 1. Data Structure
 
 [내용 전체보기](https://github.com/Minho979/CS_Study/blob/main/contents/DataStructure.md)
+
+### 2. Algorithm
+[내용 전체보기](https://github.com/Minho979/CS_Study/blob/main/contents/Algorithm.md)
