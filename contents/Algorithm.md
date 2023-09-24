@@ -98,11 +98,16 @@
 
 ### 선택 정렬(Selection Sort)
 - 원리
+  
   1\. 첫 번째 원소를 마지막 자료까지 차례대로 비교하여 최소 또는 최대 원소를 선택 
+
   2\. 최소 값인 경우 첫 번째 자리에 놓고, 최대 값인 경우 마지막 자리에 놓음
+
   3\. 정렬된 원소를 제외한 나머지 원소에서 해당 과정을 반복
 
   - 1회전을 수행하고 나면 최소 값이 맨 앞에 있거나 최대 값이 맨 뒤에 위치하게 됨
+  
+  ![Selection Sort](https://github.com/Minho979/CS_Study/blob/main/contents/images/SelectionSort.gif)
 
 - 시간 복잡도
   - 데이터의 개수 n
