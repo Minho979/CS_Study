@@ -134,6 +134,38 @@
     - 안정 정렬: 동일한 값에 대해 기존의 순서가 유지되는 정렬 (Ex. 버블 정렬, 삽입 정렬)
       - Array[1(1), 2, 3(1), 1(2), 3(2)] -> Array[1(1), 1(2), 2, 3(1), 3(2)]
 
+- 구현 코드
+``` java
+public class SelectionSort {
+	
+	public static void selectionsort(int a[]) {
+		int i, j, min, size;
+		
+		size = a.length;
+		
+		for(i = 0; i < size - 1; i++) {
+			min = i;
+			
+			// 최솟값 인덱스 찾기 
+			for(j=i+1; j<size; j++) {
+				if(a[j] < a[min]) {
+					min = j;
+				}
+			}
+			
+			// i번쨰 값과 최솟값의 위치를 서로 교환 
+			swap(a, min, i);		
+		}
+	}
+	
+	public static void swap(int a[], int i, int j) {
+		int temp = a[i];
+		a[i] = a[j];
+		a[j] = temp;
+	}
+}
+```
+
 
 > ⬆️:[Top](#2-Algorithm)
 > ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#2-Algorithm)
