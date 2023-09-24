@@ -82,6 +82,9 @@
   - 최근 메모리 공간이 여유로워져 제약이 많이 줄었으며, 이로 인해 최근 시간복잡도를 공간복잡도보다 우선시 함
   - 최악의 경우(Worst Case)를 산정하며 '빅-오'로 표기
   - 공간복잡도만을 고려할 경우 고정공간보다 가변공간의 자료구조가 효율적
+    - 공간 복잡도는 가변공간에 의해 좌우
+    - 고정공간(알고리즘과 무관한 공간): 코드 저장 공간, 단순 변수 및 상수
+    - 가변공간(알고리즘 실행과 연관된 공간): 실행 중 동적으로 필요한 공간
   - 재귀적, 반복문으로 구현이 가능할 경우 반복문으로 구현하는 것이 공간복잡도 측면에서 좋음
  
 > ⬆️:[Top](#2-Algorithm)
@@ -90,3 +93,4 @@
 > - Reference
 > - [문병로. 쉽게 배우는 알고리즘. 한빛아카데미]
 > - [Big-O Algorithm Complexity Cheat Sheet(Know Thy Complexities!)](https://www.bigocheatsheet.com/)
+> - [[Algorithm]공간 복잡도(Space Complexity)](https://insight-bgh.tistory.com/506)
