@@ -3,6 +3,7 @@
 #### Contents
 - [알고리즘(Algorithm)](#알고리즘Algorithm)
 - [시간복잡도(Time Complexity)와 공간복잡도(Space Complexity)](#시간복잡도Time-Complexity와-공간복잡도Space-Complexity)
+- [선택 정렬(Selection Sort)](#선택-정렬Selection-Sort)
 
 
 ### 알고리즘(Algorithm)
@@ -94,3 +95,6 @@
 > - [문병로. 쉽게 배우는 알고리즘. 한빛아카데미]
 > - [Big-O Algorithm Complexity Cheat Sheet(Know Thy Complexities!)](https://www.bigocheatsheet.com/)
 > - [[Algorithm]공간 복잡도(Space Complexity)](https://insight-bgh.tistory.com/506)
+
+### 선택 정렬(Selection Sort)
+
