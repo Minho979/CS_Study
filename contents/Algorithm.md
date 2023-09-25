@@ -182,6 +182,8 @@ public class SelectionSort {
     - 최대 원소를 가장 뒤로 보내는 효과
   - 같은 방법으로 반복하여 정렬
 
+  ![Bubble Sort](https://github.com/Minho979/CS_Study/blob/main/contents/images/BubbleSort.gif)
+
 - 시간 복잡도
   - 데이터 개수 n
   - 데이터 원소의 위치 교환은 상수 시간
