@@ -207,19 +207,23 @@ public class SelectionSort {
 ``` java
 public class BubbleSort {
 	
-	public static void bubbleSort(int a[]) {
+	public static int[] bubbleSort(int a[]) {
 		int i, j, size;
 		size = a.length;
 
 		// 배열의 길이 만큼 반복
 		for (i = 0; i < size; i++) {
+			boolean sorted = true;
 			// 마지막 원소는 정렬된 상태 이므로 끝을 제외한 나머지 길이 만큼 반복, 큰 원소 교환
 			for(j = 0; j < size - 1 -i; j++) {
 				if (a[j] > a[j+1]) {
 					swap(a, j, j+1);
+					sorted = false;
 				}
 			}
+			if (sorted == true) break;
 		}
+		return a;
 	}
 	
 	public static void swap(int a[], int i, int j) {
