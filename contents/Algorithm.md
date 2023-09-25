@@ -195,6 +195,7 @@ public class SelectionSort {
 
 - 장점
   - 제자리 정렬(in-place sorting) 알고리즘으로 메모리가 절약된다
+  - 안정정렬(Stable Sort)
   - 구현이 간단
 - 단점
   - 교환 횟수가 많아 자료의 개수가 많아질 수록 성능 저하 문제가 발생한다
