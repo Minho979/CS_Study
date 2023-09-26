@@ -283,6 +283,33 @@ public class BubbleSort {
 
 - 구현 코드
 ``` java
+public class InsertionSort {
+	
+	public static void insertionSort(int [] a) {
+		int i, j, loc, size;
+		size = a.length;
+		
+		for (i = 1; i < size; i++) {
+			
+			loc = a[i]; // 지정 Key 값
+			
+			j = i - 1;
+
+			// 지정 값이 이전 원소보다 크기 전까지 반복, loc <  a[j]는 안정정렬을 위해 키 값이 같을 때 이동 방지
+			while(j >= 0 && loc < a[j]) {
+				a[j+1] = a[j];	// 원소를 한 칸 씩 뒤로 이동
+				j--;
+			}
+
+			/*
+			해당 루프를 탈출하는 경우 loc의 원소가 앞의 원소보다 크다는 의미
+			loc 원소를 j의 뒤로 보내야함
+			*/
+			a[j + 1] = loc;
+			
+		}
+	}
+}
 ```
 
 > ⬆️:[Top](#2-Algorithm)
