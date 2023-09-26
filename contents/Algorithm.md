@@ -253,6 +253,13 @@ public class BubbleSort {
     - 처음 Key 값: 두 번째 원소
   - 원소를 뒤로 옮기고 지정된 자리에 자료를 삽입
  
+  ![InsertionSort](https://github.com/Minho979/CS_Study/blob/main/contents/images/InsertionSort.gif)
+
+- 삽입 정렬 예시
+  - 29, 10, 14, 37, 13이 저장된 배열을 오름차순으로 정렬
+
+  ![InsertionSort](https://github.com/Minho979/CS_Study/blob/main/contents/images/InsertionSortEx.png)
+ 
 - 시간 복잡도
   - 최악의 경우(역순 정렬인 경우)에는 선택, 버블 정렬과 마찬가지로 $O(n^2)$
   - 최선의 경우(정렬되어 있는 경우)에는 비교연산을 한번씩 수행하기에 $O(n)$
