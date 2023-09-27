@@ -355,7 +355,9 @@ public class InsertionSort {
    - 부분 리스트의 처음 값 부터 비교하여 정렬하기에 안정 정렬(Stable Sort)가 보장
 
 - 시간 복잡도
+
   ![MergeSortTimeComplexity](https://github.com/Minho979/CS_Study/blob/main/contents/images/MergeSort-TimeComplexity.png)
+
   - 각 부분 배열을 정렬하는 시간과 병합 시간의 곱
 	  - 합병 단계의 비교 연산
 	    - 크기가 n/2, n/4, ..., 1인 배열을 비교하므로 최대 n번
