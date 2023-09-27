@@ -352,7 +352,9 @@ public class InsertionSort {
   ![MergeSortEx](https://github.com/Minho979/CS_Study/blob/main/contents/images/MergeSort.png)
   
   ![MergeSortCombineEx](https://github.com/Minho979/CS_Study/blob/main/contents/images/MergeSortCombine.png)
- 
+ 	
+  - 부분 리스트의 처음 값 부터 비교하여 정렬하기에 안정 정렬(Stable Sort)가 보장
+
 - 시간 복잡도
   - 각 부분 배열을 정렬하는 시간과 병합 시간의 곱
 	  - 합병 단계의 비교 연산
