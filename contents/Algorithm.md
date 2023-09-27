@@ -340,6 +340,8 @@ public class InsertionSort {
     3. 두 개의 리스트 중 하나의 리스트가 먼저 끝날 경우 나머지 리스트의 값을 전부 보조 리스트에 복사
     4. 보조 리스트의 값을 기존의 리스트로 복사
 
+  ![MergeSort](https://github.com/Minho979/CS_Study/blob/main/contents/images/MergeSort.gif)
+
 - 특징
   - 추가적인 리스트(공간)이 필요
   - 각 부분 배열을 정렬할 때도 병합 정렬을 재귀적으로 호출하여 적용
@@ -347,6 +349,10 @@ public class InsertionSort {
 
  - 예시
 
+  ![MergeSortEx](https://github.com/Minho979/CS_Study/blob/main/contents/images/MergeSort.png)
+  
+  ![MergeSortCombineEx](https://github.com/Minho979/CS_Study/blob/main/contents/images/MergeSortCombine.png)
+ 
 - 시간 복잡도
   - 각 부분 배열을 정렬하는 시간과 병합 시간의 곱
 	  - 합병 단계의 비교 연산
