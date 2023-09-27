@@ -366,7 +366,7 @@ public class InsertionSort {
     - 이동 연산($2n$): 임시 배열에 복사했다가 다시 가져옴
     - $2n * log n = 2nlogn$
   - $2nlogn + nlogn= O(nlogn)$
-  - 최악, 평균, 최선 모두 O(nlog n)
+  - 최악, 평균, 최선 모두 $O(nlog n)$
 
 - 공간 복잡도
   - 보조 리스트를 이용하여 정렬하므로 $O(n)$
