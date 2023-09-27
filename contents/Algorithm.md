@@ -383,6 +383,60 @@ public class InsertionSort {
 
 - 구현 코드
 ``` java
+public class MergeSort {
+	
+	public static void mergeSort(int[] a, int left, int right) {
+		if (left < right) {
+			int mid  = (left + right) / 2; // 반으로 나누기 위한 변수 값 
+			mergeSort(a, left, mid);       // 왼쪽 부분 리스트 분할 재귀 호출
+			mergeSort(a, mid+1, right);    // 오른쪽 부분 리스트 분할 재귀 호출
+			merge(a, left, mid, right);    // 원소를 Merge
+			
+		}
+	}
+	
+	public static void merge(int[] a, int left, int mid, int right) {
+		int lp = left;  // 왼쪽 시작 인덱스 
+		int rp = mid+1; // 오른쪽 시작 인덱스 
+		int idx = left; // 임시 배열 시작 인덱스 
+		
+		int[] temp = new int [a.length];
+		
+		// 둘 중 하나의 배열이 빌 때까지 반복 
+		while (lp <= mid && rp <= right) {
+			// 왼쪽이 작거나 같을 때 idx에 lp값 삽입 후 lp 값, idx ++
+			if (a[lp] <= a[rp]) {
+				temp[idx] = a[lp];
+				lp++;
+			}
+			// 오른쪽이 작을 때 idx에 rp 값 삽입 후 rp 값, idx ++
+			else {
+				temp[idx] = a[rp];
+				rp++;
+			}
+			idx++;
+		}
+		
+		// 왼쪽 배열에 원소가 남아 있는 경우 남은 원소 삽입 
+		while (lp <= mid) {
+			temp[idx] = a[lp];
+			idx++;
+			lp++;
+		}
+		
+		// 오른쪽 배열에 원소가 남아 있는 경우 남은 원소 삽입 
+		while (rp <= right) {
+			temp[idx] = a[rp];
+			idx++;
+			rp++;
+		}
+		
+		// temp의 정렬된 원소 값을 본 배열에 삽입 
+		for (int index = left; index <= right; index++) {
+			a[index] = temp[index];
+		}
+	}
+}
 ```
 
 > ⬆️:[Top](#2-Algorithm)
