@@ -528,6 +528,43 @@ public class MergeSort {
   - 정렬된 리스트에 대해 퀼 정렬의 불균형 분할에 의해 수행시간이 $O(n^2)$으로 버블 정렬과 다를 것 없는 성능을 보임
     - 이를 방지하기위해 피벗을 선택할 때 균등하게 분할할 수 있는 데이터를 선택
 
+- 구현 코드
+``` java
+public class QuickSort {
+	
+	public static void quickSort(int a[], int begin, int end) {
+		
+		if (begin < end) {
+			int p = partition(a, begin, end);
+			quickSort(a, begin, p);
+			quickSort(a, p+1, end);
+		}
+	}
+	
+	public static int partition(int a[], int begin, int end) {
+		int lo = begin -1;
+		int hi = end +1;
+		int pivot = a[(begin+end)/2];
+		
+		while(true) {
+			do {
+				lo++;
+			} while(a[lo] < pivot);
+			
+			do {
+				hi--;
+			} while(a[hi] > pivot && lo <= hi);
+			if(lo >= hi) {
+				return hi;
+			}
+			
+			swap(a, lo, hi);
+		}
+		
+	}
+}
+```
+
 > ⬆️:[Top](#2-Algorithm)
 > ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#2-Algorithm)
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
