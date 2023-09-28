@@ -457,8 +457,14 @@ public class MergeSort {
 ### 퀵 정렬(Quick Sort)
 - 개념
   - 하나의 리스트를 피벗(pivot)을 중심으로 두 개의 비균등한 크기로 분할하고 분할된 부분 리스트를 정렬한 후 두 리스트를 병합하여 정렬
-    - 피벗(pivot): 리스트 안에 있는 원소 중 선택한 하나의 원소
+    - 피벗(pivot): 리스트 안에 있는 원소 중 선택한 하나의 원소, 중앙 값에 가까운 값일 수록 성능 향
     - 분할 정복(Divide and Conquer) 알고리즘
+
+- 퀵 정렬의 과정
+  - 분할(Divide): 피벗을 기준으로 비균등하게 2개의 부분 배열로 분할
+    - 왼쪽: 피벗보다 작은 요소, 오른쪽: 피벗보다 큰 요소
+  - 정복(Conquer): 부분 배열을 정렬. 
+  - 결합(Combine):
 
 > ⬆️:[Top](#2-Algorithm)
 > ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#2-Algorithm)
