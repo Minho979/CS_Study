@@ -535,33 +535,50 @@ public class QuickSort {
 	public static void quickSort(int a[], int begin, int end) {
 		
 		if (begin < end) {
-			int p = partition(a, begin, end);
-			quickSort(a, begin, p);
-			quickSort(a, p+1, end);
+			int p = partition(a, begin, end); // 분할
+			quickSort(a, begin, p); 	  // 왼쪽 정렬
+			quickSort(a, p+1, end); 	  // 오른쪽 정렬
 		}
 	}
 	
 	public static int partition(int a[], int begin, int end) {
-		int lo = begin -1;
-		int hi = end +1;
-		int pivot = a[(begin+end)/2];
+		int left = begin -1;	      // 왼쪽의 끝에서 1 벗어난 위치 (왼쪽 시작점)
+		int right = end +1;	      // 오른쪽의 끝에서 1 벗어난 위치 (오른쪽 시작점)
+		int pivot = a[(begin+end)/2]; // 부분 리스트의 중간 원소를 피벗으로 설정
 		
 		while(true) {
+			/*
+			left를 1 증가 시키고 left의 위치 원소가 피벗보다 큰 원소를 찾을 때까지 반복
+			*/
 			do {
-				lo++;
-			} while(a[lo] < pivot);
-			
+				left++;
+			} while(a[left] < pivot);
+
+			/*
+			right를 1 감소한 뒤의 right의 위치가 left보다 크거나 같은 위치이면서
+			right의 요소가 피벗보다 작은 원소를 찾을 때까지 반복
+			*/
 			do {
-				hi--;
-			} while(a[hi] > pivot && lo <= hi);
-			if(lo >= hi) {
-				return hi;
+				right--;
+			} while(a[right] > pivot && lo <= hi);
+
+			// left가 right보다 크다면 서로 엇갈린 것이므로 swap하지 않고 right를 리턴 
+			if(left >= right) {
+				return right;
 			}
-			
-			swap(a, lo, hi);
+
+			// 교환할 두 요소를 서로 교환 
+			swap(a, left, right);
 		}
 		
 	}
+
+	public static void swap(int a[], int i, int j) {
+		int temp = a[i];
+		a[i] = a[j];
+		a[j] = temp;
+	}
+
 }
 ```
 
@@ -573,3 +590,4 @@ public class QuickSort {
 > - [이지영. 자바로 배우는 쉬운 자료구조. 한빛아카데미]
 > - [정렬 알고리즘 6개 정리](https://jinhyy.tistory.com/9)
 > - [[알고리즘] 퀵 정렬(quick sort)이란](https://gmlwjd9405.github.io/2018/05/10/algorithm-quick-sort.html)
+> - [자바 [JAVA] - 퀵 정렬 (Quick Sort)](https://st-lab.tistory.com/250)
