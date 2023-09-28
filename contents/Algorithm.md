@@ -7,6 +7,7 @@
 - [버블 정렬(Bubble Sort)](#버블-정렬Bubble-Sort)
 - [삽입 정렬(Insertion Sort)](#삽입-정렬Insertion-Sort)
 - [병합 정렬(Merge Sort)](#병합-정렬Merge-Sort)
+- [퀵 정렬(Quick Sort)](#퀵-정렬Quick-Sort)
 
 ### 알고리즘(Algorithm)
 - 알고리즘
@@ -318,6 +319,7 @@ public class InsertionSort {
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
 > - Reference
 > - [문병로. 쉽게 배우는 알고리즘. 한빛아카데미]
+> - [이지영. 자바로 배우는 쉬운 자료구조. 한빛아카데미]
 > - [정렬 알고리즘 6개 정리](https://jinhyy.tistory.com/9)
 
 ### 병합 정렬(Merge Sort)
@@ -447,6 +449,21 @@ public class MergeSort {
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
 > - Reference
 > - [문병로. 쉽게 배우는 알고리즘. 한빛아카데미]
+> - [이지영. 자바로 배우는 쉬운 자료구조. 한빛아카데미]
 > - [정렬 알고리즘 6개 정리](https://jinhyy.tistory.com/9)
 > - [합병 정렬 - 위키백과](https://ko.wikipedia.org/wiki/%ED%95%A9%EB%B3%91_%EC%A0%95%EB%A0%AC)
 > - [[알고리즘] 합병 정렬(merge sort)이란](https://gmlwjd9405.github.io/2018/05/08/algorithm-merge-sort.html)
+
+### 퀵 정렬(Quick Sort)
+- 개념
+  - 하나의 리스트를 피벗(pivot)을 중심으로 두 개의 비균등한 크기로 분할하고 분할된 부분 리스트를 정렬한 후 두 리스트를 병합하여 정렬
+    - 피벗(pivot): 리스트 안에 있는 원소 중 선택한 하나의 원소
+    - 분할 정복(Divide and Conquer) 알고리즘
+
+> ⬆️:[Top](#2-Algorithm)
+> ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#2-Algorithm)
+> 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
+> - Reference
+> - [문병로. 쉽게 배우는 알고리즘. 한빛아카데미]
+> - [이지영. 자바로 배우는 쉬운 자료구조. 한빛아카데미]
+> - [정렬 알고리즘 6개 정리](https://jinhyy.tistory.com/9)
