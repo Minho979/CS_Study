@@ -525,4 +525,4 @@ public class MergeSort {
 > - [문병로. 쉽게 배우는 알고리즘. 한빛아카데미]
 > - [이지영. 자바로 배우는 쉬운 자료구조. 한빛아카데미]
 > - [정렬 알고리즘 6개 정리](https://jinhyy.tistory.com/9)
-> - [[알고리즘] 퀵 정렬(quick sort)]이란(https://gmlwjd9405.github.io/2018/05/10/algorithm-quick-sort.html)
+> - [[알고리즘] 퀵 정렬(quick sort)이란](https://gmlwjd9405.github.io/2018/05/10/algorithm-quick-sort.html)
