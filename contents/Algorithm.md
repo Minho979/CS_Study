@@ -77,7 +77,7 @@
   - 입력 크기(n)이 증가할 수록 처리 시간이 기하급수적으로 증가하는 알고리즘
   - 파보나치 수열, 재귀의 역기능이 해당
 
-![Big-O Complexity Chart](https://github.com/Minho979/CS_Study/blob/main/contents/images/Big-O-Complexity-Chart.png)
+<img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/Big-O-Complexity-Chart.png" width="600">
 
 - Faster $O(1) < O(log n) < O(n) < O(nlog n) < O(n^2) < O(2^n) < O(n!)$  Slower
 
@@ -260,7 +260,7 @@ public class BubbleSort {
 - 삽입 정렬 예시
   - 29, 10, 14, 37, 13이 저장된 배열을 오름차순으로 정렬
 
-  ![InsertionSort](https://github.com/Minho979/CS_Study/blob/main/contents/images/InsertionSortEx.png)
+  <img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/InsertionSortEx.png" width="630">
  
 - 시간 복잡도
   - 최악의 경우(역순 정렬인 경우)에는 선택, 버블 정렬과 마찬가지로 $O(n^2)$
@@ -350,15 +350,15 @@ public class InsertionSort {
   - 2개의 리스트를 병합(merge)하는 단계에서만 실제로 정렬이 이루어짐
 
  - 예시
-  ![MergeSortEx](https://github.com/Minho979/CS_Study/blob/main/contents/images/MergeSort.png)
+  <img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/MergeSort.png" width="630">
   
-  ![MergeSortCombineEx](https://github.com/Minho979/CS_Study/blob/main/contents/images/MergeSortCombine.png)
+  <img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/MergeSortCombine.png" width="630">
  	
    - 부분 리스트의 처음 값 부터 비교하여 정렬하기에 안정 정렬(Stable Sort)가 보장
 
 - 시간 복잡도
 
-  ![MergeSortTimeComplexity](https://github.com/Minho979/CS_Study/blob/main/contents/images/MergeSort-TimeComplexity.png)
+  <img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/MergeSort-TimeComplexity.png" width="630">
 
   - 각 부분 배열을 정렬하는 시간과 병합 시간의 곱
 	  - 합병 단계의 비교 연산
@@ -486,8 +486,15 @@ public class MergeSort {
   - 시간 복잡도가 $O(nlogn)$으로 동일한 다른 정렬 알고리즘과 비교했을 때 가장 빠름
     - 불필요한 데이터의 이동을 줄이고 먼 거리의 데이터를 교환하며, 한번 결정된 피벗들이 이후 연산에서 제외되는 특성때문
 
+  ![Quick Sort](https://github.com/Minho979/CS_Study/blob/main/contents/images/QuickSort.gif)
+
+  <img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/QuickSort.png" width="500">
+
 - 시간 복잡도
-  - 최선의 경우(균등하게 나뉘어지는 경우)
+  - 최선의 경우(균등하게 나뉘어지는 경우) 
+    
+    <img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/QuickSortTimeComplexity-Best.png" width="630">
+    
     - 비교 횟수: 재귀 호출의 깊이(단계 수) * 각 순환 호출 단계의 비교 연산
       - 깊이: 레코드 개수 n이 2의 거듭 제곱$(n=2^k)$일 경우  $k=logn$
       - 비교: 전체 리스트의 대부분의 레코드를 비교하므로 평균 $n$
@@ -496,6 +503,9 @@ public class MergeSort {
     - $O(nlogn)$
 
   - 최악의 경우(불균형하게 나누어지는 경우, 이미 정렬된 리스트에 대해 퀼 정렬을 하는 경우)
+    
+    <img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/QuickSortTimeComplexity-Worst.png" width="500">
+
     - 비교 횟수: 재귀 호출의 깊이(단계 수) * 각 순환 호출 단계의 비교 연산
       - 깊이: $n$, 비교: $n$
       - $n^2$
