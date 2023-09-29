@@ -102,7 +102,9 @@
 
 ### 선택 정렬(Selection Sort)
 - 원리
-  
+
+  ![Selection Sort](https://github.com/Minho979/CS_Study/blob/main/contents/images/SelectionSort.gif)
+
   1\. 첫 번째 원소를 마지막 자료까지 차례대로 비교하여 최소 또는 최대 원소를 선택 
 
   2\. 최소 값인 경우 첫 번째 자리에 놓고, 최대 값인 경우 마지막 자리에 놓음
@@ -111,8 +113,6 @@
 
   - 1회전을 수행하고 나면 최소 값이 맨 앞에 있거나 최대 값이 맨 뒤에 위치하게 됨
   
-  ![Selection Sort](https://github.com/Minho979/CS_Study/blob/main/contents/images/SelectionSort.gif)
-
 - 시간 복잡도
   - 데이터의 개수 n
   - 데이터 원소의 위치 교환은 상수 시간
@@ -181,11 +181,12 @@ public class SelectionSort {
 
 ### 버블 정렬(Bubble Sort)
 - 원리
+
+  ![Bubble Sort](https://github.com/Minho979/CS_Study/blob/main/contents/images/BubbleSort.gif)
+  
   - 서로 인접한 두 원소를 비교하여 정렬 순서에 맞지 않으면 서로 교환
     - 최대 원소를 가장 뒤로 보내는 효과
   - 같은 방법으로 반복하여 정렬
-
-  ![Bubble Sort](https://github.com/Minho979/CS_Study/blob/main/contents/images/BubbleSort.gif)
 
 - 시간 복잡도
   - 데이터 개수 n
@@ -252,11 +253,12 @@ public class BubbleSort {
 
 ### 삽입 정렬(Insertion Sort)
 - 원리
+
+  ![InsertionSort](https://github.com/Minho979/CS_Study/blob/main/contents/images/InsertionSort.gif)
+
   - 두 번째 원소부터 시작해 그 앞의 원소들과 비교하여 삽입할 위치를 지정
     - 처음 Key 값: 두 번째 원소
   - 원소를 뒤로 옮기고 지정된 자리에 자료를 삽입
- 
-  ![InsertionSort](https://github.com/Minho979/CS_Study/blob/main/contents/images/InsertionSort.gif)
 
 - 삽입 정렬 예시
   - 29, 10, 14, 37, 13이 저장된 배열을 오름차순으로 정렬
@@ -325,6 +327,9 @@ public class InsertionSort {
 
 ### 병합 정렬(Merge Sort)
 - 개념
+
+  ![MergeSort](https://github.com/Minho979/CS_Study/blob/main/contents/images/MergeSort.gif)
+
   - 하나의 리스트를 균등한 크기로 분할하고, 분할된 부분 리스트들을 독립적으로 정렬한 후 정렬된 부분 리스트를 합하여 전체 리스트 정렬함
     - 분할 정복(Divide and Conquer) 알고리즘 기반
   - 데이터를 비교하면서 찾기 때문에 비교 정렬
@@ -342,13 +347,6 @@ public class InsertionSort {
   2. 둘 중 하나가 끝날 때까지 반복
   3. 두 개의 리스트 중 하나의 리스트가 먼저 끝날 경우 나머지 리스트의 값을 전부 보조 리스트에 복사
   4. 4. 보조 리스트의 값을 기존의 리스트로 복사
-
-  ![MergeSort](https://github.com/Minho979/CS_Study/blob/main/contents/images/MergeSort.gif)
-
-- 특징
-  - 추가적인 리스트(공간)이 필요
-  - 각 부분 배열을 정렬할 때도 병합 정렬을 재귀적으로 호출하여 적용
-  - 2개의 리스트를 병합(merge)하는 단계에서만 실제로 정렬이 이루어짐
 
  - 예시
   <img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/MergeSort.png" width="630">
@@ -376,6 +374,11 @@ public class InsertionSort {
 
 - 공간 복잡도
   - 보조 리스트를 이용하여 정렬하므로 $O(n)$
+ 
+- 특징
+  - 추가적인 리스트(공간)이 필요
+  - 각 부분 배열을 정렬할 때도 병합 정렬을 재귀적으로 호출하여 적용
+  - 2개의 리스트를 병합(merge)하는 단계에서만 실제로 정렬이 이루어짐
 
 - 장점
   - 안정 정렬(Stable Sort)
@@ -457,6 +460,9 @@ public class MergeSort {
 
 ### 퀵 정렬(Quick Sort)
 - 개념
+
+  ![Quick Sort](https://github.com/Minho979/CS_Study/blob/main/contents/images/QuickSort.gif)
+
   - 하나의 리스트를 피벗(pivot)을 중심으로 두 개의 비균등한 크기로 분할하고 분할된 부분 리스트를 정렬한 후 두 리스트를 병합하여 정렬
     - 피벗(pivot): 리스트 안에 있는 원소 중 선택한 하나의 원소, 중앙 값에 가까운 값일 수록 성능 향
     - 분할 정복(Divide and Conquer) 알고리즘: 문제를 분할하여 각각 해결한 다음 병합을 통해 원래의 문제 해결, 재귀호출을 이용하여 구현
@@ -477,19 +483,8 @@ public class MergeSort {
      - 부분 리스트 내에서 다시 피벗을 정하고 2개의 부분 리스트로 나누는 과정을 반복
   4. 부분 리스트들이 더 이상 분할이 불가능 할 때까지 반복
      - 리스트의 크기가 0이나 1이 될 때까지 반복
-    
-  ![Quick Sort](https://github.com/Minho979/CS_Study/blob/main/contents/images/QuickSort.gif)
 
   <img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/QuickSort.png" width="500">
-
-- 특징
-  - 상대적으로 작은 메모리만을 사용하기에 제자리 정렬(in-place) 정렬이라고 기술하기도 함
-    - 공간 복잡도 $O(n), O(logn)$
-  - 최악의 경우를 제외하고 매우 빠른 수행 속도를 보임
-    - 최악의 경우: 피벗이 한쪽으로 치우친 경우
-  - 중복된 키 값의 위치가 정렬 과정에서 바뀔 수 있으므로 불안정 정렬(Unstable sort)
-  - 시간 복잡도가 $O(nlogn)$으로 동일한 다른 정렬 알고리즘과 비교했을 때 가장 빠름
-    - 불필요한 데이터의 이동을 줄이고 먼 거리의 데이터를 교환하며, 한번 결정된 피벗들이 이후 연산에서 제외되는 특성때문
 
 - 시간 복잡도
   - 최선의 경우(균등하게 나뉘어지는 경우) 
@@ -518,6 +513,15 @@ public class MergeSort {
 - 공간 복잡도
   - 배열 안에서 교환하기에 $O(n)$
   - 재귀호출 공간 $O(logn)$
+ 
+- 특징
+  - 상대적으로 작은 메모리만을 사용하기에 제자리 정렬(in-place) 정렬이라고 기술하기도 함
+    - 공간 복잡도 $O(n), O(logn)$
+  - 최악의 경우를 제외하고 매우 빠른 수행 속도를 보임
+    - 최악의 경우: 피벗이 한쪽으로 치우친 경우
+  - 중복된 키 값의 위치가 정렬 과정에서 바뀔 수 있으므로 불안정 정렬(Unstable sort)
+  - 시간 복잡도가 $O(nlogn)$으로 동일한 다른 정렬 알고리즘과 비교했을 때 가장 빠름
+    - 불필요한 데이터의 이동을 줄이고 먼 거리의 데이터를 교환하며, 한번 결정된 피벗들이 이후 연산에서 제외되는 특성때문
 
 - 장점
   - 속도가 빠르다
@@ -596,6 +600,9 @@ public class QuickSort {
 ### 힙 정렬(Heap Sort)
 - [힙이란?](https://github.com/Minho979/CS_Study/blob/main/contents/DataStructure.md#binary-heap)
 - 개념
+  
+  ![HeapSort](https://github.com/Minho979/CS_Study/blob/main/contents/images/HeapSort.gif)
+
   - 최대 힙 트리나 최소 힙 트리를 구성해 정렬을 하는 방법
     - 내림차순 정렬은 최대 힙을 이용하고, 오름차순 정렬은 최소 힙을 이용
   - 불안정 정렬(Unstable Sort)
@@ -608,6 +615,11 @@ public class QuickSort {
        - 루트 노드 값을 반환하고 기존 루트 값을 마지막 요소 값과 바꾼 후 힙 사이즈를 감소 (실제로 삭제되는 것은 마지막 노드)
     3. 삭제되는 요소(최대값)들은 값이 감소되는 순서로 배열 뒤에서부터 정렬되게 됨
     4. 힙의 사이즈가 1보다 크면 위의 과정을 반복
+
+  <img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/MaxHeap.gif" width="350">
+  <img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/MaxHeap-Del.gif" width="350">
+  
+  <img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/Heap_del.png" width="600">
 
 - 시간 복잡도
   - 트리의 높이가 완전 이진 트리의 높이인 $logn$이므로 힙에 원소 삽입, 삭제로 재정비하는 시간 $logn$
