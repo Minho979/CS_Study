@@ -8,6 +8,7 @@
 - [삽입 정렬(Insertion Sort)](#삽입-정렬Insertion-Sort)
 - [병합 정렬(Merge Sort)](#병합-정렬Merge-Sort)
 - [퀵 정렬(Quick Sort)](#퀵-정렬Quick-Sort)
+- [힙 정렬(Heap Sort)](#힙-정렬Heap-Sort)
 
 ### 알고리즘(Algorithm)
 - 알고리즘
@@ -476,6 +477,10 @@ public class MergeSort {
      - 부분 리스트 내에서 다시 피벗을 정하고 2개의 부분 리스트로 나누는 과정을 반복
   4. 부분 리스트들이 더 이상 분할이 불가능 할 때까지 반복
      - 리스트의 크기가 0이나 1이 될 때까지 반복
+    
+  ![Quick Sort](https://github.com/Minho979/CS_Study/blob/main/contents/images/QuickSort.gif)
+
+  <img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/QuickSort.png" width="500">
 
 - 특징
   - 상대적으로 작은 메모리만을 사용하기에 제자리 정렬(in-place) 정렬이라고 기술하기도 함
@@ -485,10 +490,6 @@ public class MergeSort {
   - 중복된 키 값의 위치가 정렬 과정에서 바뀔 수 있으므로 불안정 정렬(Unstable sort)
   - 시간 복잡도가 $O(nlogn)$으로 동일한 다른 정렬 알고리즘과 비교했을 때 가장 빠름
     - 불필요한 데이터의 이동을 줄이고 먼 거리의 데이터를 교환하며, 한번 결정된 피벗들이 이후 연산에서 제외되는 특성때문
-
-  ![Quick Sort](https://github.com/Minho979/CS_Study/blob/main/contents/images/QuickSort.gif)
-
-  <img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/QuickSort.png" width="500">
 
 - 시간 복잡도
   - 최선의 경우(균등하게 나뉘어지는 경우) 
@@ -591,3 +592,48 @@ public class QuickSort {
 > - [정렬 알고리즘 6개 정리](https://jinhyy.tistory.com/9)
 > - [[알고리즘] 퀵 정렬(quick sort)이란](https://gmlwjd9405.github.io/2018/05/10/algorithm-quick-sort.html)
 > - [자바 [JAVA] - 퀵 정렬 (Quick Sort)](https://st-lab.tistory.com/250)
+
+### 힙 정렬(Heap Sort)
+- [힙이란?](https://github.com/Minho979/CS_Study/blob/main/contents/DataStructure.md#binary-heap)
+- 개념
+  - 최대 힙 트리나 최소 힙 트리를 구성해 정렬을 하는 방법
+    - 내림차순 정렬은 최대 힙을 이용하고, 오름차순 정렬은 최소 힙을 이용
+  - 불안정 정렬(Unstable Sort)
+  - 제자리 정렬(in-place sort)
+
+- 힙 정렬의 과정
+  - 내림차순 
+    1. 정렬해야 할 n개의 요소들로 최대 힙(완전 이진 트리)을 구성
+    2. 한 번에 하나씩 요소를 힙에서 꺼내서 배열의 뒤에서부터 저장하고 힙의 사이즈를 1 감소
+       - 루트 노드 값을 반환하고 기존 루트 값을 마지막 요소 값과 바꾼 후 힙 사이즈를 감소 (실제로 삭제되는 것은 마지막 노드)
+    3. 삭제되는 요소(최대값)들은 값이 감소되는 순서로 배열 뒤에서부터 정렬되게 됨
+    4. 힙의 사이즈가 1보다 크면 위의 과정을 반복
+
+- 시간 복잡도
+  - 트리의 높이가 완전 이진 트리의 높이인 $logn$이므로 힙에 원소 삽입, 삭제로 재정비하는 시간 $logn$
+  - 요소의 개수는 n개 이므로 전체적으로 $O(nlogn)$시간이 소요
+  - 최선, 평균, 최악 모두 $O(nlogn)$의 시간복잡도를 가짐
+  
+- 공간 복잡도
+  - 추가적인 메모리를 필요로 하지 않는 제자리 정렬로 $O(n)$
+
+- 장점
+  - 어떠한 입력 데이터에 대해서도 $O(nlogn)$ 시간 복잡도를 보장
+  - 추가적인 메모리 용량이 필요 없음
+ 
+- 단점
+  - 실제 프로그램에서 실행되는 경우 평균적인 연산 속도가 퀵 정렬보다 느리고, 불안정함
+
+- 힙 정렬이 유용한 상황
+  - 최대 값 또는 최소 값을 몇 개를 구할 때
+    - 최소 힙 or 최대 힙의 루트 값이기 때문에 한번의 힙 구성을 통해 값을 구할 수 있음
+  - 최대 k만큼 떨어진 요소들을 정렬할 때
+    - 삽입 정렬보다 개선된 결과를 얻을 수 있음 
+
+> ⬆️:[Top](#2-Algorithm)
+> ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#2-Algorithm)
+> 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
+> - Reference
+> - [문병로. 쉽게 배우는 알고리즘. 한빛아카데미]
+> - [이지영. 자바로 배우는 쉬운 자료구조. 한빛아카데미]
+> - [정렬 알고리즘 6개 정리](https://jinhyy.tistory.com/9)
