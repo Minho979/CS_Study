@@ -640,7 +640,57 @@ public class QuickSort {
   - 최대 값 또는 최소 값을 몇 개를 구할 때
     - 최소 힙 or 최대 힙의 루트 값이기 때문에 한번의 힙 구성을 통해 값을 구할 수 있음
   - 최대 k만큼 떨어진 요소들을 정렬할 때
-    - 삽입 정렬보다 개선된 결과를 얻을 수 있음 
+    - 삽입 정렬보다 개선된 결과를 얻을 수 있음
+
+- 구현 코드
+``` java
+public class HeapSort {
+	
+	public static void heapSort(int a[], int size) {
+		heapify(a, size);  // 힙 구조로 재구성
+		
+		// 루트 원소 제거 후 마지막 원소를 루트로 이동 
+		for (int i = size -1; i >= 0; i--) {
+			swap(a, 0, i); // 루트와 마지막 원소 교환 
+			heapify(a, i); // 남은 요소들을 대상으로 최대힙 재구성 
+		}
+	}
+	
+	// 최대 힙 구성 
+	public static void heapify(int a[], int last) {
+		// last = last index
+		
+		// i가 1부터 시작하는 이유는 0은 루트
+		for(int i = 1; i < last; i++) {
+			int child = i; // 자식 인덱스 
+			
+			while (child > 0) {
+				int parent = (child -1) / 2; // 부모 인덱스 계산
+				
+				// 자식이 부모보다 큰 경우 서로 swap
+				if (a[child] > a[parent]) {
+					swap(a, child, parent);
+				}
+				/*
+				 자식 인덱스를 부모 인덱스 값으로 조정하여 
+				 child index가 0이 될 때까지 
+				 자식이 부모보다 큰 경우를 찾아 스왑
+				 0이 되는 경우 루트 노드와의 비교까지 마친 상황이므로 
+				 더 이상 반복할 필요가 없음 
+				 */
+				child = parent; 
+			}
+		}
+	}
+	
+	public static void swap(int a[], int i, int j) {
+		int temp = a[i];
+		a[i] = a[j];
+		a[j]= temp;
+		
+	}
+}
+```
 
 > ⬆️:[Top](#2-Algorithm)
 > ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#2-Algorithm)
