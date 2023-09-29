@@ -72,12 +72,14 @@
   - 단순 연결 리스트 (singly linked list)
   
   ![단순 연결 리스트 구조](https://github.com/Minho979/CS_Study/blob/main/contents/images/SLinkedList.png)
+    
     - 노드에 링크 필드가 하나이며, 링크 필드를 통해 다음 노드와 연결되는 구조
     - 첫번째 노드를 모를 시 접근이 불가능하며, 첫 노드를 알면 모든 노드에 접근 가능
       
   - 원형 연결 리스트 (circular linked list)
   
   ![원형 연결 리스트 구조](https://github.com/Minho979/CS_Study/blob/main/contents/images/CLinkedList.png)
+    
     - 단순 연결 리스트에서 마지막 노드가 리스트의 첫번째 노드와 연결되어 리스트를 원형으로 구성
       
   - 이중 연결 리스트 (doubly linked list)
@@ -127,14 +129,17 @@
   - Value
     - 저장소에 최종적으로 저장되는 값
     - 키와 매칭되어 저장, 삭제, 검색, 접근 가능
+
 - Hash Table 동작 과정
   1. Key -> Hash Function-> Hash = Hash Function 결과
   2. Hash를 배열의 Index로 사용
   3. 해당 Index에 Value 저장, 삭제 수행
      - HashTable 크기가 10일 시 A라는 Key의 Value를 찾을 때 HashFunction("A") % 10 연산을 통해 Index 값을 계산하여 Value 조회
+
 - Hash 충돌 (Collision)
   - 서로 다른 Key가 Hash Function에서 중복 Hash가 나오는 경우
   - 충돌이 많아질수록 탐색 시간 복잡도가 O(1)에서 O(n)으로 증가
+
 - Hash 충돌 해결 방법
   1. Separating Chaining
      - JDK 내부에서 사용하는 충돌 처리 방식
@@ -142,6 +147,7 @@
 
        ![Chaining구조](https://github.com/Minho979/CS_Study/blob/main/contents/images/HashChaining.png)
       [⬆️ h(x) = x % 5의 경우 chaining]
+
      - Linked List 사용 시 충돌이 발생하면 충돌 발생한 Index가 가리키고 있는 Linked List 노드 추가하여 Value 삽입
      - Key에 대한 Value 탐색 시에는 인덱스가 가리키고 있는 Linked List를 선형 검색하여 Value 반환 (삭제도 동일한 방식으로 진행)
      - Linked List 구조의 특성상 추가 데이터 수 제약이 적음
@@ -152,6 +158,7 @@
 
        ![LinearProbing 방식](https://github.com/Minho979/CS_Study/blob/main/contents/images/Linearopen.png)
        [⬆️ h(x) = x % 5의 경우 Linear Probing]
+
        - 충돌이 발생할 시 다음 버킷을 조사하는 방식으로 검색, 저장
          - 검색의 경우 다음 버킷이 비어있거나, 마지막 버킷에 도달한 경우 검색 실패
        
@@ -169,11 +176,13 @@
   - 데이터 캐싱에 많이 사용
     - get, put 기능에 캐시 로직 추가 시 자주 hit하는 데이터 바로 검색 가능
   - 중복 제거 유용
+
 - Hash Table 단점
   - 충돌 발생 가능성
   - 공간 복잡도 증가
   - 순서 무시
   - 해시 함수 의존도
+
 - HashTable vs HashMap
   - Key-Value 구조 및 Key에 대한 Hash로 Value를 관리하는 것은 동일
   - Hash Table
@@ -183,6 +192,7 @@
   - Hash Map
     - 비동기 (멀티 스레드 환경에서 사용시 주의)
     - Key-Value 값으로 null 허용
+
 - Hash Table 성능
   ||평균|최악|
   |---|---|---|
@@ -201,16 +211,20 @@
 - Stack의 개념
 
   ![Stack의 구조](https://github.com/Minho979/CS_Study/blob/main/contents/images/Stack.png)
+
   - 한 끝에서만 자료를 삽입, 삭제할 수 있는 LIFO(Last In First Out) 형식의 자료 구조
+
 - Stack의 연산
   - Stack은 LIFO를 따르기에 가장 최근에 스택에 추가한 항목이 가장 먼저 제거될 항목이다.
     - pop(): 스택에서 가장 위에 있는 항목을 제거한다.
     - push(item): item 하나를 스택의 가장 윗 부분에 추가한다.
     - peek(): 스택의 가장 위에 있는 항목을 반환한다.
     - isEmpty(): 스택이 비어 있을 떄에 true를 반환한다.
+
 - 순차 자료구조 Stack
 
   ![LinearStack 구조](https://github.com/Minho979/CS_Study/blob/main/contents/images/LinearStack.png)
+
   - 1차원 배열을 이용하여 구현
   - 배열의 크기만큼 자료 저장 가능
   - 삽입/삭제 시 자료이동 오버헤드가 발생하지 않음
@@ -222,12 +236,15 @@
   - 순차 자료구조 Stack의 단점
     - 스택 크기 변경의 비효율성
     - 빈 공간으로 메모리 낭비
+
 - 연결 자료구조 Stack
 
   ![LinkedStack 구조](https://github.com/Minho979/CS_Study/blob/main/contents/images/LinkedStack.png)
+
   - 단순 연결 리스트를 이용하여 구현
   - 크기 변경에 자유로우며, 빈 공간으로 인한 메모리 낭비가 없음
   - 모든 연산 시간 복잡도는 O(1)
+
 - Stack의 사용 사례
   - 재귀 알고리즘을 사용하는 경우에 유용
     - 재귀 알고리즘
@@ -259,25 +276,32 @@
 - Queue의 개념
 
   ![Queue의 구조](https://github.com/Minho979/CS_Study/blob/main/contents/images/Queue.png)
+
   - 컴퓨터의 기본적인 자료구조의 한 가지로, 먼저 집어 넣은 데이터가 먼저 나오는 FIFO(First In First Out)구조로 저장
   - 순차 자료구조, 연결 자료구조 Queue의 삽입, 삭제 연산의 시간 복잡도는 O(1)  
+
 - Queue의 연산
   - Queue는 FIFO를 따르기에 가장 처음 저장한 자료가 가장 먼저 삭제된다.
     - add(item): item을 리스트의 끝부분에 추가
     - remove(): 리스트의 첫 번쨰 항목을 제거
     - peek(): 큐에서 가장 앞에 있는 항목을 반환, 비어있는 경우 null 반환
     - isEmpty(): 큐가 비어 있을 때 true 반환
+
 - 배열을 이용한 Queue
   - Queue의 크기 = 배열의 크기
   - 선형 Queue
 
     ![LinearQueue 구조](https://github.com/Minho979/CS_Study/blob/main/contents/images/LinearQueue.png)
+
     - 구현 간편하나 삽입, 삭제가 반복될 시 빈자리가 있지만 포화상태로 인식하는 문제 발생 가능
+
   - 원형 Queue
 
     ![CircularQueue 구조](https://github.com/Minho979/CS_Study/blob/main/contents/images/CircularQueue.png)
+
     - 1차 배열을 사용하되 논리적으로 처음과 끝이 연결되어 있다고 가정하고 사용
     - 선형 Queue의 포화상태 문제를 해결
+
 - 연결리스트를 이용한 Queue
 
   <img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/LinkedQueue.png" width="430" height="200">
@@ -288,6 +312,7 @@
 - Deque (Double-ended queue)
 
   ![Deque 구조](https://github.com/Minho979/CS_Study/blob/main/contents/images/Deque.png)
+
   - 양 끝에서 삽입, 삭제 연산이 모두 가능한 선형 자료구조
     - 양 쪽에서 연산이 이루어지므로 순차자료구조를 이용할 시 순서 변화가 많아 비효율적
   - 이중 연결리스트를 이용하여 구현
@@ -339,6 +364,7 @@
    - 방향 그래프(directed graph)
 
     ![digraph](https://github.com/Minho979/CS_Study/blob/main/contents/images/digraph.png)
+    
     - 간선에 방향이 있는 그래프
     - 다이그래프(digraph)라고도 부름
     - <v1, v2>와 <v2, v1>은 다른 간선
@@ -347,12 +373,14 @@
   - 완전 그래프(complete graph)
 
     ![completeGraph](https://github.com/Minho979/CS_Study/blob/main/contents/images/completeGraph.png)
+
     - 각 정점에서 다른 모든 정점으로의 간선이 존재하는 그래프
       - 주어진 정점 수에 대해 간선 수가 최대
 
   - 가중 그래프(weighted graph)
 
     ![weightedGraph](https://github.com/Minho979/CS_Study/blob/main/contents/images/weightedGraph.png)
+
     - 간선에 가중치(weight)가 주어진 그래프
       - 가중치는 두 정점 사이의 비용이나 거리, 시간 등을 의미하는 값
     - 가중치를 이용하여 최소 비용, 최대 비용 등을 계산하는데 이용 가능
@@ -406,6 +434,7 @@
 - Tree의 개념
 
   ![Tree](https://github.com/Minho979/CS_Study/blob/main/contents/images/Tree.png)
+
   - 트리는 노드 구조로 이루어진 자료구조
     1. 트리는 하나의 루트 노드를 가짐
     2. 루트 노드는 0개 이상의 자식 노드를 가짐
@@ -426,14 +455,17 @@
   - 이진 트리 (Binary Tree)
     
     ![BinaryTree](https://github.com/Minho979/CS_Study/blob/main/contents/images/BinaryTree.png)
+
     - Tree의 차수를 2이하가 되도록 제한한 트리
       - 왼쪽, 오른쪽 자식 노드만을 가지도록 제한
     - 이진 트리가 아닌 트리도 이진 트리로 변환하여 다룰 수 있음
+      
       ![general-binary](https://github.com/Minho979/CS_Study/blob/main/contents/images/general-binaryTree.png)
 
     - 재귀적 구성
       
       ![subTree](https://github.com/Minho979/CS_Study/blob/main/contents/images/subTree.png)
+
       - 루트 노드의 왼쪽 자식 노드를 루트로 하는 서브트리도 이진트리
       - 루트 노드이 오른쪽 자식 노드를 루트로 하는 서브트리도 이진트리
       - 공백 트리 또한 이진트리
@@ -445,11 +477,13 @@
       - 완전 이진 트리(Complete Binary Tree)
         
         ![completebinarytree](https://github.com/Minho979/CS_Study/blob/main/contents/images/completebinarytree.png)
+
         - 높이가 h일 때, 레벨 0부터 h-1 까진 포화 상태이고 h레벨에서는 왼쪽부터 차례대로 노드가 채워진 이진 트리
         - 포화 이진 트리도 완전 이진 트리의 한 종류
       - 편향 이진 트리(Skewed Binary Tree)
         
         ![skewedbinarytree](https://github.com/Minho979/CS_Study/blob/main/contents/images/skewedbinarytree.png)
+
         - 높이 h에 대한 최소 노드 개수(h+1)를 가지면서 한쪽 방향 자식 노드만을 가진 이진 트리
           - 좌편향 이진 트리, 우편향 이진 트리로 나뉨
     - 이진 트리의 순회(traversal)
@@ -460,6 +494,7 @@
         - D-L-R 순서로 진행
        
         ![preoredr](https://github.com/Minho979/CS_Study/blob/main/contents/images/Tree%20preorder.png)
+
       - 중위 순회
         1. 현재 노드 T의 왼쪽 서브트리를 중위 순회: L
         2. 현재 노드 T를 방문하여 처리: D
@@ -467,6 +502,7 @@
         - L-D-R 순서로 진행하며, 빈공간이 있을 시 빈공간에 노드가 있다고 가정하고 순회함
    
         ![inoredr](https://github.com/Minho979/CS_Study/blob/main/contents/images/Tree-inorder.png)
+
       - 후위 순회
         1. 현재 노드 T의 왼쪽 서브트리를 후위 순회: L
         2. 현재 노드 T의 오른쪽 서브트리를 후위 순회: R
@@ -513,10 +549,12 @@
             - 해당 노드만 삭제
               
             ![TreeDelCase1](https://github.com/Minho979/CS_Study/blob/main/contents/images/tree-del-case1.png)
+
           - [case2] 삭제할 노드가 하나의 자식 노드를 가진 경우 (후속처리 필요)
             - 해당 노드 삭제 후 삭제된 노드의 자리를 자식 노드가 위치하게 한다
               
             ![TreeDelCase2](https://github.com/Minho979/CS_Study/blob/main/contents/images/tree-del-case2.png)
+
           - [case3] 삭제할 노드가 두개의 자식 노드를 가진 경우 (후속처리 필요)
             - 해당 노드 삭제 후 자식 노드 중 후계자를 선택하여 위치하게 한다
               - 왼쪽 서브트리에서 가장 큰 노드
@@ -648,8 +686,12 @@
        - 현재 위치에서 부모 노드와 비교하여 크기 관계를 확인
        - (현재 부모 노드의 키 값 ≥ 삽입 원소의 키 값)의 관계가 성립하지 않으면, 현재 부모 노드의 원소와 삽입 원소의 자리를 서로 바꿈
     - 노드 수가 n 일때 연산 시간 복잡도는 O(log n)
-    ![Heap_insert1](https://github.com/Minho979/CS_Study/blob/main/contents/images/heap_insert_case1.png)
-    ![Heap_insert2](https://github.com/Minho979/CS_Study/blob/main/contents/images/Heap_insert_case2.png)
+
+    ![Max Heap_insert](https://github.com/Minho979/CS_Study/blob/main/contents/images/MaxHeap.gif)
+    ![Max Heap_insert1](https://github.com/Minho979/CS_Study/blob/main/contents/images/heap_insert_case1.png)
+    ![Max Heap_insert2](https://github.com/Minho979/CS_Study/blob/main/contents/images/Heap_insert_case2.png)
+
+    
   - 삭제
     - 힙에서는 루트 노드의 원소만을 삭제 가능
     1. 루트 노드의 원소를 삭제하여 반환
@@ -660,7 +702,10 @@
        - 현재 위치에서 자식 노드와 비교하여 크기 관계를 확인
        - (임시 저장한 원소의 키 값 ≥ 현재 자식 노드의 키 값)의 관계가 성립하지 않으면, 현재 자식 노드의 원소와 임시 저장한 원소의 자리를 서로 바꿈
     - 노드 수가 n일때 연산 시간 복잡도는 O(log n)
-    ![Heap_del](https://github.com/Minho979/CS_Study/blob/main/contents/images/Heap_del.png)
+   
+    ![Max Heap-del](https://github.com/Minho979/CS_Study/blob/main/contents/images/MaxHeap-Del.gif)
+    
+    ![Max Heap_del](https://github.com/Minho979/CS_Study/blob/main/contents/images/Heap_del.png)
 
 > ⬆️:[Top](#1-DataStructure)
 > ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#1-data-structure)
