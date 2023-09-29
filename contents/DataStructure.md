@@ -712,6 +712,7 @@
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
 > - Reference
 > - [이지영. 지바로 배우는 쉬운 자료구조. 한빛아카데미]
+> - [Heap Data Structures](https://www.tutorialspoint.com/data_structures_algorithms/heap_data_structure.htm)
   
 ### Red-Black Tree
 - 개요
