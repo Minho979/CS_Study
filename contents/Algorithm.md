@@ -723,15 +723,36 @@ public class HeapSort {
   3\. Count가 완성되면 Count의 각 요소들을 누적합으로 합산
      - Count[i] = Count[i] + Count[i-1]
   
-  4\. A의 가장 뒤에서부터 값을 꺼내 해당 값을 B의 인덱스로 사용하고 참조된 B의 값을 하나 감소
-     - B[A[i]]--
+  4\. A의 가장 뒤에서부터 값을 꺼내 해당 값을 Count의 인덱스로 사용하고 참조된 B의 값을 하나 감소
+     - Count[A[i]]--
   
   5\. 감소된 B의 값을 C의 인덱스로 사용해 A에서 꺼낸 값을 삽입
-     - C[B[A[i]]] = A[i]
+     - B[Count[A[i]]] = A[i]
   
   6\. A의 모든 요소에 대해 4번 5번 과정을 반복한다 
 
 - 예시
+
+  <img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/CountSortEx1.png" width="500">
+  
+  - 배열 A를 입력받고 배열 Count와 B를 준비
+    - 이때 Count의 크기는 A의 Value 값이 B의 인덱스이므로 A의 `최대값 +1`으로 설정
+  <img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/CountSortEx2.png" width="500">
+
+  - A를 순회하며 등장하는 값들의 등장 횟수를 Count에 저장 `Count[A[i]]++`
+  <img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/CountSortEx3.png" width="500">
+
+  - 1차로 완성된 Count를 누적 합으로 업데이트 `Count[i] = Count[i] + Count[i-1]`
+  <img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/CountSortEx4.png" width="500">
+
+  - A의 맨 뒤에서부터 값을 하나씩 꺼내서 Count 인덱스로 접근 후 하나 감소 `Count[A[i]]--`
+    - 배열 Count에서 3번 인덱스의 값은 6으로 이는 배열 A에 3보다 작거나 같은 수가 6개 존재한다는 의미
+  - 해당 값을 B의 인덱스로 접근 후 꺼낸 값을 저장 `B[Count[A[i]]] = A[i]`
+  - A[0]까지 반복
+  <img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/CountSortEx5.png" width="500">
+
+  - 반복하여 정렬 완료
+
 
 - 시간 복잡도
   - Count 배열 생성에 필요한 시간 $O(n)$
