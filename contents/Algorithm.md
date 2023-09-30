@@ -9,6 +9,7 @@
 - [병합 정렬(Merge Sort)](#병합-정렬Merge-Sort)
 - [퀵 정렬(Quick Sort)](#퀵-정렬Quick-Sort)
 - [힙 정렬(Heap Sort)](#힙-정렬Heap-Sort)
+- [계수 정렬 (Count Sort)](#계수-정렬Count-Sort)
 
 ### 알고리즘(Algorithm)
 - 알고리즘
@@ -599,6 +600,7 @@ public class QuickSort {
 
 ### 힙 정렬(Heap Sort)
 - [힙이란?](https://github.com/Minho979/CS_Study/blob/main/contents/DataStructure.md#binary-heap)
+
 - 개념
   
   ![HeapSort](https://github.com/Minho979/CS_Study/blob/main/contents/images/HeapSort.gif)
@@ -701,3 +703,54 @@ public class HeapSort {
 > - [정렬 알고리즘 6개 정리](https://jinhyy.tistory.com/9)
 > - [[알고리즘] 힙 정렬(heap sort)이란](https://gmlwjd9405.github.io/2018/05/10/algorithm-heap-sort.html)
 > - [Heap Data Structures](https://www.tutorialspoint.com/data_structures_algorithms/heap_data_structure.htm)
+
+### 계수 정렬 (Count Sort)
+- 개념
+  - 비교 연산을 사용하지 않고, 배열 내에서 특정 값이 등장하는 횟수를 통해 정렬을 수행
+
+- 제약 사항
+  - 데이터 값은 양수
+  - 데이터 값의 범위가 O(n) 범위에 있을 때 사용 가능
+    - 값의 범위가 메모리 사이즈가 넘지 않도록 너무 크지 않아야 함
+
+- 원리
+  1. 입력 받은 배열 A의 요소 값의 등장 횟수를 카운팅할 배열 Count와 최종적으로 정렬된 값을 담을 배열 B를 설정
+  2. 배열 A에서 값을 하나씩 꺼내 해당 값을 Count의 인덱스로 사용해 Count의 요소 값을 하나 증가
+     - Count[A[i]]++
+  3. Count가 완성되면 Count의 각 요소들을 누적합으로 합산
+     - Count[i] = Count[i] + Count[i-1]
+  4. A의 가장 뒤에서부터 값을 꺼내 해당 값을 B의 인덱스로 사용하고 참조된 B의 값을 하나 감소
+     - B[A[i]]--
+  5. 감소된 B의 값을 C의 인덱스로 사용해 A에서 꺼낸 값을 삽입
+     - C[B[A[i]]] = A[i]
+  6. A의 모든 요소에 대해 4번 5번 과정을 반복한다 
+
+- 예시
+
+- 시간 복잡도
+  - Count 배열 생성에 필요한 시간 $O(n)$
+  - Count 배열 뒤에서부터 순회하여 값을 채우는 시간 $O(n)$
+  - 최악의 경우 $O(n+k)$
+    - k는 음이 아닌 키 값의 범위를 의
+
+- 공간 복잡도
+  - 추가적인 배열을 생성하기에 $O(n)$
+
+- 장점
+  - 비교 연산이 없어 빠른 수행시간 $O(n)$을 보장
+    - 해당 성능을 보장하기 위해서는 데이터의 명확한 제한이 필요
+  - 안정 정렬(Stable Sort)
+
+- 단점
+  - 정렬을 하기 위한 추가적인 메모리가 필요
+  - 카운팅을 하기 위한 배열의 길이가 최대값에 의해 결정되어 메모리 낭비가 발생할 수 있음
+  - 데이터의 수보다 배열의 크기가 클 경우 비효율적
+    - (1, 10000) 두 개의 값만 가지더라도 Count 배열의 크기는 10001
+  - 음수가 섞인 경우 사용 불가하며 명확한 데이터 제한이 필요
+
+> ⬆️:[Top](#2-Algorithm)
+> ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#2-Algorithm)
+> 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
+> - Reference
+> - [문병로. 쉽게 배우는 알고리즘. 한빛아카데미]
+> - [알고리즘 6일차 - O(n) 정렬, 계수 정렬](https://velog.io/@chappi/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-6%EC%9D%BC%EC%B0%A8-On-%EC%A0%95%EB%A0%AC-%EA%B3%84%EC%88%98-%EC%A0%95%EB%A0%AC)
