@@ -9,7 +9,7 @@
 - [병합 정렬(Merge Sort)](#병합-정렬Merge-Sort)
 - [퀵 정렬(Quick Sort)](#퀵-정렬Quick-Sort)
 - [힙 정렬(Heap Sort)](#힙-정렬Heap-Sort)
-- [계수 정렬 (Count Sort)](#계수-정렬Count-Sort)
+- [계수 정렬(Count Sort)](#계수-정렬Count-Sort)
 
 ### 알고리즘(Algorithm)
 - 알고리즘
@@ -704,7 +704,7 @@ public class HeapSort {
 > - [[알고리즘] 힙 정렬(heap sort)이란](https://gmlwjd9405.github.io/2018/05/10/algorithm-heap-sort.html)
 > - [Heap Data Structures](https://www.tutorialspoint.com/data_structures_algorithms/heap_data_structure.htm)
 
-### 계수 정렬 (Count Sort)
+### 계수 정렬(Count Sort)
 - 개념
   - 비교 연산을 사용하지 않고, 배열 내에서 특정 값이 등장하는 횟수를 통해 정렬을 수행
 
