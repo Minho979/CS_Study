@@ -774,6 +774,55 @@ public class HeapSort {
   - 데이터의 수보다 배열의 크기가 클 경우 비효율적
     - (1, 10000) 두 개의 값만 가지더라도 Count 배열의 크기는 10001
   - 음수가 섞인 경우 사용 불가하며 명확한 데이터 제한이 필요
+ 
+- 구현 코드
+``` java
+public class CountSort {
+
+	public static void countSort(int[] a) {
+		// count 배열 생성 (수의 범위 1~3)
+		int[] count = new int[4];
+		
+		/* 
+		교체 작업을 진행할 a의 값을 가진 배열 (예제 A배열에 해당)
+		void 이므로 B에 해당하는 배열은 매개변수 a
+		*/
+		int[] sorted = new int[a.length]; 
+		
+		for (int i = 0; i < a.length; i++) {
+			sorted[i] = a[i];
+		}
+		
+		// 원소 개수 count
+		for (int i = 0; i < a.length; i++) {
+			count[a[i]] ++;
+		}
+		
+		// 누적 합 
+		for (int i = 1; i < count.length; i++) {
+			count[i] += count[i-1];
+		}
+		
+		// 교체 작업 
+		for (int i = a.length -1; i >= 0; i--) {
+			int value = sorted[i];
+			count[value]--; // 최대 개수가 인덱스 범위 밖이기에 선차감 
+			a[count[value]] = value;
+		}		
+	}
+	
+	public static void main(String[] args) {
+		int[] a = {1, 2, 1, 1, 3, 3};
+		countSort(a);
+		for (int i =0; i<a.length; i++){
+			System.out.printf(" %d", a[i]);
+		}
+
+	}
+
+}
+
+```
 
 > ⬆️:[Top](#2-Algorithm)
 > ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#2-Algorithm)
