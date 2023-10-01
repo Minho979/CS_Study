@@ -913,7 +913,7 @@ public class RadixSort {
 	
 	public static void radixSort(int[] a, int bucketSize) {
 		
-		//bucket 생성 및 초기화 
+		// bucket 생성 및 초기화 
 		Queue<Integer>[] bucket = new LinkedList[bucketSize];
 		for (int i = 0; i < bucketSize; i++) {
 			bucket[i] = new LinkedList<>(); 
@@ -921,9 +921,9 @@ public class RadixSort {
 		
 		int maxLen = maxDigitCount(a); // 최대 자리수 저장 변수 
 		
-		int divfac = 1;				   // 나눠주는 요소 
+		int divfac = 1;		       // 나눠주는 요소 
 		
-		int size = a.length;		   // 배열 길이 
+		int size = a.length;	       // 배열 길이 
 		
 		/*
 		 배열 원소들을 버킷에 삽인 후 삭제하여 
