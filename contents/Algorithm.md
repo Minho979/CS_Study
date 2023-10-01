@@ -903,6 +903,99 @@ public class CountSort {
   - 기수만큼의 추가 메모리 공간(버킷 공간)을 요구함
     - 비 제자리 정렬(out of place sort) 
   - 버킷의 크기를 모든 케이스에 알맞게 정의하기 어려움
+ 
+- 구현 코드
+```java
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class RadixSort {
+	
+	public static void radixSort(int[] a, int bucketSize) {
+		
+		//bucket 생성 및 초기화 
+		Queue<Integer>[] bucket = new LinkedList[bucketSize];
+		for (int i = 0; i < bucketSize; i++) {
+			bucket[i] = new LinkedList<>(); 
+		}
+		
+		int maxLen = maxDigitCount(a); // 최대 자리수 저장 변수 
+		
+		int divfac = 1;				   // 나눠주는 요소 
+		
+		int size = a.length;		   // 배열 길이 
+		
+		/*
+		 배열 원소들을 버킷에 삽인 후 삭제하여 
+		 재배열하는 과정을 자리수의 크기(maxLen)번 반복 
+		 */
+		for (int d = 0; d < maxLen; d++) {
+			/*
+			 값을 divfac으로 나누고 %10을 통해 
+			 나머지를 구한 뒤 radix 저장하고 
+			 radix를 인덱스로 하는 bucket에 a[i] 값 저장 
+			 */
+			for (int i = 0; i < size; i++) {
+				int radix = (a[i] / divfac) % 10;
+				bucket[radix].add(a[i]);
+			}
+			
+			int ap = 0; // array index pointer
+			
+			for (int i = 0; i < bucketSize; i++) {
+				/*
+				 bucket[i]가 빈 상태가 아닐 때 
+				 bucket[i]에서 값을 꺼내어 
+				 a[ap]에 저장 후 ap++ 
+				 */
+				while (!bucket[i].isEmpty()) {
+					a[ap++] = bucket[i].remove();
+				}
+			}
+			
+			divfac *= 10; // 나눠주는 요소에 10 곱해 자리수 이동
+		}
+	}
+	
+	
+	// 원소 중 가장 큰 자리수를 반환 
+	private static int maxDigitCount(int[] a) {
+		int max = 0;
+		
+		// 최대값을 구함
+		for (int i = 0; i < a.length; i++) {
+			if (max < a[i]) {
+				max = a[i];
+			}
+		}
+		
+		/*
+		 숫자의 자리수를 구하는 연산
+		 log10을 취해주면 자리수가 나옴 
+		 log10(10) = 1, log10(100) = 2
+		 maxDigitCount(10) = 2 
+		 maxDigitCount(2301) = 4
+		 */
+		max = (int) Math.log10(max)+1;
+		
+		return max;
+
+	}
+
+	public static void main(String[] args) {
+		final int bucketSize = 10;
+		
+		int[] a = {30, 20, 4, 2, 33, 6, 2000, 300, 312, 31, 55, 3, 22, 6, 34, 2301, 32};
+		radixSort(a, bucketSize);
+		for (int i =0; i<a.length; i++){
+			System.out.printf(" %d", a[i]);
+		}
+
+	}
+
+}
+
+```
 
 > ⬆️:[Top](#2-Algorithm)
 > ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#2-Algorithm)
