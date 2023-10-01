@@ -858,6 +858,27 @@ public class CountSort {
   5\. 위의 과정을 가장 큰 자리수까지 반복
 
 - 예시
+  
+  <img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/RadixSort1.png" width="500">
+  
+  - 최대 자리수 두자리 10진수 -> 버킷 10개, 정렬 2단계 수행
+  
+  <img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/RadixSort2.png" width="500">
+
+  - 각 원소를 일의 자리 값에 따라서 순서대로 버킷 분배
+  
+  <img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/RadixSort3.png" width="500">
+
+  - 버킷에 분배된 원소들을 순서대로 꺼내서 저장
+  
+  <img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/RadixSort4.png" width="500">
+
+  - 각 원소를 십의 자리 값에 따라서 순서대로 버킷 분배
+  
+  <img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/RadixSort5.png" width="500">
+
+  - 버킷에 분배된 원소들을 순서대로 꺼내서 저장하여 정렬 종료
+  - 더 긴 자리의 경우 백의 자리, 천의 자리 등에 대해 동일한 과정을 반복하여 정렬할 수 있음 
 
 - 시간 복잡도
   - 정렬할 원소의 수(n), 가장 긴 값의 자리수(d), 버킷 수를 결정하는 기수(r)의 영향을 받음
@@ -888,3 +909,5 @@ public class CountSort {
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
 > - Reference
 > - [문병로. 쉽게 배우는 알고리즘. 한빛아카데미]
+> - [이지영. 자바로 배우는 쉬운 자료구조. 한빛아카데미]
+> - [[JAVA] 기수 정렬 (Radix Sort)](https://banjjak1.tistory.com/52)
