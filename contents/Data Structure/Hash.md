@@ -1,4 +1,4 @@
-# HashTable
+# Hash
 ## HashTable의 개념
   - Key와 Value를 1:1로 연관지어 저장하는 자료구조(연관배열 구조)
   - Key를 Hash Function를 통해 Hash를 찾아 Value를 도출
