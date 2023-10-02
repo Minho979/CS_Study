@@ -60,7 +60,7 @@
     
     ![Max Heap_del](https://github.com/Minho979/CS_Study/blob/main/contents/images/Heap_del.png)
 
-> ⬆️:[Top](#BinaryHeap)
+> ⬆️:[Top](#Binary-Heap)
 > ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#1-data-structure)
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
 > - Reference
