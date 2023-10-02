@@ -48,7 +48,7 @@
   - JDK 내부에서 사용하는 충돌 처리 방식
   - Linked List(data 6개 이하) 또는 Red-Black Tree(data 8개 이상) 사용
 
-  ![Chaining구조](https://github.com/Minho979/CS_Study/blob/main/contents/images/HashChaining.png)
+  <img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/HashChaining.png" width="600">
       [⬆️ h(x) = x % 5의 경우 chaining]
 
   - Linked List 사용 시 충돌이 발생하면 충돌 발생한 Index가 가리키고 있는 Linked List 노드 추가하여 Value 삽입
@@ -61,7 +61,7 @@
   - Separating Chaining 방식에 비해 적은 메모리 사용
   - Linear Probing, Quadratic Probing, Double Hashing 방식으로 나뉨
 
-  ![LinearProbing 방식](https://github.com/Minho979/CS_Study/blob/main/contents/images/Linearopen.png)
+  <img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/Linearopen.png" width="500">
        [⬆️ h(x) = x % 5의 경우 Linear Probing]
 
   - 충돌이 발생할 시 다음 버킷을 조사하는 방식으로 검색, 저장
