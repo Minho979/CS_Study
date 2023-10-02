@@ -105,7 +105,7 @@
   |삽입|O(1)|O(N)|
   |삭제|O(1)|O(N)|
 
-> ⬆️:[Top](#1-DataStructure)
+> ⬆️:[Top](#Hash)
 > ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#1-data-structure)
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
 > - Reference
