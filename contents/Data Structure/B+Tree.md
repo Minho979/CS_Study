@@ -147,7 +147,7 @@
 
       <img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/B%2BTree-Del2.png" width="600">
 
-> ⬆️:[Top](#B+-Tree)
+> ⬆️:[Top](#B-Tree)
 > ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#1-data-structure)
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
 > - Reference
