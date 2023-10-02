@@ -153,7 +153,7 @@
       
   - **Case 2: x의 부모의 형제가 BLACK인 경우**
     - x의 부모의 형제가 BLACK인 경우 실제로 BLACK 노드일 수도 있고, NIL 노드일 수도 있다
-    - Case 2-1: x가 오른쪽 자식인 경우
+    - **Case 2-1: x가 오른쪽 자식인 경우**
       - p[x]에 대해서 left-rotation한 후 원래 p[x]를 x로 변경
       - Case 2-2로 이동
       
