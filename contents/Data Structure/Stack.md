@@ -56,7 +56,7 @@
       - 예) 올바른 괄호 문자열(VPS, Valid Parenthesis String) 판단하기
     - 후위 표기법 계산
 
-> ⬆️:[Top](#1-DataStructure)
+> ⬆️:[Top](#Stack)
 > ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#1-data-structure)
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
 > - Reference
