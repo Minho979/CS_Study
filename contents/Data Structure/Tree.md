@@ -195,7 +195,7 @@
     - 3가지 모두 DFS/BFS 안에 속함
   - 트리는 이진 트리(Binary Tree), 이진 탐색 트리(Binary Search Tree), 군형 트리(AVL 트리, Red-Black 트리 등), 이진 힙(최대힙, 최소힙) 등이 있음
 
-> ⬆️:[Top](#1-DataStructure)
+> ⬆️:[Top](#Tree)
 > ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#1-data-structure)
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
 > - Reference
