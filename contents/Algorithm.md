@@ -602,7 +602,7 @@ public class QuickSort {
 > - [자바 [JAVA] - 퀵 정렬 (Quick Sort)](https://st-lab.tistory.com/250)
 
 ### 힙 정렬(Heap Sort)
-- [힙이란?](https://github.com/Minho979/CS_Study/blob/main/contents/DataStructure.md#binary-heap)
+- [힙이란?](https://github.com/Minho979/CS_Study/blob/main/contents/Data%20Structure/Binary%20Heap.md)
 
 - 개념
   
@@ -844,7 +844,7 @@ public class CountSort {
   - 기수에 따른 추가 버킷 공간이 필요
     - Ex) 10진수 -> 기수 10 -> 버킷 10개 요구
     - 버킷: 기수만큼 Queue를 이용해 만든 저장공간
-    - [Queue란?](https://github.com/Minho979/CS_Study/blob/main/contents/DataStructure.md#queue)
+    - [Queue란?](https://github.com/Minho979/CS_Study/blob/main/contents/Data%20Structure/Queue.md)
   - 안정정렬
  
 - 기수 정렬 과정
