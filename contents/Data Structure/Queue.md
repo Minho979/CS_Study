@@ -72,7 +72,7 @@
   - 크기가 가변적
 
 
-> ⬆️:[Top](#1-DataStructure)
+> ⬆️:[Top](#Queue)
 > ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#1-data-structure)
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
 > - Reference
