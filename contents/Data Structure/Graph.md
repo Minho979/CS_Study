@@ -80,7 +80,7 @@
   - 그래프는 크게 방향 그래프와 무방향 그래프가 있음
   - 간선의 유무는 그래프에 따라 다름
 
-> ⬆️:[Top](#1-DataStructure)
+> ⬆️:[Top](#Graph)
 > ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#1-data-structure)
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
 > - Reference
