@@ -11,6 +11,8 @@
 - [힙 정렬(Heap Sort)](#힙-정렬Heap-Sort)
 - [계수 정렬(Count Sort)](#계수-정렬Count-Sort)
 - [기수 정렬(Radix Sort)](#기수-정렬Radix-Sort)
+- [선택 알고리즘(Selection Algorithm)](#선택-알고리즘Selection-Algorithm)
+- [이분 탐색(Binary Search)](#이분-탐색Binary-Search)
 
 ### 알고리즘(Algorithm)
 - 알고리즘
@@ -1004,3 +1006,22 @@ public class RadixSort {
 > - [문병로. 쉽게 배우는 알고리즘. 한빛아카데미]
 > - [이지영. 자바로 배우는 쉬운 자료구조. 한빛아카데미]
 > - [[JAVA] 기수 정렬 (Radix Sort)](https://banjjak1.tistory.com/52)
+
+### 선택 알고리즘(Selection Algorithm)
+- 개념
+  
+
+> ⬆️:[Top](#2-Algorithm)
+> ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#2-Algorithm)
+> 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
+> - Reference
+> - [문병로. 쉽게 배우는 알고리즘. 한빛아카데미]
+> - [이지영. 자바로 배우는 쉬운 자료구조. 한빛아카데미]
+
+### 이분 탐색(Binary Search)
+- 개념
+
+> ⬆️:[Top](#2-Algorithm)
+> ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#2-Algorithm)
+> 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
+> - Reference
