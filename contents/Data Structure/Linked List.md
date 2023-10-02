@@ -50,9 +50,10 @@
 ## Linked List 연산 
 #### 노드 삽입
 - Node A와 C 사이에 B를 삽입하고자 할 때, B가 C를 가리키게 한 후, A가 B를 가리키게 한다.
+  <img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/LinkedList-Insert.png" width="500">
 #### 노드 삭제
 - Node A, B, C가 차례로 연결되어 있을 때 B를 삭제하는 경우 A가 C를 가리키게한 후 Node B를 삭제한다.
-
+  <img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/LinkedList-Del.png" width="500">
 > ⬆️:[Top](#1-DataStructure)
 > ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#1-data-structure)
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
