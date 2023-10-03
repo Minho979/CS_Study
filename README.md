@@ -5,8 +5,8 @@
 > CS를 공부하는 Repository인 만큼 내용에 오류가 있을 수 있습니다.
 
 ## 📖Contents
-- [Data Structure](#1-Data-Structure)
-- [Algorithm](#2-Algorithm)
+- [Data Structure](#Data-Structure)
+- [Algorithm](#Algorithm)
 ***
 
 ### 📁 Data Structure
