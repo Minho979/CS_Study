@@ -158,7 +158,7 @@
   <img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/BTreeTime.jpeg" width=500>
 
 > ⬆️:[Top](#B\-Tree)
-> ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#1-data-structure)
+> ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#data-structure)
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
 > - Reference
 > - [문병로. 쉽게 배우는 알고리즘. 한빛아카데미]
