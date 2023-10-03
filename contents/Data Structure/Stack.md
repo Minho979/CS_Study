@@ -57,7 +57,7 @@
     - 후위 표기법 계산
 
 > ⬆️:[Top](#Stack)
-> ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#data-structure)
+> ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#-Data-Structure)
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
 > - Reference
 > - [이지영. 지바로 배우는 쉬운 자료구조. 한빛아카데미]
