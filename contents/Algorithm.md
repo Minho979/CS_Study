@@ -14,5 +14,5 @@
 - [선택 알고리즘(Selection Algorithm)](#선택-알고리즘Selection-Algorithm)
 - [이분 탐색(Binary Search)](#이분-탐색Binary-Search)
 ***
-> ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#Algorithm)
+> ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#%EF%B8%8F-Algorithm)
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
