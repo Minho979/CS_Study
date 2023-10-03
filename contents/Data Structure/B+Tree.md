@@ -148,7 +148,7 @@
       <img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/B%2BTree-Del2.png" width="600">
 
 > ⬆️:[Top](#B-Tree)
-> ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#1-data-structure)
+> ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#data-structure)
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
 > - Reference
 > - [[자료구조] 그림으로 알아보는 B+Tree](https://velog.io/@emplam27/자료구조-그림으로-알아보는-B-Plus-Tree)
