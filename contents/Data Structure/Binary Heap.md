@@ -61,7 +61,7 @@
     ![Max Heap_del](https://github.com/Minho979/CS_Study/blob/main/contents/images/Heap_del.png)
 
 > ⬆️:[Top](#Binary-Heap)
-> ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#1-data-structure)
+> ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#data-structure)
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
 > - Reference
 > - [이지영. 지바로 배우는 쉬운 자료구조. 한빛아카데미]
