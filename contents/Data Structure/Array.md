@@ -30,7 +30,7 @@
     - 선언된 배열의 사용하지 않는 공간에 메모리가 할당되어 메모리 낭비가 발생한다.
 
 > ⬆️:[Top](#Array)
-> ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#data-structure)
+> ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#-Data-Structure)
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
 > - Reference
 > - [이지영. 지바로 배우는 쉬운 자료구조. 한빛아카데미]
