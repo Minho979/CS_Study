@@ -55,7 +55,7 @@
 - Node A, B, C가 차례로 연결되어 있을 때 B를 삭제하는 경우 A가 C를 가리키게한 후 Node B를 삭제한다.
   <img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/LinkedList-Del.png" width="500">
 > ⬆️:[Top](#LinkedList)
-> ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#data-structure)
+> ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#-Data-Structure)
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
 > - Reference
 > - [이지영. 지바로 배우는 쉬운 자료구조. 한빛아카데미]
