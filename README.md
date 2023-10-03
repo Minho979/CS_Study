@@ -23,7 +23,7 @@
 - [Binary Heap](https://github.com/Minho979/CS_Study/blob/main/contents/Data%20Structure/Binary%20Heap.md)
 - [Red-Black Tree](https://github.com/Minho979/CS_Study/blob/main/contents/Data%20Structure/Red-Black%20Tree.md)
 - [B-Tree](https://github.com/Minho979/CS_Study/blob/main/contents/Data%20Structure/B-Tree.md)
-- [B+ Tree](https://github.com/Minho979/CS_Study/blob/main/contents/Data%20Structure/B%2BTree.md)
+- [B+Tree](https://github.com/Minho979/CS_Study/blob/main/contents/Data%20Structure/B%2BTree.md)
 
 ### 🗒️ Algorithm
 📑 [INDEX](https://github.com/Minho979/CS_Study/blob/main/contents/Algorithm.md)
