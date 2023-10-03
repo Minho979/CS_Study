@@ -6,7 +6,7 @@
 
 ## 📖Contents
 - [📁 Data Structure](#-Data-Structure)
-- [🗒️ Algorithm](#-Algorithm)
+- [🗒️ Algorithm](#%EF%B8%8F-Algorithm)
 ***
 
 ### 📁 Data Structure
