@@ -160,7 +160,7 @@ public class RadixSort {
 
 ```
 
-> ⬆️:[Top](기수-정렬Radix-Sort)
+> ⬆️:[Top](#기수-정렬Radix-Sort)
 > ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#2-Algorithm)
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
 > - Reference
