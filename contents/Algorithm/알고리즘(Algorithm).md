@@ -7,7 +7,7 @@
     - 문제의 요구조건은 입력과 출력으로 명시 가능
 
 > ⬆️:[Top](#알고리즘Algorithm)
-> ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#2-Algorithm)
+> ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#Algorithm)
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
 > - Reference
 > - [문병로. 쉽게 배우는 알고리즘. 한빛아카데미]
