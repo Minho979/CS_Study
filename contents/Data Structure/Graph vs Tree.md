@@ -13,7 +13,7 @@
 |예시 및 종류|지도, 지하철 노선도의 최단 경로, 전기 회로의 소자들, 도로(교차점과 일반 통행길), 선수과목|이진 트리, 이진 탐색 트리, 균형 트리(AVL 트리, Red-Black 트리), 이진 힙(최대힙, 최소힙)등|
 
 > ⬆️:[Top](#Graph와-Tree의-차이점)
-> ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#1-data-structure)
+> ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#data-structure)
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
 > - Reference
 > - [이지영. 지바로 배우는 쉬운 자료구조. 한빛아카데미]
