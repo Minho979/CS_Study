@@ -5,7 +5,7 @@
 
   - 최대 힙 트리나 최소 힙 트리를 구성해 정렬을 하는 방법
     - 내림차순 정렬은 최대 힙을 이용하고, 오름차순 정렬은 최소 힙을 이용
-    - [힙이란?](https://github.com/Minho979/CS_Study/blob/main/contents/Data%20Structure/Binary%20Heap.md)
+    - [힙(Heap)이란?](https://github.com/Minho979/CS_Study/blob/main/contents/Data%20Structure/Binary%20Heap.md)
   - 불안정 정렬(Unstable Sort)
   - 제자리 정렬(in-place sort)
 
