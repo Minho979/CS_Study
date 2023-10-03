@@ -14,5 +14,5 @@
 - [B-Tree](https://github.com/Minho979/CS_Study/blob/main/contents/Data%20Structure/B-Tree.md)
 - [B+Tree](https://github.com/Minho979/CS_Study/blob/main/contents/Data%20Structure/B%2BTree.md)
 ***
-> ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#data-structure)
+> ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#-data-structure)
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
