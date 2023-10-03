@@ -1,4 +1,4 @@
-# 1. DataStructure
+# 📁 DataStructure
 
 ## 📖 Contents
 - [Array](https://github.com/Minho979/CS_Study/blob/main/contents/Data%20Structure/Array.md)
