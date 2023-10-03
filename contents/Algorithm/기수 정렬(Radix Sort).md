@@ -5,7 +5,7 @@
   - 기수에 따른 추가 버킷 공간이 필요
     - Ex) 10진수 -> 기수 10 -> 버킷 10개 요구
     - 버킷: 기수만큼 Queue를 이용해 만든 저장공간
-    - [Queue란?](https://github.com/Minho979/CS_Study/blob/main/contents/Data%20Structure/Queue.md)
+    - [큐(Queue)란?](https://github.com/Minho979/CS_Study/blob/main/contents/Data%20Structure/Queue.md)
   - 안정정렬
  
 ## 기수 정렬 과정
