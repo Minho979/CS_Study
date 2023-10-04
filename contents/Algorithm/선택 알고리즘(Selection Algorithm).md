@@ -132,6 +132,8 @@ public class Selection {
 
 단, 분할의 균형을 유지하기 위한 오버헤드가 지나치게 클 경우 의미가 퇴색되므로 주의가 필요
 
+<img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/linearSelectPartition.jpeg" width="600">
+
 ### 원리 
 1. 원소의 총 개수가 5개 이하이면 원하는 원소를 찾고 알고리즘 종료
 2. 전체 원소를 5개씩의 원소를 가진 $⌈n/5⌉$개의 그룹으로 분할
@@ -146,6 +148,15 @@ public class Selection {
 
 
 ### 예시
+
+<img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/linearSelectEx.jpeg" width="500">
+
+1. 주어진 배열을 5개의 원소를 가진 배열로 분할
+2. 분할된 배열의 중앙값을 연산하여 중앙값들이 모인 배열을 생성
+3. 중앙값 배열에서 M이라는 중앙값들의 중앙값을 산출
+4. M을 기준으로 배열을 분할
+5. 타겟 원소를 포함하여 원소 개수가 5이하인 배열이 산출될 때까지 재귀적으로 위의 과정을 반복
+6. 원소 수가 5개 이하가 되었다면 타겟 원소를 찾고 알고리즘 종료
 
 ### 시간 복잡도
 - 분할 균형을 유지하게 되면서 partition()의 시간복잡도를 $O(nlogn)$으로 낮아짐
