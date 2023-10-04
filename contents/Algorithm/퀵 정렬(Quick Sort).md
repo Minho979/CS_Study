@@ -106,7 +106,7 @@ public class QuickSort {
 			*/
 			do {
 				right--;
-			} while(a[right] > pivot && lo <= hi);
+			} while(a[right] > pivot && left <= right);
 
 			// left가 right보다 크다면 서로 엇갈린 것이므로 swap하지 않고 right를 리턴 
 			if(left >= right) {
