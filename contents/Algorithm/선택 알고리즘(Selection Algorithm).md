@@ -1,7 +1,7 @@
 # 선택 알고리즘(Selection Algorithm)
 ## 개념
 - 입력값들 중 i번째로 작거나 큰 원소를 찾는 알고리즘
-- 평균 선형시간 선택 알고리즘과 최악의 경우에도 선형시간을 보장하는 선택 알고리즘 2가지가 있음
+- 평균 선형시간 선택 알고리즘과 최악의 경우에도 선형시간을 보장하는 선택 알고리즘 두 가지가 있음
 
 ## 평균 선형시간 선택 알고리즘
 
@@ -14,25 +14,26 @@
 
 ### 예시
 pivot을 배열을 가장 끝 값으로 설정하는 경우의 예시 
-- pivot의 왼쪽 부분 배열을 탐색하는 경우
 
-<img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/SelectionAlgorithmEx1.jpeg" width="500">
+- **pivot의 왼쪽 부분 배열을 탐색하는 경우**
 
-1. pivot을 설정 (15)
+	<img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/SelectionAlgorithmEx1.jpeg" width="500">
 
-2. 15를 기준으로 배열을 분할 
+	1\. pivot을 설정 (15)
 
-3. 분할된 배열 중 타겟 원소가 있는 부분 배열에서 pivot과 타겟이 일치할 때까지 재귀적으로 수행
+	2\. 15를 기준으로 배열을 분할 
 
-- pivot의 오른쪽 부분 배열을 탐색하는 경우
+	3\. 분할된 배열 중 타겟 원소가 있는 부분 배열에서 pivot과 타겟이 일치할 때까지 재귀적으로 수행
 
-<img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/SelectionAlgorithmEx2.jpeg" width="500">
+- **pivot의 오른쪽 부분 배열을 탐색하는 경우**
 
-1. pivot 설정(15)
+	<img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/SelectionAlgorithmEx2.jpeg" width="500">
 
-2. 15를 기준으로 배열 분할
+	1\. pivot 설정(15)
 
-3. 분할된 배열 중 타겟 원소가 있는 부분 배열에서 pivot과 타겟이 일치할 때까지 재귀적으로 수행
+	2\. 15를 기준으로 배열 분할
+
+	3\. 분할된 배열 중 타겟 원소가 있는 부분 배열에서 pivot과 타겟이 일치할 때까지 재귀적으로 수행
 
 
 ### 시간 복잡도
