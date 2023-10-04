@@ -12,8 +12,27 @@
     `p < i (오른쪽 배열), p > i(왼쪽 배열), p = i(오른쪽 배열)`   
 2. 타겟이 속한 부분 배열을 판정하고 기준 원소가 타겟과 일치할 때까지 타겟이 속한 부분 배열에 대해 재귀적으로 수행
 
-## 예시
+### 예시
+pivot을 배열을 가장 끝 값으로 설정하는 경우의 예시 
+- pivot의 왼쪽 부분 배열을 탐색하는 경우
 
+<img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/SelectionAlgorithmEx1.jpeg" width="500">
+
+1. pivot을 설정 (15)
+
+2. 15를 기준으로 배열을 분할 
+
+3. 분할된 배열 중 타겟 원소가 있는 부분 배열에서 pivot과 타겟이 일치할 때까지 재귀적으로 수행
+
+- pivot의 오른쪽 부분 배열을 탐색하는 경우
+
+<img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/SelectionAlgorithmEx2.jpeg" width="500">
+
+1. pivot 설정(15)
+
+2. 15를 기준으로 배열 분할
+
+3. 분할된 배열 중 타겟 원소가 있는 부분 배열에서 pivot과 타겟이 일치할 때까지 재귀적으로 수행
 
 
 ### 시간 복잡도
@@ -24,6 +43,84 @@
 - 평균적으로는 $O(n)$ 최악의 경우 $O(n^2)$
   - 평균 수행시간을 점화식으로 나타낼 경우 $T(n) <= max(T(k-1), T(n-k))+O(n)$으로 추정 후 증명법으로 $T(n) = O(n)$임을 알 수 있음
   - 최악의 경우 수행시간의 경우 $T(n) = T(n-1) + O(n)$으로 $T(n) = O(n^2)$
+
+### 구현 코드
+```java
+public class Selection {
+	
+	public static int selection(int[] a, int begin, int end, int i) {
+		if (begin == end) { // a의 원소가 하나뿐인 경우 
+			return a[begin];
+		}
+		
+		int pivot = partition(a, begin, end); // 기준 원소 설정 
+		
+		// 기준 원소 a[pivot]이 범위 내에서 k번째로 작은 원소임을 의미 
+		int k = pivot - begin +1; 
+		
+		// 찾는 원소가 왼쪽 부분 배열에 있는 경우 
+		if (i < k) {
+			return selection(a, begin, pivot -1, i); 
+		}
+		// 찾는 원소가 기준 원소인 경우 
+		else if(i == k) {
+			return a[pivot];
+		}
+		// 찾는 원소가 오른쪽 부분 배열에 있는 경우 
+		else {
+			return selection(a, pivot +1, end, i-k);
+		}
+	}
+	
+	// 부분 배열의 가장 끝 요소를 피벗으로 삼는 분할 
+	private static int partition(int[] a, int begin, int end) {		
+		int left = begin;	    // 왼쪽 시작점
+		int right = end;        // 오른쪽 시작점
+		int pivot = a[end];		// 부분배열의 오른쪽 요소를 피벗으로 설정
+		
+		// left가 right보다 작을 때 까지만 반복
+		while(left < right) {
+			
+			/*
+			 right가 left보다 크면서, left의 요소가 
+			 pivot보다 큰 원소를 찾을 떄 까지 left를 증가
+			 */
+			while(a[left] < pivot && left < right) {
+				left++;
+			}
+			
+			/*
+			 right가 left보다 크면서, right의 요소가 
+			 pivot보다 작거나 같은 원소를 찾을 떄 까지 right를 감소
+			 */
+			while(a[right] >= pivot && left < right) {
+				right--;
+			}
+			
+			// 교환 될 두 요소를 교환 
+			swap(a, left, right);
+		}
+	
+		/*
+		 마지막으로 맨 처음 pivot으로 설정했던 
+		 a[right]의 원소와 right가 가리키는 원소를 바꾼다.
+		 */
+		swap(a, end, right);
+		
+		// 두 요소가 교환되었다면 피벗이었던 요소는 right에 위치하므로 right를 반환한다.
+		return right;
+	}
+	
+	public static void swap(int[] a, int i, int j) {
+		int temp = a[i];
+		a[i] = a[j];
+		a[j]= temp;
+		
+	}
+
+}
+```
+
 
 > ⬆️:[Top](#선택-알고리즘Selection-Algorithm)
 > ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#%EF%B8%8F-Algorithm)
