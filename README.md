@@ -37,4 +37,5 @@
 - [힙 정렬(Heap Sort)](<https://github.com/Minho979/CS_Study/blob/main/contents/Algorithm/%ED%9E%99%20%EC%A0%95%EB%A0%AC(Heap%20Sort).md>)
 - [계수 정렬(Count Sort)](<https://github.com/Minho979/CS_Study/blob/main/contents/Algorithm/%EA%B3%84%EC%88%98%20%EC%A0%95%EB%A0%AC(Count%20Sort).md>)
 - [기수 정렬(Radix Sort)](<https://github.com/Minho979/CS_Study/blob/main/contents/Algorithm/%EA%B8%B0%EC%88%98%20%EC%A0%95%EB%A0%AC(Radix%20Sort).md>)
+- [선택 알고리즘(Selection Algorithm)](<https://github.com/Minho979/CS_Study/blob/main/contents/Algorithm/%EC%84%A0%ED%83%9D%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98(Selection%20Algorithm).md>)
 
