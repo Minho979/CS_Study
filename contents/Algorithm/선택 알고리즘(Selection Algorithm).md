@@ -240,7 +240,7 @@ public class LinearSelect {
 	}
 	
 	
-	// 배열의 끝 값을 기준으로 분할 
+	// 배열의 왼쪽 끝 값을 기준으로 분할 
 	private static int partition(int[] a, int start, int end, int midValue) {
 		int i = start;
 		int j = start;
