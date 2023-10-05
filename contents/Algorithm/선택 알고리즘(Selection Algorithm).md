@@ -52,6 +52,8 @@ pivot을 배열을 가장 끝 값으로 설정하는 경우의 예시
 
 ### 구현 코드
 ```java
+package select;
+
 public class Selection {
 	
 	public static int selection(int[] a, int begin, int end, int i) {
@@ -172,7 +174,111 @@ public class Selection {
 
 
 ### 구현 코드
+```java
+package select;
 
+import static select.Selection.selection;
+
+public class LinearSelect {
+	
+	// 배열 a에서 idx번쨰로 작은 값 찾기 
+	public static int linearSelect(int[] a, int size, int target) {
+		// 배열 분할(크기 설정)
+		int midArrCount = (size / 5) +1;
+		
+		// 중간 값 배열을 분할된 배열의 개수만큼의 크기로 생성 
+		int [] midArr = new int[midArrCount];
+		
+		int result = linearSelect(a, midArr, 0, size-1, target);
+		
+		return result;
+		
+	}
+	
+	public static int linearSelect(int[] a, int[] midArr, int start, int end, int target) {
+		// 원소 수 5개 이하인 경우 target을 찾음 
+		if (start - end < 5) {
+			return selection(a, start, end, target);
+		}
+		
+		// 기준 원소 설정 
+		int pivot = partition(a, start, end, getMidValue(a, midArr, start, end));
+		
+		// 기준 원소 a[pivot]이 범위 내에서 k번째로 작은 원소임을 의미
+		int k = pivot - start +1;
+		
+		// 찾는 원소가 왼쪽 부분 배열에 있는 경우 
+		if (target < k) {
+			return linearSelect(a, midArr, start, pivot -1, target);
+		}
+		
+		// 찾는 원소가 기준 원소인 경우 
+		else if(target == k) {
+			return a[pivot];
+		}
+		
+		// 찾는 원소가 오른쪽 부분 배열에 있는 경우 
+		else {
+			return linearSelect(a, midArr, pivot +1, end, target);
+		}
+	}
+	
+	// 중간 값을 찾아 반환 
+	public static int getMidValue(int[] a, int[] midArr, int start, int end) {
+		int midIdx = 0;
+		int [] midTempArr = new int [5];
+		
+		for (int i = start; i <= end;) {
+			int j = 0;
+			for (; j < 5 && i <= end; j++, i++) {
+				midTempArr[i] = a[i];
+			}
+			midArr[midIdx++] = selection(midTempArr, 0, j -1, 3);
+		}
+		
+		return selection(midTempArr, 0, midIdx -1, midIdx/2);
+	}
+	
+	
+	// 배열의 끝 값을 기준으로 분할 
+	private static int partition(int[] a, int start, int end, int midValue) {
+		int i = start;
+		int j = start;
+		int midValueIdx = start;
+		
+		while (i < end && j < end) {
+			if (a[j] == midValue) {
+				midValueIdx = j++;
+				continue;
+			}
+			if (a[j++] < midValue) {
+				swap(a, i, j-1);
+				i++;
+			}
+		}
+		swap(a, i, midValueIdx);
+		return i;
+	}
+		
+	public static void swap(int[] a, int i, int j) {
+		int temp = a[i];
+		a[i] = a[j];
+		a[j]= temp;
+		
+	}
+	
+	public static void main(String[] args) {
+		int  a[] = {5, 6, 3, 2, 1, 4, 7, 9, 8, 10, 13, 12, 11, 14, 15};
+		int size = a.length;
+		int target = linearSelect(a, size , 6);
+		
+		System.out.print(target);
+
+	}
+
+}
+
+```
 
 > ⬆️:[Top](#선택-알고리즘Selection-Algorithm)
 > ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#%EF%B8%8F-Algorithm)
