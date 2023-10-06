@@ -15,6 +15,8 @@
 3. 값을 찾거나 'start > end'가 될 때까지 반복
    - 'start > end'인 경우 해당 배열에 찾는 데이터가 없는 것
 
+![Binary Search vs Linear Search](https://github.com/Minho979/CS_Study/blob/main/contents/images/binary-and-linear-search-animations.gif)
+
 ## 시간 복잡도
 - 각 단계마다 탐색 범위를 절반으로 나누기에 $O(logn)$
 - 순차 탐색의 경우 배열의 모든 원소를 확인해야할 수 있기에 $O(n)$
@@ -26,7 +28,48 @@
 - 정렬되어 있지 않은 배열에는 사용할 수 없음
 
 ## 구현 코드
+### 반복문 구현
 ``` java
+public static int binarySearch(int[] a, int target) {
+		int start = 0;
+		int end = a.length -1;
+		int mid;
+		
+		while(start <= end) {
+			mid = (start + end)/2;
+			if (a[mid] < target) {
+				start = mid + 1;
+			}
+			else if (a[mid] > target) {
+				end = mid -1;
+			}
+			else {
+				return a[mid];
+			}
+		}
+		return (Integer) null;
+	}
+```
+### 재귀호출 구현
+``` java
+public static int binarySearchRecursive(int[] a, int start, int end, int target) {
+		if (start > end) {
+			return (Integer) null;
+		}
+		
+		int mid = (start + end)/2;
+		
+		if (a[mid] < target) {
+			return binarySearchRecursive(a, mid +1, end, target);
+		}
+		else if(a[mid] > target) {
+			return binarySearchRecursive(a, start, mid -1, target);
+		}
+		else {
+			return a[mid];
+		}
+		
+	}
 ```
 
 > ⬆️:[Top](#이분-탐색Binary-Search)
