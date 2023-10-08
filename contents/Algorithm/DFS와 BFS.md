@@ -19,7 +19,20 @@
 - 단순 검색 속도 자체는 BFS에 비해 느림
 
 ### DFS의 과정
+1. 시작 노드(a)를 방문
+   - 방문한 노드를 방문했다고 처리(방문 처리)
+2. a와 인접한 노드들을 차례로 순회
+   - 인접 노드가 없다면 종료
+3. a와 이웃한 노드 b를 방문했다면, a와 인접한 노드를 방문하기 전에 b의 모든 이웃 노드들을 전부 방문
+   - b를 시작 정점으로 하여 DFS를 다시 시작
+4. b의 분기를 전부 완벽하게 탐색했다면 다시 a에 인접한 정점들 중 방문하지 않은 정점을 찾아 반복
+   - b의 분기를 전부 완벽하게 탐색하지 못하면 a의 다른 이웃 노드를 방문할 수 없음
+   - 방문 안된 정점이 없으면 종료
+   - 방문 안한 정점이 있으면 해당 정점을 시작 정점으로 하여 DFS 다시 시작 
 
+![DFS animation](https://github.com/Minho979/CS_Study/blob/main/contents/images/DFS-animation.gif)
+
+<img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/DFS-ex.png" width="600">
 
 ### DFS 구현 
 구현 방법은 2가지로 나뉨
@@ -57,7 +70,20 @@
 - '프림(Prim)', '다익스트라(Dijkstra)' 알고리즘과 유사
 
 ### BFS의 과정
+1. 시작 노드를 방문 (방문한 노드 체크)
+   - 큐에 방문한 노드를 삽입
+   - 초기 상태의 큐는 시작 노드만이 저장
+     - 시작 노드의 이웃 노드를 모두 방문한 다음 이웃의 이웃들을 방문
+2. 큐에서 꺼낸 노드와 인접한 노드들을 차례로 방문
+   - 큐에서 꺼낸 노드를 방문
+   - 큐에서 꺼낸 노드와 인접한 노드들을 모두 방문
+     - 인접한 노드가 없다면 큐의 앞에서 노드를 꺼냄
+   - 큐에 방문한 노드를 삽입
+3. 큐가 비워질 때까지 반복
 
+![BFS animation](https://github.com/Minho979/CS_Study/blob/main/contents/images/BFS-animation.gif)
+
+<img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/BFS-ex.png" width="600">
 
 ### BFS 구현
 #### 큐(Queue)를 이용한 BFS
@@ -95,3 +121,5 @@
 > - Reference
 > - [문병로. 쉽게 배우는 알고리즘. 한빛아카데미]
 > - [[알고리즘] 깊이 우선 탐색(DFS) 과 너비 우선 탐색(BFS)](https://devuna.tistory.com/32)
+> - [[알고리즘] 깊이 우선 탐색(DFS)이란](https://gmlwjd9405.github.io/2018/08/14/algorithm-dfs.html)
+> - [[알고리즘] 너비 우선 탐색(BFS)이란](https://gmlwjd9405.github.io/2018/08/15/algorithm-bfs.html)
