@@ -195,7 +195,7 @@ import java.util.Queue;
 
 public class BFS {
 
-	public static String BFS(int[][] graph, int nodeIndex, boolean[]vistied) {
+	public static String BFS(int[][] graph, int nodeIndex, boolean[] vistied) {
 		
 		// 탐색 순서 출력을 위함 
 		StringBuilder sb = new StringBuilder();
@@ -287,3 +287,5 @@ public class BFS {
 > - [[알고리즘] 깊이 우선 탐색(DFS) 과 너비 우선 탐색(BFS)](https://devuna.tistory.com/32)
 > - [[알고리즘] 깊이 우선 탐색(DFS)이란](https://gmlwjd9405.github.io/2018/08/14/algorithm-dfs.html)
 > - [[알고리즘] 너비 우선 탐색(BFS)이란](https://gmlwjd9405.github.io/2018/08/15/algorithm-bfs.html)
+> - [[Algorithm] DFS (Depth-first Search)를 Java로 구현해보자!](https://codingnojam.tistory.com/44)
+> - [[Algorithm] BFS(Breadth-first search)를 Java로 구현해보자!](https://codingnojam.tistory.com/41)
