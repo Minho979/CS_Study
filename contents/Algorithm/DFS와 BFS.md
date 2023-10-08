@@ -40,12 +40,110 @@
 2. 명시적인 스택 사용
    - 명시적인 스택을 사용하여 방문한 정점들을 스택에 저장하였다가 다시 꺼내어 작업
 
+- 구현 이용된 그래프 상태
+
+<img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/DFS-and-BFS-graph-ex.png" width="500">
+
 #### 재귀 호출을 이용한 DFS
 ```java
+public class DFS {
+	
+	public static void recursionDFS(int[][] graph, int nodeIndex, boolean[] vistied) {
+		
+		// 방문 처리
+		vistied[nodeIndex] = true;
+		
+		// 방문 노드 출력 
+		System.out.print(nodeIndex + " >> ");
+		
+		// 방문한 노드의 인접 노드 찾기 
+		for (int node : graph[nodeIndex]) {
+			
+			// 인접 노드가 방문한 적이 없다면 DFS 수행 
+			if (!vistied[node]) {
+				recursionDFS(graph, node, vistied);
+			}
+		}
+		
+	}
+	
+	public static void main(String[] args) {
+		
+		/* 
+		 그래프의 연결 상태를 2차원 배열로 표현
+		 인덱스가 각각의 노드번호가 될 수 있도록 0번 인덱스는 비어있는 상태 
+		 1번 인덱스는 1번 노드를 뜻하고 노드의 배열의 값은 연결된 노드들  
+		 */
+		int[][] graph = {{}, {2, 3, 8}, {1, 6, 8}, {1, 5}, {5, 7}, {3, 4, 7}, {2}, {4, 5}, {1, 2}};
+		
+		// 방문 상태 확인을 위한 배열
+		boolean[] vistied = new boolean[graph.length];
+		
+		System.out.print("재귀 호출 DFS 탐색 순서: ");
+		recursionDFS(graph, 1, vistied);
+
+	}
+
+}
 ```
 
 #### 스택을 활용한 DFS 
 ```java
+import java.util.Stack;
+
+public class DFS {
+
+	public static void stackDFS(int[][] graph, int nodeIndex, boolean[] vistied) {
+		
+		// DFS에 사용할 스택 
+		Stack<Integer> stack = new Stack<>();
+		
+		// 시작 노드를 스택에 삽입 
+		stack.push(nodeIndex);
+		
+		// 시작 노드 방문 처리 
+		vistied[nodeIndex] = true;
+		
+		// 스택이 비어있지 않은 경우 반복 
+		while(!stack.isEmpty()) {
+			
+			// 스택에서 하나를 꺼내어 노드 인덱스 설정 
+			nodeIndex = stack.pop();
+			
+			// 방문 노드 출력 
+			System.out.print(nodeIndex + " >> ");
+			
+			// 꺼낸 노드와 인접한 노드 찾기 
+			for (int LinkedNode : graph[nodeIndex]) {
+				
+				// 인접한 노드를 방문하지 않았을 경우 스택에 넣고 방문 처리 
+				if (!vistied[LinkedNode]) {
+					stack.push(LinkedNode);
+					vistied[LinkedNode] = true;
+				}
+			}
+		}
+		
+	}
+
+	
+	public static void main(String[] args) {
+		
+		/* 
+		 그래프의 연결 상태를 2차원 배열로 표현
+		 인덱스가 각각의 노드번호가 될 수 있도록 0번 인덱스는 비어있는 상태 
+		 1번 인덱스는 1번 노드를 뜻하고 노드의 배열의 값은 연결된 노드들  
+		 */
+		int[][] graph = {{}, {2, 3, 8}, {1, 6, 8}, {1, 5}, {5, 7}, {3, 4, 7}, {2}, {4, 5}, {1, 2}};
+		
+		// 방문 상태 확인을 위한 배열
+		boolean[] vistied = new boolean[graph.length];
+		
+		System.out.print("Stack DFS 탐색 순서: ");
+		stackDFS(graph, 1, vistied);
+	}
+
+}
 ```
 
 ## 너비 우선 탐색(BFS, Breadth-First Search)
@@ -86,8 +184,74 @@
 <img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/BFS-ex.png" width="600">
 
 ### BFS 구현
+- 구현 이용된 그래프 상태
+
+<img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/DFS-and-BFS-graph-ex.png" width="500">
+
 #### 큐(Queue)를 이용한 BFS
 ``` java
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class BFS {
+
+	public static String BFS(int[][] graph, int nodeIndex, boolean[]vistied) {
+		
+		// 탐색 순서 출력을 위함 
+		StringBuilder sb = new StringBuilder();
+		
+		// BFS 탐색에 사용할 큐 
+		Queue<Integer> queue = new LinkedList<Integer>();
+		
+		// 시작 노드를 큐에 추가 
+		queue.offer(nodeIndex);
+		
+		// 시작 노드 방문 처리 
+		vistied[nodeIndex] = true;
+		
+		// 큐가 빌 떄꺼자 반복 
+		while(!queue.isEmpty()) {
+			
+			// 큐 값을 꺼내어 노드 인덱스로 설정  
+			nodeIndex = queue.poll();
+			
+			// 방문 노드 출력 
+			sb.append(nodeIndex + " >> ");
+			
+			// 큐에서 꺼낸 노드와 연결된 노드 확인 
+			for (int i = 0; i < graph[nodeIndex].length; i++) {
+				int temp = graph[nodeIndex][i];
+				
+				// temp 값이 방문하지 않은 노드라면 방문 처리 후 큐에 삽입 
+				if(!vistied[temp]) {
+					vistied[temp] = true;
+					queue.offer(temp);
+				}
+			}
+		}
+		
+		// 탐색 순서 리턴 
+		return sb.toString();
+		
+	}
+
+	public static void main(String[] args) {
+		
+		/* 
+		 그래프의 연결 상태를 2차원 배열로 표현
+		 인덱스가 각각의 노드번호가 될 수 있도록 0번 인덱스는 비어있는 상태
+		 1번 인덱스는 1번 노드를 뜻하고 노드의 배열의 값은 연결된 노드들  
+		 */
+		int[][] graph = {{}, {2, 3, 8}, {1, 6, 8}, {1, 5}, {5, 7}, {3, 4, 7}, {2}, {4, 5}, {1, 2}};
+		
+		// 방문 상태 확인을 위한 배열
+		boolean[] vistied = new boolean[graph.length];
+
+		System.out.print("BFS 탐색 순서: " + BFS(graph, 1, vistied));
+	}
+
+}
+
 ```
 
 ## 깊이 우선 탐색(DFS)와 너비 우선 탐색(BFS) 비교
