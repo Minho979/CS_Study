@@ -42,9 +42,9 @@
 - [해시 테이블 구현](<https://github.com/Minho979/CS_Study/blob/main/contents/Algorithm/%ED%95%B4%EC%8B%9C%20%ED%85%8C%EC%9D%B4%EB%B8%94%20%EA%B5%AC%ED%98%84.md>)
 - [집합의 처리](<https://github.com/Minho979/CS_Study/blob/main/contents/Algorithm/%EC%A7%91%ED%95%A9%EC%9D%98%20%EC%B2%98%EB%A6%AC.md>)
 - [동적 프로그래밍](<https://github.com/Minho979/CS_Study/blob/main/contents/Algorithm/%EB%8F%99%EC%A0%81%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D(Dynamic%20Programming).md>)
-  - [행렬 경로 문제]()
-  - [돌 놓기 문제]()
-  - [행렬 곱셈 순서 문제]()
-  - [최장 공통 부분순서(LCS)]()
+  - [행렬 경로 문제](https://github.com/Minho979/CS_Study/blob/main/contents/Algorithm/%ED%96%89%EB%A0%AC%20%EA%B2%BD%EB%A1%9C%20%EB%AC%B8%EC%A0%9C.md)
+  - [돌 놓기 문제](https://github.com/Minho979/CS_Study/blob/main/contents/Algorithm/%EB%8F%8C%20%EB%86%93%EA%B8%B0%20%EB%AC%B8%EC%A0%9C.md)
+  - [행렬 곱셈 순서 문제](https://github.com/Minho979/CS_Study/blob/main/contents/Algorithm/%ED%96%89%EB%A0%AC%20%EA%B3%B1%EC%85%88%20%EC%88%9C%EC%84%9C%20%EB%AC%B8%EC%A0%9C.md)
+  - [최장 공통 부분순서(LCS)](https://github.com/Minho979/CS_Study/blob/main/contents/Algorithm/%EC%B5%9C%EC%9E%A5%20%EA%B3%B5%ED%86%B5%20%EB%B6%80%EB%B6%84%EC%88%9C%EC%84%9C(LCS).md)
 - [DFS와 BFS](<https://github.com/Minho979/CS_Study/blob/main/contents/Algorithm/DFS%EC%99%80%20BFS.md>)
 
