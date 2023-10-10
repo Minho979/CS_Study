@@ -97,7 +97,7 @@ public class TopDownFib {
 - [행렬 경로 문제]()
 - [돌 놓기 문제]()
 - [행렬 곱셉 순서 문제]()
-- [최장 공통 부분 순서(LCS)]()
+- [최장 공통 부분순서(LCS)]()
 
 > ⬆️:[Top](#동적-프로그래밍Dynamic-Programming)
 > ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#%EF%B8%8F-Algorithm)
