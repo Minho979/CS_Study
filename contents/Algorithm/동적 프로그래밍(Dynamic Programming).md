@@ -73,8 +73,13 @@ public class TopDownFib {
 }
 ```
 
-#### 재귀, Top-Down Call-Tree 비교
+#### 재귀, Top-Down Call Tree 비교
 - Top-Dwon이 재귀적으로 동작하지만 동일한 문제의 중복 호출 문제가 없는 것을 볼 수 있다
+#### 재귀 호출로 구현한 피보나치 수열의 Call Tree
+<img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/RecursiveFib.png" width="500">
+
+#### Top-Down 방식으로 구현한 피보나치 수열의 Call Tree
+<img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/TopDownFib.png" width="500">
 
 ## 동적 프로그램 적용 과정
 1. DP로 풀 수 있는 문제인지 확인
