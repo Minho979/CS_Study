@@ -44,6 +44,9 @@ LCS(i, j) {
 4. 위 과정을 반복
 
 #### 수행 과정 예시 
+<img src ='https://github.com/Minho979/CS_Study/blob/main/contents/images/LCStringEx.png' width='600'>
+<img src ='https://github.com/Minho979/CS_Study/blob/main/contents/images/LCStringEx2.png' width='600'>
+<img src ='https://github.com/Minho979/CS_Study/blob/main/contents/images/LCStringEx3.png' width='600'>
 
 ## 최장 공통 부분수열(Longest Common Subsequence)
 
@@ -76,11 +79,25 @@ LCS(m. n) {
 }
 ```
 - 엄청난 중복 호출 발생
-- $Ω(2^n)$의 시간 복잡도를 가
+- $Ω(2^n)$의 시간 복잡도를 가짐
 
 ### 재귀 알고리즘 Call-Tree
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/LCS-Call-Tree.png' width='700'>
 
 ### 재귀 알고리즘 호출 횟수 
+|LCS()|LCS(1, 1) 호출 횟수|
+|:---:|:-----------------:|
+|LCS(2, 2)|2|
+|LCS(2, 3)|3|
+|LCS(3, 3)|6|
+|LCS(3, 4)|10|
+|LCS(4, 4)|20|
+|LCS(4, 5)|35|
+|LCS(5, 5)|70|
+|LCS(5, 6)|126|
+|LCS(6, 6)|252|
+|LCS(6, 7)|462|
+|LCS(7, 7)|924|
 
 ### DP 알고리즘
 ``` java
@@ -118,11 +135,29 @@ LCS(m. n) {
 
 - LCS[m - 1, n], LCS[m, n - 1]의 의미
   - 부분수열는 연속된 값이 아니기에 현재 문자를 비교하는 과정 이전의 최대 공통 부분수열이 계속해서 유지되기에 LCS[m - 1, n], LCS[m, n - 1]는 이전 과정에 해당
+
+    <img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/LCSub1.png' width='600'>
+    
+    - 문자열 AB와 GBC를 LCS가 B라는 것을 알기 위해 A와 GBC, AB와 GBC를 비교하는 과정이 필요함
+    - AB와 GBC를 비교하는 과정에서 LCS가 B임을 확인하였기에 AB와 GBC의 LCS는 B가 됨 
+    
+    <img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/LCSub2.png' width='600'>
+    
 - 문자가 같은경우 LCS[m, n] = LCS[m - 1, n - 1] +1인 이유
   - 두 문자가 같은 상황인 경우 지금까지의 최대 공통 부분수열에 1을 더해주는 것
   - LCS[m - 1, n], LCS[m, n - 1]의 LCS 배열은 비교를 통해 언제나 최대 공통 부분수열의 값을 가지고 있음
 
+    <img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/LCSub3.png' width='600'>
+    
+    - 문자열 AB, GB를 비교하던 때에 비해 ABC와 GBC를 비교할 때 달라진 점은 두 문자열에 C가 추가된 것
+    - 따라서 기존의 LCS인 B에 C를 더한 BC가 LCS가 됨 
+    
+    <img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/LCSub4.png' width='600'>
+
 ### 수행 과정 예시
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/LCSubEx1.png' width='600'>
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/LCSubEx2.png' width='600'>
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/LCSubEx3.png' width='600'>
 
 ## 최장 공통 부분수열(Longest Common Subsequence) 찾기 
 경우에 따라 여러가지의 답이 나올 수 있으나 한가지 경우만을 보는 예시
@@ -135,6 +170,9 @@ LCS(m. n) {
 3. 2번 과정을 반복하다 0으로 이동하면 종료, result 배열의 역순이 LCS
 
 #### 수행 과정 예시
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/LCSubSearchEx1.png' width='600'>
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/LCSubSearchEx2.png' width='600'>
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/LCSubSearchEx3.png' width='600'>
 
 > ⬆️:[Top](#최장-공통-부분수열LCS-Longest-Common-Subsequence)
 > ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#%EF%B8%8F-Algorithm)
