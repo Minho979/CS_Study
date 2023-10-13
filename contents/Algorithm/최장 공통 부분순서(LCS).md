@@ -24,7 +24,7 @@
 
 
 
-> ⬆️:[Top](#최장-공통-부분순서-LCS:-Longest-Common-Subsequence)
+> ⬆️:[Top](#최장-공통-부분순서-LCS-Longest-Common-Subsequence)
 > ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#%EF%B8%8F-Algorithm)
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
 > - Reference
