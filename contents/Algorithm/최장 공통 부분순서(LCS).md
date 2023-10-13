@@ -1,4 +1,4 @@
-# 최장 공통 부분순서(Longest Common Subsequence)
+# 최장 공통 부분순서(LCS: Longest Common Subsequence)
 - 두 문자열에 공통적으로 들어있는 공통 부분순서 중 가장 긴 문자열
 - 최장 공통 문자열(Longest Common Substring) 또한 LCS라고 불림
 - 최장 공통 문자열의 경우 최장 공통 부분순서를 구하는데 사용 됨
@@ -14,17 +14,17 @@
 
 ### Longest Common Subsequence(LCS)
 - 두 문자열의 최장 공통 부분순서 (Common subsequence 중 가장 긴 것)
-- \<bcba\>는 문자열 \<abcbdab\>와 \<bdcaba\>의 LCS
+- \<bcba\>는 문자열 \<abcbdab\>와 \<bdcaba\>의 LCS(Longest Common Subsequence)
 
 ### Longest Common Substring(LCS)
 - 두 문자열의 최장 공통 문자열로 한번에 이어져있는 문자열
-- \<ab\>, \<bd\>는 문자열 \<abcbdab\>와 \<bdcaba\>의 LCS
+- \<ab\>, \<bd\>는 문자열 \<abcbdab\>와 \<bdcaba\>의 LCS(Longest Common Substring)
 
 ## 최장 공통 문자열(Longest Common Substring)
 
 
 
-> ⬆️:[Top](#최장-공통-부분순서Longest-Common-Subsequence)
+> ⬆️:[Top](#최장-공통-부분순서LCS-Longest-Common-Subsequence)
 > ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#%EF%B8%8F-Algorithm)
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
 > - Reference
