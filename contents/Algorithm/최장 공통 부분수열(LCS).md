@@ -1,19 +1,19 @@
-# 최장 공통 부분순서(LCS: Longest Common Subsequence)
-- 두 문자열에 공통적으로 들어있는 공통 부분순서 중 가장 긴 문자열
+# 최장 공통 부분수열(LCS: Longest Common Subsequence)
+- 두 문자열에 공통적으로 들어있는 공통 부분수열 중 가장 긴 문자열
 - 최장 공통 문자열(Longest Common Substring) 또한 LCS라고 불림
-- 최장 공통 문자열의 경우 최장 공통 부분순서를 구하는데 사용 됨
+- 최장 공통 문자열의 경우 최장 공통 부분수열를 구하는데 사용 됨
 
 ## 용어 정리
 ### Subsequence
-- 문자열의 부분순서로 이어지지 않고 떨어져 있어도 되지만 순서는 뒤바뀌어서는 안됨
+- 문자열의 부분수열로 이어지지 않고 떨어져 있어도 되지만 순서는 뒤바뀌어서는 안됨
 - \<bcdb\>는 문자열 \<abcbdab\>의 subsequence
 
 ### Common subsequence
-- 두 문자열의 공통 부분순서
+- 두 문자열의 공통 부분수열
 - \<bca\>는 문자열 \<abcbdab\>와 \<bdcaba\>의 common subsequence
 
 ### Longest Common Subsequence(LCS)
-- 두 문자열의 최장 공통 부분순서 (Common subsequence 중 가장 긴 것)
+- 두 문자열의 최장 공통 부분수열 (Common subsequence 중 가장 긴 것)
 - \<bcba\>는 문자열 \<abcbdab\>와 \<bdcaba\>의 LCS(Longest Common Subsequence)
 
 ### Longest Common Substring(LCS)
@@ -45,7 +45,7 @@ LCS(i, j) {
 
 #### 수행 과정 예시 
 
-## 최장 공통 부분순서(Longest Common Subsequence)
+## 최장 공통 부분수열(Longest Common Subsequence)
 
 ## 최적 부분구조의 재귀적 관계
 - 두 문자열 $A_m$ = < $a_1a_2...a_m$ >과 $B_n$ = < $b_1b_2...b_n$ >에 대해
@@ -115,14 +115,14 @@ LCS(m. n) {
 4. 위 과정을 반복
 
 - LCS[m - 1, n], LCS[m, n - 1]의 의미
-  - 부분순서는 연속된 값이 아니기에 현재 문자를 비교하는 과정 이전의 최대 공통 부분순서가 계속해서 유지되기에 LCS[m - 1, n], LCS[m, n - 1]는 이전 과정에 해당
+  - 부분수열는 연속된 값이 아니기에 현재 문자를 비교하는 과정 이전의 최대 공통 부분수열이 계속해서 유지되기에 LCS[m - 1, n], LCS[m, n - 1]는 이전 과정에 해당
 - 문자가 같은경우 LCS[m, n] = LCS[m - 1, n - 1] +1인 이유
-  - 두 문자가 같은 상황인 경우 지금까지의 최대 공통 부분순서에 1을 더해주는 것
-  - LCS[m - 1, n], LCS[m, n - 1]의 LCS 배열은 비교를 통해 언제나 최대 공통 부분순서의 값을 가지고 있음
+  - 두 문자가 같은 상황인 경우 지금까지의 최대 공통 부분수열에 1을 더해주는 것
+  - LCS[m - 1, n], LCS[m, n - 1]의 LCS 배열은 비교를 통해 언제나 최대 공통 부분수열의 값을 가지고 있음
 
 ### 수행 과정 예시
 
-## 최장 공통 부분순서(Longest Common Subsequence) 찾기 
+## 최장 공통 부분수열(Longest Common Subsequence) 찾기 
 경우에 따라 여러가지의 답이 나올 수 있으나 한가지 경우만을 보는 예시
 
 ### 수행 과정
@@ -134,7 +134,7 @@ LCS(m. n) {
 
 #### 수행 과정 예시
 
-> ⬆️:[Top](#최장-공통-부분순서LCS-Longest-Common-Subsequence)
+> ⬆️:[Top](#최장-공통-부분수열LCS-Longest-Common-Subsequence)
 > ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#%EF%B8%8F-Algorithm)
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
 > - Reference
