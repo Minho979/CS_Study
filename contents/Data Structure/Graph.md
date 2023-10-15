@@ -195,7 +195,9 @@
 ### 개념
 - 정점이 n개인 경우 n개의 인접 배열로 표현
 - 각 정점에 인접한 정점들을 연결 리스트에 저장하지만 배열에 저장하는 방식으로 링크 필드가 없이 인접 리스트보다 메모리 할당이 적음 
-  - 즉, i번째 배열은 정점 i에 인접한 정점들의 집함
+  - 즉, i번째 배열은 정점 i에 인접한 정점들의 집합
+
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/adjacency-array.png' width='500'>
 
 ### 장점
 - 각 배열이 정렬된 형태인 경우 이진 탐색이 가능함
@@ -207,8 +209,10 @@
   - 정점이 n개인 경우 n개의 인접 해시테이블로 표현
   - 각 정점마다 인접 배열의 2배 정도의 공간을 할당 받아 적재율을 0.5정도로 유지
 
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/adjacency-hashtable.png' width='500'>
+
 ### 장점
-- 간선(i, j)의 존재 여부를 알아내는 연산은 효율적
+- 간선(i, j)의 존재 여부를 알아내는 연산을 효율적으로 수행
 
 ### 단점
 - 정점 i에 인접한 정점들을 차례로 보면서 작업을 해야하는 경우 부적합 
