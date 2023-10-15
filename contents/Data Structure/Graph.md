@@ -46,38 +46,56 @@
 ### 인접(adjacent), 부속(incident)
 - 두 정점 $v_i$와 $v_j$ 사이에 간선 ($v_i, v_j$)가 존재하면 와 $v_j$는 인접하다(adjacent)
 - ($v_i, v_j$)는  $v_i$와 $v_j$에 부속되어 있다(indicent)
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Graph-adjacent%26indicent-Ex.png' width='500'>
 
 ### 차수(degree)
 - 정점의 차수 = 정점에 부속된(incident) 간선의 수
+
+  <img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Graph-degree.png' width='500'>
+
 - 방향 그래프의 정점의 차수 = 진입차수(in-degree)  + 진출차수(out-degree)
+
+  <img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/directedGraph-degree.png' width='500'>
 
 ### 경로(path)
 - 그래프에서 한 정점에서 한 정점으로 간선을 따라 도달할 수 있는 길
 - 정점 $v_i$에서 정점 $v_j$까지의 경로란 $v_i$에서 $v_j$에 이르기까지 간선으로 연결된 정점들을 순서대로 나열한 리스트
+
+  <img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Graph-path.png' width='500'>
+  
 - 경로 길이(path length) : 경로를 구성하는 간선의 수
   - 경로 A-B-C의 길이 = 2
+
 
 ### 단순 경로(simple path)
 - 모두 다른 정점들로 구성된 경로(단, 시작 정점과 마지막 정점은 동일해도 됨)
   - 시작과 마지막 정점이 아닌 경로 중간에 한 번 간 곳을 다시가면 단순 경로가 아님
 - 사이클(cycle) : 시작 정점과 마지막 정점이 같은 단순 경로
 
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Graph-simplepath.png' width='500'>
+
 ### DAG(Directed Acyclic Graph)
 - 사이클이 없는 방향 그래프
+
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/DAG.png' width='500'>
 
 ### 연결(connected)
 - 정점 $v_i$에서 $v_j$까지 경로가 있으면 $v_i$와 $v_j$가 연결되었다고 함
 
 ### 연결 그래프(connected graph)
 - 모든 쌍의 정점들 사이에 경로가 있는 그래프
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/connectedGraph.png' width='500'>
 
 ### 부분 그래프(subgraph)
 - 원래의 그래프에서 정점이나 간선의 일부를 취해 만든 그래프
 - 그래프 G와 부분 그래프 G'의 관계 : $V(G')\subseteqq V(G), E(G') \subseteqq E(G)$
-- 정점을 하나 제거할 경우 해당 정점에서 이어진 간선을 모두 제거해야 한다.
+
+<img src="https://github.com/Minho979/CS_Study/blob/main/contents/images/Graph.png" width="500" height="310">
+
+-정점을 하나 제거할 경우 해당 정점에서 이어진 간선을 모두 제거해야 한다.
 
 ## 그래프의 구현
-### 인접 행렬
+### 인접 행렬(adjacency matrix)
 ### 개념
 2차원 배열로 표현한 행렬에 두 정점의 인접 여부(간선의 존재 여부)를 저장
 - n개의 정점을 가진 그래프: n*n 정방행렬
@@ -85,14 +103,29 @@
 - 행렬 i행 j열 원소 값: 정점 i와 j가 인접한 경우 1, 아닌 경우 0
 - 행렬에 표기시 행이 출발 정점이며 열이 도착 정점
 
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/adjacency-matrix.png' width='500'>
+
 ### 무방향 그래프의 인접 행렬
 - 간선 (i, j) 에 대해 두개의 행렬 원소(i행 j열, j행 i열)가 1
 - i행의 합 = i열의 합 = 정점 i의 차수
+
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Graph-adjacency-matrix.png' width='500'>
+
+- 0에 인접한 정점 2 -> 0의 차수 2
+
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Graph-adjacency-matrix2.png' width='600'>
 
 ### 방향 그래프의 인접 행렬
 - 간선 <i, j> 에 대해 하나의 행렬 원소 (i행 j열)가 1
 - i행의 합 = 정점 i의 out-degree
 - i열의 합 = 정점 i의 in-degree
+
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/directedGraph-adjacency-matrix.png' width='500'>
+
+- 0의 in-degree = 0
+- 0의 out-degree = 2
+
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/directedGraph-adjacency-matrix2.png' width='600'>
 
 ### 인접 행렬의 장점
 - 배열의 장점들을 모두 가짐(검색 성능, 처리 속도, 관리 용이 등)
@@ -105,8 +138,13 @@
     - 희소 그래프: 정점수에 비해 간선수가 적은 그래프
     - 희소 그래프의 인접 행렬은 희소 행렬(sparse matrix)
 - 인접 행렬 표현은 그래프 간선의 밀도가 높은 경우 적합한 방법
+- 희소 그래프를 희소 행렬로 표현한 경우 예
 
-### 인접 리스트
+    <img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/sparse%20matrix.png' width='500'>
+
+    - 해당 그래프에서 인접한 정점들을 찾을 경우 행렬 전체를 탐색하는 문제가 발생
+
+### 인접 리스트(adjacency list)
 ### 개념
 - 각 정점에 대해 인접한 정점들이 무엇인지 연결 리스트로 표현
   - 각 정점마다 하나의 연결 리스트를 둠
@@ -114,6 +152,8 @@
   - n개의 정점을 가지는 그래프의 경우
     - 연결 리스트가 n개와 연결 리스트의 첫번째 노드를 가리키는 변수가 n개 필요
     - 이 변수들을 배열(크기 n)로 구현
+
+  <img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/adjacency-list.png' width='500'>
 
 ### 무방향 그래프의 인접 리스트
 - 정점 n개, 간선 e개
@@ -123,6 +163,10 @@
     
     리스트의 노드의 개수 = 리스트의 길이
 
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Graph-adjacency-list.png' width='500'>
+    
+  - 위의 경우 0은 1,2 정점과 인접하기에 인접 리스트는 노드형 참조변수가 n개 필요
+
 ### 방향 그래프의 인접 리스트
 - 정점 n개, 간선 e개
 - Node형 변수 배열의 크기 : n
@@ -131,10 +175,14 @@
     
     정점  v의 degree를 구하는 시간은 정점 v의 차수에 비례
 
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/directedGraph-adjacency-list.png' width='500'>
+
 #### 인접 리스트에서의 희소 그래프
 - n = 100, e = 4
 - 노드형 변수 배열의 크기 = 100
-    - 간선 수와 관계 없이 노드 수에 맞는 Ndoe형 변수 배열이 필요
+    - 간선 수와 관계 없이 노드 수에 맞는 Node형 변수 배열이 필요
+
+  <img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/sparse%20graph-adjacency-list.png' width='500'>
 
 ### 인접 리스트의 장점
 - 간선의 개수에 비례한 메모리 공간
@@ -174,15 +222,22 @@
 ### 개념
 - n개의 정점으로 이루어진 무방향 연결 그래프의 subgraph 중에서, 정점은 n개 전부 포함하고, 간선은 n-1개만 포함하여 모든 정점들이 연결되는 subgraph
 - 신장 트리는 최소 개수의 간선으로 그래프의 모든 정점들이 연결되도록 함
+
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/spanning-tree.png' width='500'>
+
 ### 신장 트리의 종류
 - 깊이 우선 신장 트리(depth first spanning tree)
     - 깊이 우선 탐색을 이용하여 생성된 신장 트리
 - 너비 우선 신장 트리(breadth first sapnning tree)
     - 너비 우선 탐색을 이용하여 생성된 신장 트리
 
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/DFS%26BFSpanning-tree.png' width='700'>
+
 ### 최소 비용 신장 트리(minimum cost spanning tree)
 ### 개념
 - 무방향 가중 연결 그래프(undirected weighted connected graph)의 신장 트리 중, 간선 가중치 합이 최소인 신장 트리
+
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/minimum-cost-spanning-tree.png' width='500'>
 
 ### 최소 비용 신장 트리를 구하는 알고리즘
 #### Kruskal 알고리즘 I
@@ -194,7 +249,7 @@
       이 간선을 제거해도 그래프가 분리되지 않으면 이 간선을 제거하고,
       이 간선을 제거하는 경우 그래프가 분리되면 이 간선을 그대로 두고 다음 간선으로 넘어간다
 
-  3. 그래프에 n-1개의 간선만 남을 때까지 2를 반복한다
+  3. 그래프에 n-1개의 간선만 남을 때까지 2단계를 반복한다
 
 #### Kruskal 알고리즘 II
 정점들은 그대로 두고 간선이 하나도 없는 상태에서 시작하여 가중치가 낮은 순서로 간선을 삽입하면서 최소 비용 신장 트리를 만드는 알고리즘 
@@ -204,7 +259,7 @@
         
         이 간선이 사이클을 형성하지 않으면 트리 간선 집합 T에 삽입하고, 사이클을 형성하면 버리고 가중치가 다음으로 작은 간선을 선택한다.
         
-    3. T가 n-1개의 간선을 포함할 때까지 2를 반복한다.
+    3. T가 n-1개의 간선을 포함할 때까지 2단계를 반복한다.
 
 #### Prim 알고리즘
 하나의 정점에서 시작하여 모든 정점이 포함될 때까지 최소 비용 신장 트리를 확장해 나가는 알고리즘으로 간선을 정렬하는 과정이 없다.
@@ -214,7 +269,7 @@
         
         이 때 선택된 간선의 한쪽 끝인 트리 밖 정점을 T에 삽입한다.
         
-    3. T가 n개의 정점을 포함할 때까지 2를 반복한다.
+    3. T가 n개의 정점을 포함할 때까지 2단계를 반복한다.
 
 ## Graph의 특징
   - 네트워크 모델
