@@ -51,7 +51,7 @@
 ``` java 
 ```
 
-> ⬆️:[Top](#돌-놓기-문제)
+> ⬆️:[Top](#Prim-알고리즘)
 > ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#%EF%B8%8F-Algorithm)
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
 > - Reference
