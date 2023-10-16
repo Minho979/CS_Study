@@ -248,6 +248,7 @@
 ### 개념
 - n개의 정점으로 이루어진 무방향 연결 그래프의 subgraph 중에서, 정점은 n개 전부 포함하고, 간선은 n-1개만 포함하여 모든 정점들이 연결되는 subgraph
 - 신장 트리는 최소 개수의 간선으로 그래프의 모든 정점들이 연결되도록 함
+- 사이클(cycle)이 존재하지 않음
 
 <img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/spanning-tree.png' width='500'>
 
