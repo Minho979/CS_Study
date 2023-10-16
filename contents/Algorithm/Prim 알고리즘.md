@@ -119,15 +119,17 @@
 
 ## 구현 코드
 ``` java
+// Comparable 인터페이스 정의, 간선 저장 class
 class Edge implements Comparable<Edge>{
-	int w;
-	int cost;
+	int w;		// 방문할 정점(간선이 들어오는 정점) (v->w)
+	int cost;	// 간선의 가중치 
 	
 	Edge(int  w, int cost){
 		this.w = w;
 		this.cost = cost;
 	}
-	
+
+	// 가중치를 중심으로 오름차순 정렬 
 	@Override
 	public int compareTo(Edge o) {
 		return this.cost - o.cost;
@@ -136,21 +138,28 @@ class Edge implements Comparable<Edge>{
 
 public class prim_main {
 	static List<Edge>[] graph;
-	
+
+	// 프림 알고리즘
 	public static void prim(int start, int n) {
 		boolean[] visit = new boolean[n + 1];
 		
 		PriorityQueue<Edge> pq = new PriorityQueue<>();
+
+		// 시작 정점 가중치를 0으로 하여 삽입 
 		pq.offer(new Edge(start, 0));
 		
-		int total = 0;
+		int total = 0;		// 가중치 합
+
+		// 우선순위 큐가 빌때까지 반복
 		while(!pq.isEmpty()) {
 			Edge edge = pq.poll();
 			int v = edge.w;
 			int cost = edge.cost;
-			
+
+			// 방문한 정점 건너뛰기 
 			if(visit[v]) continue;
-            
+
+			// 방문 처리
 			visit[v] = true;
 			total += cost;
 			
@@ -160,6 +169,8 @@ public class prim_main {
 				}
 			}
 		}
+
+		// MST의 최종 가중치 합 출력
 		System.out.println(total);
 	}
 
@@ -167,28 +178,42 @@ public class prim_main {
 	public static void main(String[] args) throws IOException {
    		// 그래프 입력, 저장
 		BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
-		int n = Integer.parseInt(bf.readLine());
-		int m = Integer.parseInt(bf.readLine());
+		int n = Integer.parseInt(bf.readLine());	// 정점 수 
+		int m = Integer.parseInt(bf.readLine());	// 간선 수 
 		
-        // 그래프 선언, 간선 리스트로 표현
+		// 그래프 선언, 간선 리스트로 표현
 		graph = new ArrayList[n + 1];
 		for (int i = 0; i < graph.length; i++) graph[i] = new ArrayList<>();
 		
 		StringTokenizer st;
 		for (int i = 0; i < m; i++) {
 			st = new StringTokenizer(bf.readLine());
-			int v = Integer.parseInt(st.nextToken());
-			int w = Integer.parseInt(st.nextToken());
-			int cost = Integer.parseInt(st.nextToken());
+			int v = Integer.parseInt(st.nextToken());	// 정점
+			int w = Integer.parseInt(st.nextToken());	// 방문 정점
+			int cost = Integer.parseInt(st.nextToken());	// 가중치
 			
 			graph[v].add(new Edge(w, cost));
 			graph[w].add(new Edge(v, cost));
 		}
 		
-        // 프림 알고리즘 수행
+        	// 프림 알고리즘 수행
 		prim(1, n);
 	}
 }
+```
+```
+입력 값
+5
+6
+1 3 3
+1 4 8
+4 5 9
+1 2 10
+2 3 13
+2 5 14
+
+출력 값
+30
 ```
 
 > ⬆️:[Top](#Prim-알고리즘)
