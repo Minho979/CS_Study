@@ -18,6 +18,76 @@
    간선(w, cost)는 정점 v와 정점 w사이에 cost의 가중치로 연결된 간선을 의미한다.
 
 ### 예시
+0. 그래프의 초기 상태
+   
+   <img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/prim-Graph.png' width='500'>
+   
+   - v: 정점
+   - w: 이어진 정점(방문 가능 정점)
+   - Cost: 가중치
+   - visit: Boolean 배열로 각 정점 방문 여부 체크
+   - 큐: (정점, 가중치) 형태로 저장
+   - 시작 정점이 1이기에 우선순위 큐에 (1, 0)이 삽입되어 있는 상황
+     - 첫 정점은 가중치 0
+
+1. 우선 순위 큐에서 값을 하나 꺼냄 (1, 0)
+
+   <img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/prim-step1.png' width='500'>
+   
+   - 아직 방문된적 없는 정점이므로 방문 체크
+   - 정점 1을 MST에 삽입하고 정점 1과 연결된 간선들을 체크
+   - 방문된적 없는 정점 3, 4, 2를 각각 가중치와 함께 큐에 삽입
+
+2. 우선 순위 큐에서 값을 하나 꺼냄 (3, 3)
+
+   <img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/prim-step2.png' width='500'>
+
+   - 아직 방문한적 없는 정점이므로 방문 체크
+   - MST에 (3, 3) 삽입하고 정점 3과 연결된 간선들을 체크
+   - 방문된적 없는 정점 2를 가중치와 함께 큐에 삽입
+     - 이미 MST에 삽입된 정점 1은 제외
+
+3. 우선 순위 큐에서 값을 하나 꺼냄 (4, 8)
+
+   <img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/prim-step3.png' width='500'>
+
+   - 아직 방문한적 없는 정점이므로 방문 체크
+   - MST에 (4, 8) 삽입하고 정점 4와 연결된 간선들을 체크
+   - 방문된적 없는 정점 5를 가중치와 함께 큐에 삽입
+
+4. 우선 순위 큐에서 값을 하나 꺼냄 (5, 9)
+
+   <img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/prim-step4.png' width='500'>
+
+   - 아직 방문한적 없는 정점이므로 방문 체크
+   - MST에 (5, 9) 삽입하고 정점 5와 연결된 간선들을 체크
+   - 방문된적 없는 정점 2를 가중치와 함께 큐에 삽입
+  
+5. 우선 순위 큐에서 값을 하나 꺼냄 (2, 10)
+
+   <img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/prim-step5.png' width='500'>
+
+   - 아직 방문한적 없는 정점이므로 방문 체크
+   - 정점 2와 연결된 간선들을 체크
+   - 모든 간선이 MST에 포함된 정점과 연결되어 넘어감
+    
+6. 우선 순위 큐에서 값을 하나 꺼냄 (2, 13)
+
+   <img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/prim-step6.png' width='500'>
+
+   - 이미 방문한 정점이므로 넘어감
+    
+7. 우선 순위 큐에서 값을 하나 꺼냄 (2, 14)
+
+   <img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/prim-step7.png' width='500'>
+
+    - 이미 방문한 정점이므로 넘어감
+  
+8. 우선 순위 큐가 비었으므로 MST 구성 종료
+
+   <img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/prim-result.png' width='500'>
+
+   - 최종 총 가중치 30 
 
 ## 시간 복잡도
 - 배열로 구현한 경우: $O(V^2)$
