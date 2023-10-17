@@ -100,7 +100,92 @@
 - 간선의 개수가 많은 경우 유리
 - $O(|E|log |V|)$의 시간 복잡도를 지님
 
-## 구현 
+## 구현 코드
+``` java
+public class Kruskal_Algorithm {
+	// 유니온 
+	// 정점 x와 y가 속한 두 집합을 하나로 합침 
+	public static void union(int[] parent, int x, int y) {
+		x = find(parent, x);
+		y = find(parent, y);
+		
+		if(x < y) parent[y] = x;
+		else parent[x] = y;
+	}
+   // 파인드
+	public static int find(int[] parent, int x) {
+		if(parent[x] == x) return x;
+		else return find(parent, parent[x]);
+	}
+
+   // 크루스칼
+	public static void kruskal(int[][] graph, int[] parent) {
+		int cost = 0;
+		for(int i = 0; i < graph.length; i++) {
+			/* 
+			 정점[i][0](간선이 나가는 정점)과 
+			 정점[i][1](간선이 들어오는 정점)이 다른 집합에 속할 경우 유니온 
+			*/ 
+			if (find(parent, graph[i][0]) != find(parent, graph[i][1])) {
+				cost += graph[i][2];
+				union(parent, graph[i][0], graph[i][1]);
+			}
+		}
+        
+      // 최소 신장 트리의 총 가중치 출력
+		System.out.println(cost);
+	}
+	
+	public static void main(String[] args) throws IOException {
+    	// 간선 입력 받기, 그래프에 저장
+		BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+		int n = Integer.parseInt(bf.readLine());   // 정점 수
+		int m = Integer.parseInt(bf.readLine());   // 간선 수
+		int[][] graph = new int[m][3];             // 간선 수에 맞추어 그래프 생성
+                                                 // [3]은 from, to, cost
+		
+		StringTokenizer st;
+		for (int i = 0; i < m; i++) {
+			st = new StringTokenizer(bf.readLine());
+			graph[i][0] = Integer.parseInt(st.nextToken()); // 간선 나가는 정점 from
+			graph[i][1] = Integer.parseInt(st.nextToken()); // 간선 들어오는 정점 to
+			graph[i][2] = Integer.parseInt(st.nextToken()); // 가중치 cost
+		}
+		
+      // 간선 정렬
+		// Lambda Expression
+		Arrays.sort(graph, (o1, o2) -> o1[2] - o2[2]);
+		
+      // 부모노드 초기화
+		int[] parent = new int[n + 1];
+		for (int i = 0; i < parent.length; i++) {
+			parent[i] = i;
+		}
+        
+		//크루스칼 알고리즘 호출
+		kruskal(graph, parent);
+	}
+}
+```
+```
+입력 값
+7
+11
+1 7 12
+1 4 28
+1 2 67
+1 5 17
+2 4 24
+2 5 62
+3 5 20
+3 6 37
+4 7 13
+5 6 45
+5 7 73
+
+출력 값
+123
+```
 
 > ⬆️:[Top](#Kruskal-알고리즘)
 > ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#%EF%B8%8F-Algorithm)
