@@ -112,13 +112,13 @@ public class Kruskal_Algorithm {
 		if(x < y) parent[y] = x;
 		else parent[x] = y;
 	}
-   // 파인드
+   	// 파인드
 	public static int find(int[] parent, int x) {
 		if(parent[x] == x) return x;
 		else return find(parent, parent[x]);
 	}
 
-   // 크루스칼
+   	// 크루스칼
 	public static void kruskal(int[][] graph, int[] parent) {
 		int cost = 0;
 		for(int i = 0; i < graph.length; i++) {
@@ -132,12 +132,12 @@ public class Kruskal_Algorithm {
 			}
 		}
         
-      // 최소 신장 트리의 총 가중치 출력
+      		// 최소 신장 트리의 총 가중치 출력
 		System.out.println(cost);
 	}
 	
 	public static void main(String[] args) throws IOException {
-    	// 간선 입력 받기, 그래프에 저장
+    		// 간선 입력 받기, 그래프에 저장
 		BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
 		int n = Integer.parseInt(bf.readLine());   // 정점 수
 		int m = Integer.parseInt(bf.readLine());   // 간선 수
@@ -152,11 +152,11 @@ public class Kruskal_Algorithm {
 			graph[i][2] = Integer.parseInt(st.nextToken()); // 가중치 cost
 		}
 		
-      // 간선 정렬
+      		// 간선 정렬
 		// Lambda Expression
 		Arrays.sort(graph, (o1, o2) -> o1[2] - o2[2]);
 		
-      // 부모노드 초기화
+      		// 부모노드 초기화
 		int[] parent = new int[n + 1];
 		for (int i = 0; i < parent.length; i++) {
 			parent[i] = i;
