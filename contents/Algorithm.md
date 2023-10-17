@@ -22,6 +22,7 @@
   - [최장 공통 부분수열(LCS)](https://github.com/Minho979/CS_Study/blob/main/contents/Algorithm/%EC%B5%9C%EC%9E%A5%20%EA%B3%B5%ED%86%B5%20%EB%B6%80%EB%B6%84%EC%88%98%EC%97%B4(LCS).md)
 - [DFS와 BFS](<https://github.com/Minho979/CS_Study/blob/main/contents/Algorithm/DFS%EC%99%80%20BFS.md>)
 - [Prim 알고리즘](<https://github.com/Minho979/CS_Study/blob/main/contents/Algorithm/Prim%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98.md>)
+- [Kruskal 알고리즘](<https://github.com/Minho979/CS_Study/blob/main/contents/Algorithm/Kruskal%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98.md>)
 ***
 > ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#%EF%B8%8F-Algorithm)
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
