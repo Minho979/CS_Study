@@ -58,7 +58,82 @@
 - 인접 행렬을 이용하는 경우 $O(V^2)$
 
 ### 구현
+``` java
+class MyGraphBFS {
+	int vertexCnt;
+	int[] in_Degree;
+	ArrayList<Integer>[] edge_List;
+	
+	public MyGraphBFS(int N) {
+		this.vertexCnt = N;
+		edge_List = new ArrayList[N+1];
+		for (int i = 0; i <= N; ++i) {
+			edge_List[i] = new ArrayList<>();
+		}
+		in_Degree = new int[vertexCnt+1];
+	}
 
+	public void insert_Edge(int from, int to) {
+		edge_List[from].add(to);
+
+		//to의 진입 차수 증가
+		in_Degree[to]++;
+	}
+
+	public void topological_Sort_BFS() {
+		Queue<Integer> q = new LinkedList<>();
+		
+		//진입 차수가 0인 정점들을 큐에 넣어줌
+		for (int i = 1; i <= vertexCnt; ++i) {
+			if (in_Degree[i] == 0) {
+				q.offer(i);
+			}
+		}
+		
+		//결과의 크기는 정점의 수여야 하기 떄문에 정점의 수만큼 반복 
+		for (int i = 1; i <= vertexCnt; ++i) {
+			//다 돌기전에 큐가 비었다는 것은 사이클이 존재한다는 것을 의미
+			if (q.isEmpty()) {
+				System.out.println("그래프에 사이클이 존재");
+				return;
+			}
+			
+			int v = q.poll();
+			System.out.print(v + " ");
+			
+			for (int j = 0; j < edge_List[v].size(); ++j) {
+				int nv = edge_List[v].get(j);
+				
+				//인접한 정점의 진입 차수를 -1만큼 감소하고 0이면 큐에 넣어준다.
+				if (--in_Degree[nv] == 0) {
+					q.offer(nv);
+				}
+			}
+		}
+	}
+}
+
+public class TopologicalSort {
+
+	public static void main(String[] args) {
+		MyGraphBFS mgb = new MyGraphBFS(7);
+		mgb.insert_Edge(1, 2);
+		mgb.insert_Edge(1, 3);
+		mgb.insert_Edge(1, 4);
+		mgb.insert_Edge(2, 5);
+		mgb.insert_Edge(2, 6);
+		mgb.insert_Edge(3, 7);
+		mgb.insert_Edge(3, 6);
+		mgb.insert_Edge(4, 3);
+		mgb.insert_Edge(6, 5);
+		mgb.topological_Sort_BFS();
+		
+	}
+}
+```
+- 출력 결과
+`1 2 4 3 7 6 5`
+  - 각 숫자는 A~E까지의 순서를 의미 1: A, 2: B, 3: C, 4: D, 5: E, 6: F, 7: G
 
 ## DFS를 이용한 위상 정렬
 ### 개념
@@ -106,6 +181,89 @@
 - 인접 행렬을 이용하는 경우 $O(V^2)$
 
 ### 구현 
+``` java
+class MyGraphDFS {
+	int vertexCnt;
+	ArrayList<Integer>[] edge_List;
+	boolean[] visit;
+	boolean[] finish;
+	Stack<Integer> answer;
+	boolean cycle;
+	
+	public MyGraphDFS(int N) {
+		this.vertexCnt = N;
+		edge_List = new ArrayList[N+1];
+		for (int i = 0; i <= N; ++i) {
+			edge_List[i] = new ArrayList<>();
+		}
+		visit = new boolean[vertexCnt+1]; //방문 표시
+		finish = new boolean[vertexCnt+1]; //사이클 판단
+		answer = new Stack<>(); //결과를 담을 스택
+	}
+
+	public void insert_Edge(int from, int to) {
+		edge_List[from].add(to);
+	}
+
+	public void topological_Sort_DFS() {
+		//방문하지 않은 정점을 DFS 수행
+		for (int i = 1; i <= vertexCnt; ++i) {
+			if (cycle) {
+				System.out.println("그래프에 사이클 존재");
+				return;
+			}
+			if (!visit[i]) {
+				dfs(i);
+			}
+		}
+		
+		//스택에 담긴 정점들을 출력
+		while (!answer.isEmpty()) {
+			System.out.print(answer.pop() + " ");
+		}
+	}
+	
+	public void dfs(int v) {
+		visit[v] = true;
+	
+		for (int i = 0; i < edge_List[v].size(); ++i) {
+			int nv = edge_List[v].get(i);
+			
+			//방문하지 않았으면 dfs 수행
+			if (!visit[nv]) {
+				dfs(nv);
+			} 
+			//방문한 정점인데 finish 체크가 되지 않았으면 사이클이 존재한다는 의미
+			else if (!finish[nv]) {
+				cycle = true;
+				return;
+			}
+		}
+		
+		//더 이상 갈 곳이 없는 정점을 finish 체크 & 스택에 넣어줌 (말단부터 상위로)
+		finish[v] = true;
+		answer.push(v);
+	}
+}
+
+public class TopologicalSort {
+
+	public static void main(String[] args) {
+		MyGraphDFS mgd = new MyGraphDFS(7);
+		mgd.insert_Edge(1, 2);
+		mgd.insert_Edge(1, 3);
+		mgd.insert_Edge(1, 4);
+		mgd.insert_Edge(2, 5);
+		mgd.insert_Edge(2, 6);
+		mgd.insert_Edge(3, 7);
+		mgd.insert_Edge(3, 6);
+		mgd.insert_Edge(4, 3);
+		mgd.insert_Edge(6, 5);
+		mgd.topological_Sort_DFS();
+```
+- 출력 결과
+`1 4 3 7 2 6 5`
+  - 각 숫자는 A~E까지의 순서를 의미 1: A, 2: B, 3: C, 4: D, 5: E, 6: F, 7: G
 
 > ⬆️:[Top](#위상-정렬Topological-Sort)
 > ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#%EF%B8%8F-Algorithm)
