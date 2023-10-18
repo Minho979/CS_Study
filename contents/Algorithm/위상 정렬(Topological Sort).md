@@ -60,9 +60,9 @@
 ### 구현
 ``` java
 class MyGraphBFS {
-	int vertexCnt;
-	int[] in_Degree;
-	ArrayList<Integer>[] edge_List;
+	int vertexCnt;			// 정점 수 
+	int[] in_Degree;		// 진입 차수
+	ArrayList<Integer>[] edge_List;	// 2차원 ArrayList 
 	
 	public MyGraphBFS(int N) {
 		this.vertexCnt = N;
@@ -76,23 +76,23 @@ class MyGraphBFS {
 	public void insert_Edge(int from, int to) {
 		edge_List[from].add(to);
 
-		//to의 진입 차수 증가
+		// to의 진입 차수 증가
 		in_Degree[to]++;
 	}
 
 	public void topological_Sort_BFS() {
 		Queue<Integer> q = new LinkedList<>();
 		
-		//진입 차수가 0인 정점들을 큐에 넣어줌
+		// 진입 차수가 0인 정점들을 큐에 넣어줌
 		for (int i = 1; i <= vertexCnt; ++i) {
 			if (in_Degree[i] == 0) {
 				q.offer(i);
 			}
 		}
 		
-		//결과의 크기는 정점의 수여야 하기 떄문에 정점의 수만큼 반복 
+		// 결과의 크기는 정점의 수여야 하기 떄문에 정점의 수만큼 반복 
 		for (int i = 1; i <= vertexCnt; ++i) {
-			//다 돌기전에 큐가 비었다는 것은 사이클이 존재한다는 것을 의미
+			// 다 돌기전에 큐가 비었다는 것은 사이클이 존재한다는 것을 의미
 			if (q.isEmpty()) {
 				System.out.println("그래프에 사이클이 존재");
 				return;
@@ -104,7 +104,7 @@ class MyGraphBFS {
 			for (int j = 0; j < edge_List[v].size(); ++j) {
 				int nv = edge_List[v].get(j);
 				
-				//인접한 정점의 진입 차수를 -1만큼 감소하고 0이면 큐에 넣어준다.
+				// 인접한 정점의 진입 차수를 -1만큼 감소하고 0이면 큐에 넣어준다.
 				if (--in_Degree[nv] == 0) {
 					q.offer(nv);
 				}
@@ -196,9 +196,9 @@ class MyGraphDFS {
 		for (int i = 0; i <= N; ++i) {
 			edge_List[i] = new ArrayList<>();
 		}
-		visit = new boolean[vertexCnt+1]; //방문 표시
-		finish = new boolean[vertexCnt+1]; //사이클 판단
-		answer = new Stack<>(); //결과를 담을 스택
+		visit = new boolean[vertexCnt+1];  // 방문 표시
+		finish = new boolean[vertexCnt+1]; // 사이클 판단
+		answer = new Stack<>(); 	   // 결과를 담을 스택
 	}
 
 	public void insert_Edge(int from, int to) {
@@ -206,7 +206,7 @@ class MyGraphDFS {
 	}
 
 	public void topological_Sort_DFS() {
-		//방문하지 않은 정점을 DFS 수행
+		// 방문하지 않은 정점을 DFS 수행
 		for (int i = 1; i <= vertexCnt; ++i) {
 			if (cycle) {
 				System.out.println("그래프에 사이클 존재");
@@ -217,7 +217,7 @@ class MyGraphDFS {
 			}
 		}
 		
-		//스택에 담긴 정점들을 출력
+		// 스택에 담긴 정점들을 출력
 		while (!answer.isEmpty()) {
 			System.out.print(answer.pop() + " ");
 		}
@@ -229,18 +229,18 @@ class MyGraphDFS {
 		for (int i = 0; i < edge_List[v].size(); ++i) {
 			int nv = edge_List[v].get(i);
 			
-			//방문하지 않았으면 dfs 수행
+			// 방문하지 않았으면 dfs 수행
 			if (!visit[nv]) {
 				dfs(nv);
 			} 
-			//방문한 정점인데 finish 체크가 되지 않았으면 사이클이 존재한다는 의미
+			// 방문한 정점인데 finish 체크가 되지 않았으면 사이클이 존재한다는 의미
 			else if (!finish[nv]) {
 				cycle = true;
 				return;
 			}
 		}
 		
-		//더 이상 갈 곳이 없는 정점을 finish 체크 & 스택에 넣어줌 (말단부터 상위로)
+		// 더 이상 갈 곳이 없는 정점을 finish 체크 & 스택에 넣어줌 (말단부터 상위로)
 		finish[v] = true;
 		answer.push(v);
 	}
