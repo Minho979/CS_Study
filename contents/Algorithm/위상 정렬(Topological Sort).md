@@ -21,11 +21,36 @@
 ### 수행 과정
 1. 진입 차수가 0인 시작 정점 한 개를 큐에 삽입한다.
 2. 큐가 비어있지 않다면 정점 한 개를 꺼내 결과 리스트에 삽입한다. 만약 큐가 비어있다면 종료한다.
-3. 꺼낸 정점에 인접한 모든 정점의 진입 차수를 -1만큼 감소시킨다.
+3. 꺼낸 정점과 인접한 모든 정점의 진입 차수를 -1만큼 감소시키고 꺼낸 정점을 결과 리스트에 삽입한다.
 
    3-1. 감소한 진입 차수가 0이라면 이 정점은 새로운 시작 정점이 될 수 있기에 큐에 삽입한다.
 
 ### 예시
+- 사용된 그래프 
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Topological-Graph.jpg' width='500'>
+1. 진입 차수가 0인 A를 큐에 삽입한다.
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Topological-BFS1.jpg' width='500'>
+2. A를 꺼내고 인접 정점의 진입 차수를 1씩 감소 시킨 다음 A를 결과 리스트에 삽입한다. 
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Topological-BFS2.jpg' width='500'>
+3. 진입 차수가 0인 정점 B, D를 큐에 삽입한다.
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Topological-BFS3.jpg' width='500'>
+4. B를 꺼내고 인접 정점의 진입 차수를 1씩 감소 시킨 다음 B를 결과 리스트에 삽입한다.
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Topological-BFS4.jpg' width='500'>
+5. D를 꺼내고 인접 정점의 진입 차수를 1씩 감소 시킨 다음 D를 결과 리스트에 삽입한다.
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Topological-BFS5.jpg' width='500'>
+6. 진입 차수가 0인 C를 큐에 삽입한다.
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Topological-BFS6.jpg' width='500'>
+7. C를 꺼내고 인접 정점의 진입 차수를 1씩 감소 시킨 다음 C를 결과 리스트에 삽입한다.
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Topological-BFS7.jpg' width='500'>
+8. 진입 차수가 0인 F, G를 큐에 삽입한다.
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Topological-BFS8.jpg' width='500'>
+9. F를 꺼내고 인접 정점의 진입 차수를 1씩 감소 시킨 다음 F를 결과 리스트에 삽입한다.
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Topological-BFS9.jpg' width='500'>
+10. 진입 차수가 0인 E를 큐에 삽입한다.
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Topological-BFS10.jpg' width='500'>
+11. G를 꺼내고 인접 정점이 없기에 결과 리스트에 G를 삽입한다. E에 대해서도 같은 작업을 수행한다.
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Topological-BFS11.jpg' width='500'>
+
 
 ### 시간 복잡도 
 - 인접 리스트 그래프의 모든 노드를 확인하면서 $O(V)$, 해당 노드에서 출발하는 간선을 제거한다. $O(E)$
@@ -52,6 +77,28 @@
 3. 모든 정점을 방문한 했다면 스택에 삽입한 정점들을 출력하고 위상 정렬을 종료한다.
 
 ### 예시
+- 사용된 그래프 
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Topological-Graph.jpg' width='500'>
+1. 임의의 정점 B를 선택하고 B에 대한 DFS를 수행한다. 
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Topological-DFS1.jpg' width='500'>
+
+- E에서 더 이상 방문할 곳이 없기에 E를 스택에 삽입한다.
+  
+2. B에 대한 DFS를 계속 진행한다. 
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Topological-DFS2.jpg' width='500'>
+
+- F에서 더 이상 방문할 곳이 없기에 F를 스택에 삽입하고, B 또한 같은 이유로 스택에 삽입한다.
+
+3. 방문하지 않은 정점 A에 대해 DFS를 수행한다. 
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Topological-DFS3.jpg' width='500'>
+
+- A-C-G 순서로 방문하고 G에서 방문할 정점이 없기에 G를 스택에 삽입한다.
+- 정점 C도 마찬가지로 스택에 삽입한다.
+
+4. A에 대해 DFS를 계속 진행한다.
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Topological-DFS4.jpg' width='500'>
+
+- D를 방문 한 후 스택에 삽입하고 A 또한 스택에 삽입한다.
 
 ### 시간 복잡도 
 - 인접 리스트 그래프의 모든 노드를 확인하면서 $O(V)$, 해당 노드에 진입하는 간선을 제거한다. $O(E)$
