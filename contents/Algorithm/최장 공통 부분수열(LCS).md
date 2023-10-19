@@ -175,7 +175,7 @@ LCS(m. n) {
 <img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/LCSubSearchEx3.png' width='600'>
 
 > ⬆️:[Top](#최장-공통-부분수열LCS-Longest-Common-Subsequence)
-> ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#%EF%B8%8F-Algorithm)
+> ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/contents/Algorithm/%EB%8F%99%EC%A0%81%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D(Dynamic%20Programming).md#%EB%8F%99%EC%A0%81-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EC%9D%98-%EC%98%88)
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
 > - Reference
 > - [문병로. 쉽게 배우는 알고리즘. 한빛아카데미]
