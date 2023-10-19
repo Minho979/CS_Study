@@ -78,10 +78,11 @@ class Node implements Comparable<Node>{
 }
 
 public class Dijkstra {
+
 	// 그래프를 표현 List
 	static ArrayList<Node>[] graph;
 	
-    //노드의 크기, 출발지
+    	//노드의 크기, 출발지
 	public static void Dijkstra(int v, int start) {
 		int[] dist = new int[v + 1]; // 최단 거리 저장 변수, 0번 인덱스는 사용하지 않음 
 		int INF = Integer.MAX_VALUE;
@@ -96,9 +97,10 @@ public class Dijkstra {
 		pq.offer(new Node(start, 0));
 		
 		while(!pq.isEmpty()) {
+
 			// 노드 꺼내기
 			Node node = pq.poll();
-			int nodeIndex = node.index; // 꺼낸 노드의 인덱스 
+			int nodeIndex = node.index; 	// 꺼낸 노드의 인덱스 
 			int cost = node.cost;		// 꺼낸 노드의 가중치 
 			
 			/*
@@ -114,15 +116,17 @@ public class Dijkstra {
 			// 현재 노드와 연결된 정점 비교
 			for(Node next : graph[nodeIndex]) {
 				if(dist[next.index] > dist[nodeIndex]+ next.cost) {
+
 					// 최단 경로 테이블 갱신 
 					dist[next.index] = dist[nodeIndex] + next.cost;
+
 					// 갱신된 노드 삽입 
 					pq.offer(new Node(next.index, dist[next.index]));
 				}
 			}
 		}
         
-        // 최소거리 출력
+        	// 최소거리 출력
 		for(int i : dist) {
 			if(i == INF) System.out.print("INF ");
 			else System.out.print(i+" ");
@@ -133,6 +137,7 @@ public class Dijkstra {
     
 		// 그래프 입력 받기
 		BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+
 		// 정점의 개수, 간선의 개수
 		int v = Integer.parseInt(bf.readLine());
 		int e = Integer.parseInt(bf.readLine());
