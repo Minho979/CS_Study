@@ -90,9 +90,9 @@ public class Bellman_Ford {
 	
 	// 정점의 개수, 간선의 개수, 출발지
 	public static boolean BellmanFord(int n, int m, int start) {
-		int[] dist = new int[n + 1]; // 0번 인덱스 사용 안함 
+		int[] dist = new int[n + 1]; 	  // 0번 인덱스 사용 안함 
 		Arrays.fill(dist, INF);		  // 테이블 초기화 
-		dist[start] = 0;			     // 출발 노드 가중치 0 
+		dist[start] = 0;		  // 출발 노드 가중치 0 
 
 		// 정점의 개수만큼 반복
 		for (int i = 0; i < n; i++) {
@@ -150,10 +150,48 @@ public class Bellman_Ford {
 			graph.add(new Edge(v, w, cost));
 		}
 		
-        // 벨만-포드 알고리즘 수행
+       	 	// 벨만-포드 알고리즘 수행
 		BellmanFord(n, m, 4);
 	}
 }
+```
+- 음수 사이클이 없는 그래프의 경우
+``` java
+입력 값
+5	// 정점 수 
+9	// 간선 수
+1 2 10	// (from, to, cost)
+1 3 5	// (from, to, cost)
+2 3 2	// (from, to, cost)
+3 1 1	// (from, to, cost)
+3 2 13	// (from, to, cost)
+4 1 8	// (from, to, cost)
+4 5 3	// (from, to, cost)
+5 4 9	// (from, to, cost)
+5 2 31	// (from, to, cost)
+
+출력 값
+/*
+1  2  3 4 5 */
+8 18 13 0 3 
+```
+- 음수 사이클이 있는 그래프의 경우
+``` java
+입력 값 
+5	// 정점 수 
+9	// 간선 수
+1 2 -10	// (from, to, cost)
+1 3 5	// (from, to, cost)
+2 3 2	// (from, to, cost)
+3 1 1	// (from, to, cost)
+3 2 13	// (from, to, cost)
+4 1 8	// (from, to, cost)
+4 5 3	// (from, to, cost)
+5 4 9	// (from, to, cost)
+5 2 31	// (from, to, cost)
+
+출력 값
+음수 사이클 존재
 ```
 
 > ⬆️:[Top](#벨만-포드Bellman-Ford-알고리즘)
