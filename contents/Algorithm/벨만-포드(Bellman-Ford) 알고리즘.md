@@ -70,6 +70,91 @@
 - `정점 수 - 1`개 만큼 사이클을 돌고 각 사이클 마다 간선을 확인하므로 $O(|V-1||E|)$ 
 - $O(|V||E|)$
 
+## 구현 
+``` java
+class Edge {
+	int v;    // 나가는 정점
+	int w;    // 들어오는 정점
+	int cost;
+
+	public Edge(int v, int w, int cost) {
+		this.v = v;
+		this.w = w;
+		this.cost = cost;
+	}
+}
+
+public class Bellman_Ford {
+	static ArrayList<Edge> graph;
+	static final int INF = Integer.MAX_VALUE;
+	
+	// 정점의 개수, 간선의 개수, 출발지
+	public static boolean BellmanFord(int n, int m, int start) {
+		int[] dist = new int[n + 1]; // 0번 인덱스 사용 안함 
+		Arrays.fill(dist, INF);		  // 테이블 초기화 
+		dist[start] = 0;			     // 출발 노드 가중치 0 
+
+		// 정점의 개수만큼 반복
+		for (int i = 0; i < n; i++) {
+			// 간선의 개수만큼 반복
+			for (int j = 0; j < m; j++) {
+				Edge edge = graph.get(j); // 현재 간선
+				
+				// 현재 간선의 들어오는 정점에 대해 비교
+				// edge.v = 정점에서 나가는 간선, edge.w 정점으로 들어오는 간선 
+				if (dist[edge.v] != INF && dist[edge.w] > dist[edge.v] + edge.cost) {
+					dist[edge.w] = dist[edge.v] + edge.cost;
+				}
+			}
+		}
+		
+		// n번 반복 후 음수 가중치 확인
+		for (int i = 0; i < m; i++) {
+			Edge edge = graph.get(i); // 현재 간선
+			
+			// 현재 간선의 들어오는 정점에 대해 비교 -> 더 작은 값 생기면 음수 사이클 존재
+			if (dist[edge.v] != INF && dist[edge.w] > dist[edge.v] + edge.cost) {
+				System.out.println("음수 사이클 존재");
+				return false;
+			}
+		}
+		
+		// 출력
+		for (int i = 1; i < dist.length; i++) {
+			if (dist[i] == INF)
+				System.out.print("INF ");
+			else
+				System.out.print(dist[i] + " ");
+		}
+		
+		return true;
+	}
+
+	public static void main(String[] args) throws IOException {
+    
+		// 그래프 입력받기
+		BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+		// 정점의 개수, 간선의 개수 
+		int n = Integer.parseInt(bf.readLine());
+		int m = Integer.parseInt(bf.readLine());
+
+		graph = new ArrayList<>();
+
+		StringTokenizer st;
+		for (int i = 0; i < m; i++) {
+			st = new StringTokenizer(bf.readLine());
+			int v = Integer.parseInt(st.nextToken());
+			int w = Integer.parseInt(st.nextToken());
+			int cost = Integer.parseInt(st.nextToken());
+
+			graph.add(new Edge(v, w, cost));
+		}
+		
+        // 벨만-포드 알고리즘 수행
+		BellmanFord(n, m, 4);
+	}
+}
+```
 
 > ⬆️:[Top](#벨만-포드Bellman-Ford-알고리즘)
 > ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/contents/Algorithm/%EC%B5%9C%EB%8B%A8%20%EA%B2%BD%EB%A1%9C(Shortest%20path)%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98.md#%EB%8B%A8%EC%9D%BC-%EC%8B%9C%EC%9E%91%EC%A0%90-%EC%B5%9C%EB%8B%A8-%EA%B2%BD%EB%A1%9C-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98)
