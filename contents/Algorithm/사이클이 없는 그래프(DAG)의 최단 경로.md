@@ -51,9 +51,138 @@
 - 각 정점에 대한 Relaxation을 수행하는 시간 $𝛩(|E|)$
 - 최종적으로 위의 연산을 모두 합친  $𝛩(V+E)$
 
+## 구현
+``` java
+public class DAG_Shortest_Path {
+	
+	static final int INF = Integer.MAX_VALUE;	// 초기화 상수 
+	
+	static class Node {
+		int from;
+		int to;
+		int cost;
+		
+		Node(int from, int to, int cost) {
+			this.from = from;
+			this.to = to;
+			this.cost = cost;
+		}
+	}
+	
+	// 거리, 그래프 간선, 진입 차수, 시작 정점, 정점 개수 
+	public static int[] DAG_ShortestPath  (int[] dist, List<List<Node>> edge, int[] in_degree, int start, int n) {
+		int to;
+		int cost;
+		
+		StringBuilder sb = new StringBuilder();
+		
+		// dist 초기화 
+		Arrays.fill(dist, INF);
+		
+		// 시작 노드 초기화 
+		dist[start] = 0;
+		
+		// 위상 정렬 수행 
+		int[] topological = new int[n+1];	// 0번 인덱스는 사용하지 않음 
+		int idx = 0;
+		
+		PriorityQueue<Integer> pq = new PriorityQueue<>();
+		
+		// 진입 차수 0인 정점 큐에 삽입 
+		for (int i = 0; i <= n; ++i) {
+			if (in_degree[i] == 0) {
+				pq.add(i);
+			}
+		}
+		
+		// 정점 수 만큼 반복 
+		for (int i = 0; i <= n; ++i) {
+			int v = pq.remove();
+			
+			// 방문 순서 문자열 만들기 
+			sb.append(v + " ");
+			
+			// 위상 정렬 배열에 방문 순서대로 정점 삽입 
+			topological[idx++] = v;
+			for (Node node : edge.get(v)) {
+				to = node.to;
+				if (--in_degree[to] == 0) {
+					pq.add(to);
+				}
+			}
+		}
+		
+		// 위상 정렬 된 배열 순서대로 반복  
+		for (int v: topological) {
+			for (Node node : edge.get(v)) {
+				to = node.to;
+				cost = node.cost;
+				if (dist[v] == INF) continue;
+
+				// Relaxation 수행 
+				if (dist[to] > dist[v] + cost) {
+					dist[to] = dist[v] + cost;
+				}
+			}
+		}
+		
+		// 방문 순서 출력 및 거리 리턴 
+		System.out.println("방문 순서: " + sb.toString());
+		return dist;
+		
+		
+	}
+	
+	public static void main(String[] args) {
+		int n = 5;		// 정점 수 
+		int start = 1;	// 시작 정점 
+		
+		
+		int[] dist = new int[n + 1]; // 최종 거리 배열, 0번 인덱스는 사용하지 않음 
+		
+		List<List<Node>> edge = new LinkedList<>();
+		
+		for (int i = 0; i <= n; ++i) {
+			edge.add(new LinkedList<Node>());
+		}
+		
+		// 간선 정보 입력 
+		edge.get(1).add(new Node(1, 2, 5));
+		edge.get(2).add(new Node(2, 3, 4));
+		edge.get(2).add(new Node(2, 4, 7));
+		edge.get(3).add(new Node(3, 4, 6));
+		edge.get(3).add(new Node(3, 5, 4));
+		edge.get(4).add(new Node(4, 5, 3));
+		
+		// 진입 차수 입력 
+		int[] in_degree = new int [n + 1];
+		in_degree[2] ++;
+		in_degree[3] ++;
+		in_degree[4] ++;
+		in_degree[4] ++;
+		in_degree[5] ++;
+		in_degree[5] ++;
+		
+		// DAG_ShortestPath 호출 
+		dist = DAG_ShortestPath (dist, edge,in_degree, start, n);
+		
+		StringBuilder sb = new StringBuilder();
+		for (int i : dist) {
+			sb.append((i == INF ? "INF" : i) + " ");
+		}
+		
+		System.out.println("최소 거리: " + sb.toString());
+
+	}
+
+}
+```
+
+
 > ⬆️:[Top](#사이클이-없는-그래프DAG의-최단-경로)
 > ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/contents/Algorithm/%EC%B5%9C%EB%8B%A8%20%EA%B2%BD%EB%A1%9C(Shortest%20path)%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98.md#%EB%8B%A8%EC%9D%BC-%EC%8B%9C%EC%9E%91%EC%A0%90-%EC%B5%9C%EB%8B%A8-%EA%B2%BD%EB%A1%9C-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98)
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
 > - Reference
 > - [문병로. 쉽게 배우는 알고리즘. 한빛아카데미]
 > - [[알고리즘 정리] DAG에서 최단경로를 찾는 법](https://jeonyeohun.tistory.com/99)
+> - [[알고리즘] 그래프 최단 경로 ( Shortest Path ) - 다익스트라, 벨만-포드, 플로이드-워샬, 사이클이 없는 유향 그래프( DAG )](https://hyunjiishailey.tistory.com/233)
