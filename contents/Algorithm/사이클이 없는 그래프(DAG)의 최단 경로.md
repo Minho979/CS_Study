@@ -134,7 +134,7 @@ public class DAG_Shortest_Path {
 	}
 	
 	public static void main(String[] args) {
-		int n = 5;		// 정점 수 
+		int n = 5;	// 정점 수 
 		int start = 1;	// 시작 정점 
 		
 		
@@ -176,6 +176,10 @@ public class DAG_Shortest_Path {
 	}
 
 }
+```
+``` java
+방문 순서: 0 1 2 3 4 5
+최소 거리: INF 0 5 9 12 13
 ```
 
 
