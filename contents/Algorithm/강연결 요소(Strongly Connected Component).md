@@ -65,6 +65,109 @@
 
 ## 시간 복잡도
 - 모든 정점을 탐색하고 간선의 개수만큼 추가 탐색하므로 $O(|V|+|E|)$ 
+
+## 구현 코드
+``` java
+public class SCC_Algorithm {
+	static int MAX = 10001;
+	static int v, e, id;
+	static int[] d = new int[MAX];
+	static int sccNum; // scc 개수
+	static int[] sn = new int[MAX]; // i가 속한 SCC의 번호
+	static List<List<Integer>> a = new ArrayList<>();
+	static boolean[] finished = new boolean[MAX]; // SCC 성립되면 true
+	static Stack<Integer> s = new Stack<>();
+	static List<List<Integer>> SCC = new ArrayList<>();
+	
+	public static void main(String[] args) throws Exception {
+		// 그래프 정보 입력
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		int n = Integer.parseInt(st.nextToken());	// 정점 수 
+		int c = Integer.parseInt(st.nextToken());	// 간선 수 
+        for(int i = 0; i<MAX; i++){
+            List<Integer> list = new ArrayList<>();
+            a.add(list);
+        }
+        for(int i = 0; i<c; i++){
+	        st = new StringTokenizer(br.readLine());
+            int x = Integer.parseInt(st.nextToken());	// 출발 정점 
+            int y = Integer.parseInt(st.nextToken());	// 도착 정점 
+
+            a.get(x).add(y);
+        }
+		// DFS를 수행하며 SCC 추출
+		for (int i = 1; i <= n; i++) {
+			if (d[i] == 0) DFS(i);
+		}
+		// sccNum = SCC 개수
+		System.out.println("SCC 개수 : "+sccNum);
+
+        // System.out.println(SCC);
+
+		// 각 SCC 출력
+		for (List<Integer> currSCC : SCC) {
+			for (int curr : currSCC){
+				System.out.print(curr+" ");
+			}
+			System.out.println();
+		}
+	}
+
+	public static int DFS(int c){
+		d[c] = ++id;
+		s.push(c);
+		
+		int result = d[c];
+        Iterator<Integer> itr = a.get(c).iterator();
+		while(itr.hasNext()){
+            int next = itr.next();
+			// 처음 방문하는 정점
+			if(d[next] == 0) result = Math.min(result, DFS(next));
+			// 방문은 했었지만 SCC 성립 전인 정점
+			else if(!finished[next]) result = Math.min(result, d[next]);
+		}
+		
+		if(result == d[c]){
+			List<Integer> scc = new ArrayList<>();
+			while(true){
+				int t = s.pop();
+				scc.add(t);
+				finished[t] = true;
+				sn[t] = sccNum;
+				if(t == c) break;
+			}
+			SCC.add(scc);
+            // System.out.println(scc);
+			sccNum++;
+		}
+		return result;
+	}
+}
+```
+```java
+입력 값
+8 11   // 정점 수, 간선 수 
+1 2    // 출발 정점, 도착 정점
+2 3
+2 5
+3 4
+3 7
+4 3
+4 8
+5 1
+6 7
+7 6
+8 4
+
+출력 값
+SCC 개수 : 3
+6 7 
+8 4 3 
+5 2 1 
+```
+
+
    
 > ⬆️:[Top](#강연결-요소Strongly-Connected-Component)
 > ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#%EF%B8%8F-Algorithm)
@@ -72,3 +175,4 @@
 > - Reference
 > - [문병로. 쉽게 배우는 알고리즘. 한빛아카데미]
 > - [[알고리즘] 강한 연결 요소 추출 알고리즘 (Strongly Connected Component)](https://yjg-lab.tistory.com/188)
+> - [강한 연결 요소 추출 알고리즘 (Strongly Connected Component)](https://velog.io/@gkdis6/알고리즘-강한-연결-요소-추출-알고리즘-Strongly-Connected-Component)
