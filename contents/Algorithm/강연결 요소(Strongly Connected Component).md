@@ -15,6 +15,53 @@
    3-1. DFS를 수행하며 더이상 상위노드로 이동할 수 없을 때, SCC를 발견하고 기록하는 과정을 스택이 빌때까지 반복한다.
 
 ### 예시
+- 예시에 이용된 그래프
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/SCC-Graph.png' width='500'>
+
+1. 정점 1부터 DFS를 수행하여 순서대로 방문하고 스택에 삽입
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/SCC-Ex1.png' width='500'>
+
+- LIFO를 통해 8에서 부모 노드로 이동할 수 있는지 확인
+- 4로 이동할 수 있으므로 SCC 해당 X 
+
+2. 정점 4에서 부모 노드로 이동할 수 있는지 확인
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/SCC-Ex2.png' width='500'>
+
+- 3으로 이동할 수 있으므로 SCC 해당 X
+
+3. 정점 3에서 부모 노드로 이동할 수 있는지 확인
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/SCC-Ex3.png' width='500'>
+
+- 7으로 이동할 수 있으며 새로운 정점 7을 방문하고 스택에 삽입
+- 7에서 6으로 이동하고 스택에 삽입 
+
+4. 정점 6에서 부모 노드로 이동할 수 있는지 확인
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/SCC-Ex4.png' width='500'>
+
+- 7로 이동하고 7은 부모 노드로 이동할 수 없으므로 SCC에 해당
+- 정점 7과 그 위에 쌓여있는 6을 하나로 묶어 하나의 SCC 성립
+
+5. 정점 3에 대해 부모 노드로 이동할 수 있는지 확인 
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/SCC-Ex5.png' width='500'>
+
+- 7로 이동할 수 있지만 7은 이미 다른 SCC로 빠져나갔기에 정점 3과는 다른 SCC에 해당
+- 동일 SCC내에서는 이동할 수 있는 부모 노드가 없어 3위에 쌓여있는 정점들을 하나로 묶어 하나의 SCC 성립
+
+6. 정점 2로 돌아가 방문하지 않았던 노드 5를 방문하고 스택에 삽입
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/SCC-Ex6.png' width='500'>
+
+- 5에 대해 부모 노드로 이동할 수 있는지 확인하고 1로 이동할 수 있으므로 1로 이동
+
+7. 정점 1은 루트 노드이기에 더이상 방문 할 수 있는 노드가 없음
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/SCC-Ex7.png' width='500'>
+
+- 정점 1위의 모든 정점을 하나로 묶어 하나의 SCC 구성
+
+8. 모든 SCC를 발견하여 스택이 비었으므로 종료
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/SCC-Ex8.png' width='500'>
+
+- [6, 7], [3, 4 ,8], [1, 2, 5]라는 강연결 요소 발견
+
 
 ## 시간 복잡도
 - 모든 정점을 탐색하고 간선의 개수만큼 추가 탐색하므로 $O(|V|+|E|)$ 
