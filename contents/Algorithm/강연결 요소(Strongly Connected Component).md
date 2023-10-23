@@ -71,3 +71,4 @@
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
 > - Reference
 > - [문병로. 쉽게 배우는 알고리즘. 한빛아카데미]
+> - [[알고리즘] 강한 연결 요소 추출 알고리즘 (Strongly Connected Component)](https://yjg-lab.tistory.com/188)
