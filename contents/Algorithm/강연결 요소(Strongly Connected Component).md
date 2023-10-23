@@ -19,7 +19,7 @@
 ## 시간 복잡도
 - 모든 정점을 탐색하고 간선의 개수만큼 추가 탐색하므로 $O(|V|+|E|)$ 
    
-> ⬆️:[Top](#강연결-요소Strong-Connected-Component)
+> ⬆️:[Top](#강연결-요소Strongly-Connected-Component)
 > ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#%EF%B8%8F-Algorithm)
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
 > - Reference
