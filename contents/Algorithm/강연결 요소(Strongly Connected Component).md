@@ -69,6 +69,7 @@
 ## 구현 코드
 ``` java
 public class SCC_Algorithm {
+
 	static int MAX = 10001;
 	static int v, e, id;
 	static int[] d = new int[MAX];
@@ -80,30 +81,31 @@ public class SCC_Algorithm {
 	static List<List<Integer>> SCC = new ArrayList<>();
 	
 	public static void main(String[] args) throws Exception {
+
 		// 그래프 정보 입력
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		int n = Integer.parseInt(st.nextToken());	// 정점 수 
 		int c = Integer.parseInt(st.nextToken());	// 간선 수 
-        for(int i = 0; i<MAX; i++){
-            List<Integer> list = new ArrayList<>();
-            a.add(list);
-        }
-        for(int i = 0; i<c; i++){
-	        st = new StringTokenizer(br.readLine());
-            int x = Integer.parseInt(st.nextToken());	// 출발 정점 
-            int y = Integer.parseInt(st.nextToken());	// 도착 정점 
+	        for(int i = 0; i<MAX; i++){
+	            List<Integer> list = new ArrayList<>();
+	            a.add(list);
+	        }
+	        for(int i = 0; i<c; i++){
+		        st = new StringTokenizer(br.readLine());
+	            int x = Integer.parseInt(st.nextToken());	// 출발 정점 
+	            int y = Integer.parseInt(st.nextToken());	// 도착 정점 
+	
+	            a.get(x).add(y);
+	        }
 
-            a.get(x).add(y);
-        }
 		// DFS를 수행하며 SCC 추출
 		for (int i = 1; i <= n; i++) {
 			if (d[i] == 0) DFS(i);
 		}
+
 		// sccNum = SCC 개수
 		System.out.println("SCC 개수 : "+sccNum);
-
-        // System.out.println(SCC);
 
 		// 각 SCC 출력
 		for (List<Integer> currSCC : SCC) {
@@ -119,11 +121,13 @@ public class SCC_Algorithm {
 		s.push(c);
 		
 		int result = d[c];
-        Iterator<Integer> itr = a.get(c).iterator();
+	        Iterator<Integer> itr = a.get(c).iterator();
 		while(itr.hasNext()){
-            int next = itr.next();
+            	int next = itr.next();
+
 			// 처음 방문하는 정점
 			if(d[next] == 0) result = Math.min(result, DFS(next));
+
 			// 방문은 했었지만 SCC 성립 전인 정점
 			else if(!finished[next]) result = Math.min(result, d[next]);
 		}
@@ -138,7 +142,7 @@ public class SCC_Algorithm {
 				if(t == c) break;
 			}
 			SCC.add(scc);
-            // System.out.println(scc);
+
 			sccNum++;
 		}
 		return result;
