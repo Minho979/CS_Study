@@ -32,7 +32,10 @@
   - 각 경로의 점수는 루트 노드에서 리프 노드에 이를때까지 만난 노드의 가중치의 합
 - 문제: 경로의 점수를 최대화하는 경로를 찾아라
 
-  ![사진 추가 예정]()
+  <img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Greedy-BinaryTree.png' width='500'>
+
+  - 최적해: 빨간 경로
+  - 그리디: 파란 경로 
 
 ### 동전 바꾸기
 - 동전을 모아 특정 액수를 만들되 동전의 개수를 최소로 하라.
