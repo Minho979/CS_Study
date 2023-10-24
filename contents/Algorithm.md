@@ -29,7 +29,7 @@
   - [벨만-포드(Bellman-Ford) 알고리즘](<https://github.com/Minho979/CS_Study/blob/main/contents/Algorithm/%EB%B2%A8%EB%A7%8C-%ED%8F%AC%EB%93%9C(Bellman-Ford)%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98.md>)
   - [사이클이 없는 그래프(DAG)의 최단 경로](<https://github.com/Minho979/CS_Study/blob/main/contents/Algorithm/%EC%82%AC%EC%9D%B4%ED%81%B4%EC%9D%B4%20%EC%97%86%EB%8A%94%20%EA%B7%B8%EB%9E%98%ED%94%84(DAG)%EC%9D%98%20%EC%B5%9C%EB%8B%A8%20%EA%B2%BD%EB%A1%9C.md>)
   - [플로이드-워샬(Floyd-Warshall) 알고리즘](<https://github.com/Minho979/CS_Study/blob/main/contents/Algorithm/%ED%94%8C%EB%A1%9C%EC%9D%B4%EB%93%9C-%EC%9B%8C%EC%83%AC(Floyd-Warshall)%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98.md>)
-  - [강연결 요소(Strongly Connected Component)](<https://github.com/Minho979/CS_Study/blob/main/contents/Algorithm/%EA%B0%95%EC%97%B0%EA%B2%B0%20%EC%9A%94%EC%86%8C(Strongly%20Connected%20Component).md>)
+- [강연결 요소(Strongly Connected Component)](<https://github.com/Minho979/CS_Study/blob/main/contents/Algorithm/%EA%B0%95%EC%97%B0%EA%B2%B0%20%EC%9A%94%EC%86%8C(Strongly%20Connected%20Component).md>)
 ***
 > ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#%EF%B8%8F-Algorithm)
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
