@@ -66,3 +66,4 @@
 - [NP-완비](<https://github.com/Minho979/CS_Study/blob/main/contents/Algorithm/NP-%EC%99%84%EB%B9%84(NP-Complete).md>)
 
 ### ⚙️ Operating System
+- [하드웨어의 구성](<https://github.com/Minho979/CS_Study/blob/main/contents/Operating%20System/%ED%95%98%EB%93%9C%EC%9B%A8%EC%96%B4%EC%9D%98%20%EA%B5%AC%EC%84%B1.md>)
