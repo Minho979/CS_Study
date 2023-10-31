@@ -7,7 +7,7 @@
 ## 📖Contents
 - [📁 Data Structure](#-Data-Structure)
 - [🗒️ Algorithm](#%EF%B8%8F-Algorithm)
-- [⚙️ Operating System](#⚙️-Operating-System)
+- [⚙️ Operating System](#%EF%B8%8F-Operating-System)
 ***
 
 ### 📁 Data Structure
