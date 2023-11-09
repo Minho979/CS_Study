@@ -73,3 +73,4 @@
 - [프로세스와 스레드](<https://github.com/Minho979/CS_Study/blob/main/contents/Operating%20System/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4%EC%99%80%20%EC%8A%A4%EB%A0%88%EB%93%9C.md>)
   - [프로세스 주소 공간](<https://github.com/Minho979/CS_Study/blob/main/contents/Operating%20System/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4%EC%99%80%20%EC%8A%A4%EB%A0%88%EB%93%9C.md#%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4%EC%9D%98-%EC%A3%BC%EC%86%8C-%EA%B3%B5%EA%B0%84>)
   - [프로세스 관리](<https://github.com/Minho979/CS_Study/blob/main/contents/Operating%20System/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4%EC%99%80%20%EC%8A%A4%EB%A0%88%EB%93%9C.md#%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4%EC%9D%98-%EA%B4%80%EB%A6%AC>)
+- [IPC(Inter Process Communication)](<https://github.com/Minho979/CS_Study/blob/main/contents/Operating%20System/IPC(Inter%20Process%20Communication).md>)
