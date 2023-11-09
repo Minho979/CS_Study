@@ -19,21 +19,29 @@ IPC의 기본 모델은 공유 메모리 모델(Shared-memory Model)과 메시�
 - 메시지 패싱 모델(Message-passing Model): Signal, PIPE, FIFO, Message Queue, Socket, Semaphore
 
 ## 공유 메모리 모델(Shared-memory Model)
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/IPC-Shard-Memory-Model.png' width='300'>
+
 - 프로세스 간 공유 메모리 영역을 설정하고 공유 영역에서 데이터를 읽고 쓰는 방식으로 데이터를 교환한다.
 - 프로세스 간 read, write 연산이 모두 필요할 때 사용한다. 
 - 시스템 호출이 메모리 생성 및 제거할 때에만 필요하기 때문에 커널이 개입이 적어, 메세지 패싱 모델보다 빠르다.
 - 프로그램 레벨에서 통신 기능을 제공하여 자유로운 통신이 가능하다.
 - 공유 메모리로 인한 동기화 문제가 발생할 수 있다.
 - 동시에 같은 메모리 위치에 접근하는 위치가 발생할 수 있다.
-  - 세마포어(Semaphore), locking과 같이 접근 제어 방법이 필요하다. 
+  - 세마포어(Semaphore), locking과 같이 접근 제어 방법이 필요하다.
+
 
 ### 공유 메모리(Shared Memory)
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/IPC-Shard-Memory2.png' width='500'>
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/IPC-Shard-Memory.png' width='600'>
+
 - 한 시스템 내에 있는 프로세스들에 한에서만 공유되며 프로세스 중 하나가 공유 메모리를 생성하면 다른 프로세스들은 해당 공유 메모리를 읽거나 쓸 수 있다.
 - 공유 메모리가 각 프로세스에게 첨부(attach)하는 방식으로 작동하게 된다.
 - 대량의 정보를 다수의 프로세스에게 배포 가능하다.
 - 중개자 없이 곧바로 메모리에 접근할 수 있기에 모든 IPC 중에서 가장 빠르게 작동할 수 있다. 
 
 ### 메모리 맵(Memory Map)
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/IPC-Memory-Map.png' width='650'>
+
 - 공유 메모리처럼 메모리를 공유하지만 열린 파일을 메모리에 매핑 시켜서 공유하는 방식이다.
   - 공유 매개체: 파일 + 메모리
 - 주로 파일로 대용량 데이터를 공유해야 할 때 사용한다.
@@ -42,6 +50,8 @@ IPC의 기본 모델은 공유 메모리 모델(Shared-memory Model)과 메시�
 - 메모리 맵 파일은 파일의 크기를 바꿀 수는 없으며 메모리 맵 파일을 사용하기 이전, 또는 이후에만 파일의 크기를 바꿀 수 있다. 
 
 ## 메시지 패싱 모델(Message-passing Model)
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/IPC-Message-passing-Model.png' width='300'>
+
 - 프로세스 간 공유되는 주소 공간 없이, 협력 프로세스 간 교환되는 메시지를 통해 정보를 교환한다.
 - send, resive 연산을 통해 통신한다.
 - 큐를 사용하여 프로세스 간 메세지를 주고 받게되며, 일반적으로 커널의 시스템 콜을 사용하여 구현된다.
@@ -71,6 +81,8 @@ IPC의 기본 모델은 공유 메모리 모델(Shared-memory Model)과 메시�
 - 신호 전파: 커널이 수신 프로세스가 신호 핸들러를 실행하도록 한다.
 
 ### 파이프(PIPE)
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/IPC-PIPE.jpg' width='500'>
+
 - 익명 파이프 (Anonymous PIPE)라고도 불린다.
 - 파이프(PIPE)는 두 개의 프로세스를 연결하며, 하나의 프로세스는 쓰기만 가능하고 다른 프로세스는 읽기만 가능한 형태이다.
 - 해당 특성으로 인해 특성으로 반이중(Half-Duplex)통신이라고 부른다.
@@ -89,6 +101,9 @@ IPC의 기본 모델은 공유 메모리 모델(Shared-memory Model)과 메시�
 - 파이프와 같이 읽기, 쓰기를 동시에 수행할 수 없어 전이중 통신을 하기 위해선 FIFO 파일을 두개 만들어야 한다.
 
 ### 메시지 큐(Message Queue)
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/IPC-Message-queue2.png' width='600'>
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/IPC-Message-queue.png' width='600'>
+
 - FIFO 자료 구조를 가지는 큐를 이용해 데이터를 전송, 수신하는 방식으로 커널에서 관리한다.
 - 입출력 방식은 Named PIPE와 동일하다.
 - Named PIPE는 스트림(데이터 흐름)을 기반으로 작동하지만 메시지 큐는 흐름이 아닌 메모리 공간을 이용한다.
@@ -100,6 +115,8 @@ IPC의 기본 모델은 공유 메모리 모델(Shared-memory Model)과 메시�
 - 데이터가 쌓일 수록 추가 메모리 자원이 필요하며, 큐에 데이터를 삽입, 추출하는 과정에서 오버헤드가 발생할 수 있다.
 
 ### 소켓(Socket) 
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/IPC-Socket.png' width='600'>
+
 > 소켓의 개념
 > 
 > 소켓은 네트워크 상에서 통신하기 위한 종단점으로 추상화된 개념  
