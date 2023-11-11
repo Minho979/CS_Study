@@ -1,6 +1,6 @@
-# 상호배제(mutual exclusion)
+# 상호배제(Mutual Exclusion)
 
-> ⬆️:[Top](#상호배제mutual-exclusion)
+> ⬆️:[Top](#상호배제Mutual-Exclusion)
 > ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#%EF%B8%8F-Operating-System)
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
 > - Reference
