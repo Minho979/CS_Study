@@ -75,7 +75,7 @@
 ### 모니터(Monitor)
 ### 하드웨어 명령어
 
-> ⬆️:[Top](#상호-배제Mutex-Mutual-Exclusion)
+> ⬆️:[Top](#상호-배제mutex-mutual-exclusion)
 > ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#%EF%B8%8F-Operating-System)
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
 > - Reference
