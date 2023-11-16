@@ -9,6 +9,8 @@
 - 생산자와 소비자는 같은 버퍼를 사용하므로 공유 변수에 동시에 접근하는 경우 문제가 발생할 수 있다.
   - 생산자가 이미 채워진 버퍼에 더 채우거나 소비자가 빈 데이터를 꺼낼 때 문제가 발생한다.
 
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Mutual-Exclusion-Producer-Consumer-buffer.png' width='500'>
+
 #### 유한 버퍼의 구현
 - 2개의 논리적 포인터 in과 out을 갖는 queue 순환 배열로 구현한다.
 - 순차 리스트 버퍼의 경우 삽입, 삭제시 인덱스와 데이터가 이동하는 오버헤드가 발생하여 비효율적이다.
@@ -18,6 +20,8 @@
 #### 공유 변수 동시 접근
 - 생산자 프로세스와 소비자 프로세스가 counter 변수에 동시 접근 시 counter에 잘못된 값이 저장될 수 있다.
 - 예) counter가 5인 경우
+
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Mutual-Exclusion-Producer-Consumer-ex.png' width='500'>
 
 ### 경쟁 상태(Race Condition)
 - 여러 프로세스가 동시에 공유 데이터에 접근할 때, 접근 순서에 따라 실행 결과가 달라지는 상황을 말한다. 
@@ -35,6 +39,8 @@
   - 임계 영역(critical section): 한 순간에 한 프로세스만 실행해야하는 코드 부분
   - 탈출 영역(exit section): 임계 영역 수행을 마치고 나갈 때 필요한 작업을 수행하는 코드 부분
   - 나머지 영역(remainder section): 임계 영역과 관계 없는 나머지 코드 부분
+
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Mutual-Exclusion-Cirical-Section1.png' width='600'>
 
 ### 임계 영역 문제 해결 조건 
 1. 상호 배제(Mutex)
@@ -58,6 +64,10 @@
   - 한 프로세스가 임계 영역 내에 있을 때 다른 프로세스들은 임계 영역에 진입이 금지된다.
   - 세마포어(Semaphore), 상호배제(Mutex), 모니터(Monitor)가 있다.
 
+#### 임계 영역 프로세스 동기화 
+
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Mutual-Exclusion-Cirical-Section2.png' width='600'>
+
 ## 상호 배제(Mutex)
 - 한 순간에 하나의 프로세스만을 사용할 수 있는 공유자원에 대해, 한 프로세스가 공유 자원을 사용하는 동안 다른 프로세스가 그 자원에 접근할 수 없게 차단하는 것을 말한다.
 - 상호 배제를 위해서는 프로세스 동기화(synchronization) 또는 락(Lock) 이 필요하다.
@@ -67,6 +77,8 @@
 - 읽기 연산은 상호배제가 필요하지 않다.
   - 프로세스들이 충돌이 없는 연산을 수행하는 경우 공유 자원에 동시에 접근할 수 있다.
 - Key(어떤 객체)를 기반으로 상호배제를 진행한다.
+
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Mutual-Exclusion.png' width='600'>
 
 ### 상호 배제의 조건
 1. 두 개 이상의 프로세스들이 동시에 임계 영역(공유 자원)에 있으면 안된다.
@@ -93,10 +105,15 @@
   - `flag[0]`: P0가 임계 영역 진입 `flag[1]`: P1이 임계 영역 진입
   - `turn`: 정수형 변수로 값이 0인 경우 P0에게 진입 우선권, 1인 경우 P1에게 진입 우선권을 부여한다.
 
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Mutual-Exclusion-Dekker1.png' width='600'>
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Mutual-Exclusion-Dekker2.png' width='600'>
+
 #### 피터슨(peterson) 알고리즘
 - 데커 알고리즘과 비슷하지만 상대적으로 피터슨 알고리즘이 간단하다.
 - turn에 동시 접근 문제가 발생하지 않는다.
 - 순차적으로 실행된다. 
+
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Mutual-Exclusion-Peterson.png' width='600'>
 
 ### 하드웨어 명령어
 - 특수한 하드웨어 명령어를 제공하는 경우, 순수한 소프트웨어적인 방법보다 임계 영역 문제를 해결하는 알고리즘이 간단해진다.
@@ -110,14 +127,26 @@
 - 다음과 같은 원자적 연산(atomic operation)을 수행한다.
   - 원자적 연산: 중간에 인터럽트가 발생하지 않고 단번에 수행하는 최소 단위의 기계어 명령어
 
-- 프로세스가 2개인 경우 TAS
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Mutual-Exclusion-TAS1.png' width='500'>
 
-  
+- 프로세스가 2개인 경우 TAS
+``` java
+while(true) {
+	while (TestAndSet(&lock)); // lock을 검사하여 ture면 대기(entry)
+	// false이면 true로 변경, true이면 false가 될 때까지 기다림 
+	/*임계영역*/;
+	lock - false; // 다른 프로세스 진입 허용(exit)
+	/* 나머지 영역*/;
+}
+```
+-
   - 단일 프로세서 뿐 아니라 메모리를 공유하는 다중 처리 환경에도 적용이 가능하다.
   - 임계 영역에 진입하는 프로세스에 바쁜 대기가 발생한다.
   - 프로세스가 2개 초과인 경우 일부는 무기한 연기에 빠질 수 있다.
 
 - 여러 프로세스의 TAS
+
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Mutual-Exclusion-TAS2.png' width='600'>
 
 ### 세마포어(Semaphore)
 - 공유 자원의 데이터 혹은 임계 영역에 설정한 수 만큼의 프로세스나 스레드만 접근하도록 막아준다.
@@ -126,6 +155,9 @@
 - P, V 연산이 프로그램 전체에 퍼져있으며 이 연산이 미치는 영향을 전체적으로 파악하기 어려워 프로그램 작성이 어렵다.
 
 - 세마포어의 예) 열차의 차단기
+
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Mutual-Exclusion-semaphore-ex.png' width='400'>
+
   - 차단기가 올라간 상태: 정지/대기 (자원이 없어 기다려야하는 경우)
   - 차단기가 내려간 상태: 진행(프로세스가 해당 자원을 이용할 수 있는 자유 상태)
 
@@ -158,18 +190,23 @@
   - 진입 프로세스는 중복 진입을 막기 위해 공유 변수를 0으로 변경하여 진입을 막고 나올 떄 1로 변경하여 진입 허용 
 - 각 프로세스 Pi의 구조 (i = 0, 1, 2, ..., n-1)
 
-- P0가 P1보다 먼저 실행하는 경우 (mutex는 변수 이름)
-    1. P0에서 먼저 wait 실행 (현재 mutex = 1)
-    2. mutex를 0으로 감소시키고 wait 종료 후 임계 영역 진입(현재 mutex = 0)
-    3. P0 임계 영역 중 P1이 wait 실행 (현재 mutex = 0)
-    4. P1은 mutex 값이 0보다 커질 때 까지 기다림 (현재 mutex = 0)
-    5. P0이 임계영역을 마치고 signal 실행 → mutex + 1 (현재 mutex = 1)
-    6. P1이 mutex 값을 0으로 감소시키고 임계 영역 진입 (현재 mutex = 0)
+  <img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Mutual-Exclusion-semaphore-pi.png' width='300'>
+
+  - P0가 P1보다 먼저 실행하는 경우 (mutex는 변수 이름)
+      1. P0에서 먼저 wait 실행 (현재 mutex = 1)
+      2. mutex를 0으로 감소시키고 wait 종료 후 임계 영역 진입(현재 mutex = 0)
+      3. P0 임계 영역 중 P1이 wait 실행 (현재 mutex = 0)
+      4. P1은 mutex 값이 0보다 커질 때 까지 기다림 (현재 mutex = 0)
+      5. P0이 임계영역을 마치고 signal 실행 → mutex + 1 (현재 mutex = 1)
+      6. P1이 mutex 값을 0으로 감소시키고 임계 영역 진입 (현재 mutex = 0)
 
 #### 세마포어의 사용: 프로세스 동기화(synchronization)
 - 여러가지 동기화 문제를 해결하는데 있어 세마포어를 이용할 수 있다.
 - 비동기적으로 실행하지만 어떤 문장에 대해 실행 순서를 지켜야하는 경우 사용한다.
 - 예) 두 개의 프로세스 S0이 끝난 후 S1 수행
+
+  <img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Mutual-Exclusion-semaphore-synch.png' width='500'>
+  
   - P0과 P1이 세마포어 synch를 0으로 초기화 후 공유
     - synch: 기다리는 사건(S0의 실행)이 발생했는지를 나타냄
   - P0에는 signal, P1에는 wait을 통해 synch가 1이 되는 경우 P1 실행
@@ -184,6 +221,8 @@
     n개의 유한 자원 → n으로 초기화
 
 #### 세마포어의 구현
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Mutual-Exclusion-semaphore-busy-waiting.png' width='300'>
+
 일반적으로 wait 연산에서 바쁜 대기 문제가 발생할 수 있지만 아래의 방법을 통해 예방이 가능하다.
 
   - 프로세스들이 동시에 P, V 연산을 수행할 수 없어야 한다.
@@ -192,12 +231,18 @@
       이떄, P 프로시저와 V 프로시저는 임계 영역이 된다.
   - 세마포어는 대기 리스트를 가지는 정수 변수 구조로 정의한다. 
 
-동작
+    <img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Mutual-Exclusion-semaphore-structure.png' width='350'>
+
+#### 동작
   1. 세마포어 대기 리스트를 만들어 세마포어 값이 양수가 아닌 경우 대기하도록 한다.
       - 해당 대기는 대기 리스트의 대기로 바쁜 대기 상태가 아니다.
   2. 이후 프로세스 스케줄러는 준비 큐에서 다른 프로세스를 선택하여 수행한다.
   3. 세마포어 대기 리스트에서 대기중인 프로세서는 V 연산이 실행될 때까지 대기한다.
   4. 대기 상태에서 빠져나온 프로세스는 준비 큐에 들어간다. (바로 재실행되지는 않음)
+
+- 바쁜 대기 문제를 해결한 counting semaphore 동작 정의)
+
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Mutual-Exclusion-semaphore.png' width='500'>
 
 ### 모니터(Monitor)
 - 동기화를 자동으로 제공하는 병행 프로그래밍 구조를 말한다.
@@ -214,7 +259,7 @@
 - 초기화 코드
 
 #### 모니터의 구조 
-
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Mutual-Exclusion-Moniter-structure.png' width='600'>
 
 #### 모니터의 조건 변수
 모니터 루틴 수행 중에 프로세스가 대기하는 경우, 대기 조건을 나타내기 위해 조건 변수를 가질 수 있다.
@@ -231,6 +276,7 @@
 
 - 조건 변수를 갖는 모니터의 구조
 
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Mutual-Exclusion-Moniter-structure2.png' width='600'>
 
 #### 모니터의 사용: 임계 영역 문제 해결
 - 모니터 진입 루틴 프로시저를 통해 자동으로 상호 배제를 진행하기에 모니터의 프로시저는 임계 영역이 된다.
@@ -238,10 +284,16 @@
 #### 모니터의 사용: 자원 할당
 1. 자원 할당을 담당하는 하나의 모니터 객체를 생성한다.
 2. 자원을 요청한 프로세스는 요청을 위한 모니터 진입 루틴을 호출한다.
-  - 자원을 할당 받은 경우: 프로시저 수행을 마치고 모니터를 떠나기 위해 반납을 위한 루틴 수행한다.
-  - 자원을 할당 못받은 경우: 대기한다.
+    - 자원을 할당 받은 경우: 프로시저 수행을 마치고 모니터를 떠나기 위해 반납을 위한 루틴 수행한다.
+    - 자원을 할당 못받은 경우: 대기한다.
 3. 자원 반납 프로세스는 반납을 위한 모니터 진입 루틴을 호출한다.
-  - 호출된 루틴은 대기 중인 프로세스에 신호를 보내고, 모니터는 대기 중인 프로세스에게 자원을 할당한다.
+    - 호출된 루틴은 대기 중인 프로세스에 신호를 보내고, 모니터는 대기 중인 프로세스에게 자원을 할당한다.
+
+- 단일 자원 할당 모니터 예)
+
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Mutual-Exclusion-Moniter3.png' width='500'> 
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Mutual-Exclusion-Moniter1.png' width='500'>
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Mutual-Exclusion-Moniter2.png' width='500'>
 
 ## 요약 
 - 경쟁 상태(race condition)는 동시에 공유 데이터에 접근할 때 프로세스의 접근 순서에 따라 실행 결과가 달라지는 상황을 말한다.
