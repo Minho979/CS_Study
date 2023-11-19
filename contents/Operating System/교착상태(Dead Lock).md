@@ -239,6 +239,14 @@ claim: 요구를 한 것이 아니라 실행 중에 요구할 계획이 있음�
   - 요청을 수락해도 안정 상태를 유지할 수 있다면 요청을 수락
   - 요청을 수락한 경우 불안정 상태로 변화한다면 요청을 거절
 
+**단점**
+- 프로세스 수와 자원 수가 일정해야 한다.
+- 각 프로세스가 요청할 자원 유형별 최대치 정보를 미리 파악할 수 있어야 한다.
+- 프로세스가 자원을 요청할 때마다 교착상태 회피 알고리즘을 수행해야 하므로 시스템 부하가 증가한다.
+  - 안정, 불안정 판정 연산
+- 불안정 상태를 방지해야하므로 자원 이용도가 낮다.
+  - 요청하는 자원이 충분히 남아 있어도 불안정 상태가 될 수 있는 요청이면 거부하기에 자원 이용도가 낮아진다.
+
 **구현 방법**
 - 프로세스 수는 n, 자원 종류는 m(한 종류의 자원이 여러 개)일 때,
   - Allocation: 현재 각 프로세스에 할당된 자원 수를 표시하는 n x m 행렬
@@ -247,6 +255,24 @@ claim: 요구를 한 것이 아니라 실행 중에 요구할 계획이 있음�
   - Available: 가용 자원 수를 표시하는 길이 m인 백터
 
   <img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/DeadLock-Avoidance-Bankers-algorithm.png' width='600'>
+
+**예시**  
+프로세스 5개(P0~P4), 자원은 3종류(A: 10, B: 5, C: 7)인 시스템
+- 현재 상태
+
+  <img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/DeadLock-Avoidance-Bankers-algorithm-ex1.png' width='500'>
+
+- 안정 상태
+
+  <img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/DeadLock-Avoidance-Bankers-algorithm-ex2.png' width='500'>
+    
+- 불안정 상태
+
+  <img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/DeadLock-Avoidance-Bankers-algorithm-ex3.png' width='500'>
+
+- 전체 흐름
+
+  <img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/DeadLock-Avoidance-Bankers-algorithm-ex4.png' width='600'>
 
 ### 교착상태 탐지와 회복(DeadLock Detection and Recovery)
 - 교착상태 발생을 허용하되 교착상태를 알아내고 교착상태로부터 벗어나 회복할 수 있게 한다.
