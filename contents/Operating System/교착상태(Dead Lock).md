@@ -175,8 +175,79 @@
 - 번호 부여시 실제로 자원을 사용하는 순서를 반영해야하는 부담이 있다.
 
 ### 교착상태 회피(DeadLock Avoidance)
-- 시스템 내 교착상태 가능성이 존재하지만 회피 알고리즘을 통해 교착상태를 회피한다.
-- 회피 알고리즘 실행으로 인해 시스템 부하가 가중된다.
+- 시스템 내 교착상태 가능성이 존재하지만 회피 알고리즘을 통해 교착상태를 회피하지만 회피 알고리즘 실행으로 인해 시스템 부하가 가중된다.
+  - 회피 알고리즘은 프로세스가 자원을 요청할 때마다 수행해야한다.
+- 가용 자원이 충분히 있는 경우에도 자원 할당 시 교착상태가 발생할 위험이 있는 경우 요청을 거절한다.
+- 교착상태 예방(deadlock prevention)보다 덜 엄격한 조건을 요구함으로써 자원을 더 효율적으로 이용하고, 병행성을 더 허용한다.
+- 교착상태 회피를 위해 자원 요구에 대한 추가 정보가 필요하다.
+  - 자원 할당 상태: 사용 가능한 자원의 수, 할당된 자원의 수, 프로세스들의 최대 요구 수에 의해 정의
+
+#### 자원 할당 그래프 알고리즘(resource allocaion graph algorithm)
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/DeadLock-Avoidance-resource-allocaion-graph-algorithm1.png' width='500'>
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/DeadLock-Avoidance-resource-allocaion-graph-algorithm2.png' width='500'>
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/DeadLock-Avoidance-resource-allocaion-graph-algorithm3.png' width='500'>
+
+claim: 요구를 한 것이 아니라 실행 중에 요구할 계획이 있음을 알리는 것
+
+#### 시스템의 두 가지 상태(안정 상태(stable state)와 불안정 상태(unstable state)
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/DeadLock-Avoidance-state.png' width='500'>
+
+**안정 상태(stable state)**
+- 프로세스의 안정 순서가 존재하는 상태로 교착상태가 절대 발생할 수 없다.
+- 각 프로세스에 자원을 최대 요구 수까지 할당할 수 있어 교착상태를 회피할 수 있는 상태이다.
+- 프로세스 Pi가 필요한 자원을 즉시 사용할 수 없다면, Pi는 모든 Pj가 끝날 때까지 기다렸다가 자원을 확보하며, 필요한 모든 자원 확보 시 작업을 완료하고 자원을 반납한다.
+- 어떤 시점에 시스템이 안정 상태임을 보이려면 안정 순서가 존재함을 보이면 된다.
+  - 안정 순서: 그 시점부터 시작해 최악의 경우에도 모든 프로세스들이 작업을 완료할 수 있는 프로세스 순서
+  - 프로세스 순서<P1, P2, ..., Pn>이 안정 순서라는 뜻은 Pi의 최대 자원 요청이 두 가지를 합해 충족될 수 있음을 의미한다.  
+    a자원: 현재 사용 가능한(available) 자원, b자원: i보다 앞선 (j < i) 모든 Pj가 점유하고 있는 자원들  
+    a + b를 통해 Pi의 최대 자원 요청을 만족시킬 수 있다.
+
+**불안정 상태(unstable state)**
+- 프로세스의 안정 순서가 존재하지 않는 상태
+- 교착상태는 불안정 상태일 때 발생하지만, 불안정 상태라고 해서 교착상태인 것은 아니다. 
+
+**방법**
+- 시스템이 안정 상태를 유지하도록 자원 할당을 처리함으로써 교착상태를 회피한다.
+- 안정 상태에서 자원을 할당해서 다른 상태로 전이하더라도 안정 상태가 되도록 유지한다.  
+  즉, 자원 요청을 받아드렸을 때, 불안정 상태가 되면 요청을 거절한다.
+
+**예시**  
+프로세스 P0, P1, P2, P3와 동일한 유형의 자원 10개를 가진 시스템
+
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/DeadLock-Avoidance-state-ex1.png' width='500'>
+
+- 안정 상태
+  
+    <img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/DeadLock-Avoidance-state-ex2.png' width='500'>
+
+    - 안정 순서 <P2, P0, P1, P3>가 존재하기에 안정 상태이다.
+    - 자원의 최대 개수 10개를 초과하지 않고 순서대로 프로세스 처리가 가능하다.
+
+- 불안정 상태
+  
+    <img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/DeadLock-Avoidance-state-ex3.png' width='500'>
+
+    - 안정 순서가 존재하지 않으므로, 교착상태 발생 위험이 있다.
+    - 교착상태가 발생하지 않을 수도 있다.
+      - P2가 자원 2개 할당 받아 실행 완료 (4) → P3이 한 개 반납 (5) → P0이 5개를 할당받아 실행 완료 (5) → P1 실행 완료 (1) → P3 실행 완료 (10)
+    - 교착상태가 발생하는 경우
+      - P2 실행을 마치고 반납 사용 가능 자원 수 4개 → P0이 5개를 요구하는 경우 교착상태 발생
+
+#### 은행원 알고리즘(Banker's algorithm)
+- 다익스트라 은행원 알고리즘을 이용한 교착상태 회피 방법이다.
+- 각 프로세스가 자원 종류별 최대 요청 수를 파악해두고, 자원 요청이 있을 때마다 다음과 같이 결정한다.
+  - 요청을 수락해도 안정 상태를 유지할 수 있다면 요청을 수락
+  - 요청을 수락한 경우 불안정 상태로 변화한다면 요청을 거절
+
+**구현 방법**
+- 프로세스 수는 n, 자원 종류는 m(한 종류의 자원이 여러 개)일 때,
+  - Allocation: 현재 각 프로세스에 할당된 자원 수를 표시하는 n x m 행렬
+  - Max: 각 프로세스의 최대 자원 요구를 표시하는 n x m 행렬
+  - Need: 각 프로세스의 최대 추가 자원 요구를 표시하는 n x m 행렬
+  - Available: 가용 자원 수를 표시하는 길이 m인 백터
+
+  <img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/DeadLock-Avoidance-Bankers-algorithm.png' width='600'>
+
 ### 교착상태 탐지와 회복(DeadLock Detection and Recovery)
 - 교착상태 발생을 허용하되 교착상태를 알아내고 교착상태로부터 벗어나 회복할 수 있게 한다.
 - 교착상태 탐지 알고리즘 실행시 시스템에 부담이 생긴다.
