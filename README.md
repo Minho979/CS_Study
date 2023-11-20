@@ -81,3 +81,4 @@
   - [상호 배제(Mutex)](<https://github.com/Minho979/CS_Study/blob/main/contents/Operating%20System/%EC%83%81%ED%98%B8%20%EB%B0%B0%EC%A0%9C(Mutual%20Exclusion).md#%EC%83%81%ED%98%B8-%EB%B0%B0%EC%A0%9Cmutex>)
   - [세마포어(Semaphore)](<https://github.com/Minho979/CS_Study/blob/main/contents/Operating%20System/%EC%83%81%ED%98%B8%20%EB%B0%B0%EC%A0%9C(Mutual%20Exclusion).md#%EC%84%B8%EB%A7%88%ED%8F%AC%EC%96%B4semaphore>)
   - [모니터(Monitor)](<https://github.com/Minho979/CS_Study/blob/main/contents/Operating%20System/%EC%83%81%ED%98%B8%20%EB%B0%B0%EC%A0%9C(Mutual%20Exclusion).md#%EB%AA%A8%EB%8B%88%ED%84%B0monitor>)
+- [데드락(DeadLock)](<https://github.com/Minho979/CS_Study/blob/main/contents/Operating%20System/%EA%B5%90%EC%B0%A9%EC%83%81%ED%83%9C(DeadLock).md>)
