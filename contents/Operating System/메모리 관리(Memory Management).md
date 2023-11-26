@@ -1,6 +1,6 @@
-# 메모리 관리
+# 메모리 관리(Memory Management)
 
-> ⬆️:[Top](#메모리-관리)
+> ⬆️:[Top](#메모리-관리Memory-Management)
 > ⬅️:[Back](https://github.com/Minho979/CS_Study/blob/main/README.md#%EF%B8%8F-Operating-System)
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
 > - Reference
