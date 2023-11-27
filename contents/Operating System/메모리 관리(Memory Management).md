@@ -38,20 +38,34 @@
 #### 물리적 주소 공간(physical address space)
 - 데이터나 프로그램이 저장되는 실제 메모리 공간이다.
 - 논리적 공간보다 크거나 작을 수 있다.
+
+  <img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Memory-Management-physical-address.png' width='500'>
+  
   - 반드시 0, 1, 2에 매핑될 필요 없으며 저장할 수 있는 빈 공간에 매칭되어 저장한다.
   - 0 → 30(논리적 → 물리적)으로 신속하게 주소 변환하여 매핑이 된다. 
 ### 메모리 장치의 주소 변환
 #### MMU(Memory Management Unit)
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Memory-Management-MMU.png' width='500'>
+
 - 메모리 보호나 캐시 관리 등 프로세서가 메모리에 접근하는 것을 관리하는 하드웨어이다. 
 - 논리 주소를 물리 주소로 변환한다.
 - 주소 변환 기법은 메모리 관리 방식에 따라 달라진다.
   - 연속 메모리 할당: 고정 분할, 가변 분할(동적 분할)
   - 불연속 메모리 할당: 페이징(paging), 세그먼테이션(segmentation), 페이지화된 세그먼테이션
 
+- 예) base register을 더해 물리 주소로 변환하는 예시
+
+  <img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Memory-Management-MMU-ex1.png' width='500'>
+  
+  - base register : 접근할 수 있는 물리적 주소의 최솟값
+  - limit register : 논리적 주소의 범위
+
 ### 주소 바인딩
 - 프로세서가 프로세스를 실행하기 위해 프로세스의 논리적 주소에 해당하는 물리적 주소를 정해준다.
 - 프로그램의 주소를 절대 주소로 바꾸어 메인 메모리에 적재할 수 있도록 한다.
 - 바인딩하는 시점에 따라 구분된다.
+
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Memory-Management-binding.png' width='500'>
 
 #### 컴파일 시간(compile-time) 바인딩
 - 컴파일 시 프로세스의 물리적 주소를 결정한다.
@@ -72,6 +86,8 @@
 - 런타임 시 물리적 주소가 결정된다.
 - 런타임 주소 할당은 MMU라는 장치를 사용해서 논리 주소를 물리 주소로 바꾼다.
 
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Memory-Management-runtime.png' width='500'>
+
 ## 메모리 관리 관련 용어
 ### 동적 적재(dynamic loading)
 - 실행되기 직전에 주소를 확정하여 메모리를 효율적으로 사용하게 하는 방법이다.
@@ -88,6 +104,8 @@
 - 중첩을 이용학려면 프로그래머가 중첩 구조를 직접 설계하고 프로그래밍해야 한다.
 - 중첩은 운영체제의 지원 없이도 실행이 가능하다.
 
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Memory-Management-overlay.png' width='500'>
+
 #### 동작
 - 메모리 일부분에 프로그램 실행 중 계속 필요한 사용자 코드와 데이터를 로드한다.
 - 중첩 영역에는 초기 모듈, 처리 모듈, 출력 모듈을 순서대로 하나씩 로드하여 실행한다.
@@ -102,11 +120,14 @@
 - 컴파일 시간 바인딩과 적재 시간 바인딩은 `swap in`할 때 같은 메모리 위치로 로드해야한다.
 - 실행 시간 바인딩의 경우 주소 변환이 되기 때문에 빈 메모리 영역이라면 로드할 수 있다. 
 
+  <img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Memory-Management-swapping.png' width='500'>
+
 ### TLB (Translation Look-aside Buffer)
 - TLB는 메모리 주소 변환을 위한 별도의 캐시 메모리로, page table에서 빈번히 참조되는 일부 엔트리를 캐싱한다.
 - TLB는 key-value 쌍으로 데이터를 관리하며, key에는 page number, value에는 frame number가 대응된다.
 - 따라서 CPU는 TLB를 page table 보다 먼저 참조하여, 원하는 페이지가 있다면 바로 frame number를 얻을 수 있다.
 
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Memory-Management-TLB.png' width='500'>
 
 
 > ⬆️:[Top](#메모리-관리Memory-Management)
@@ -114,3 +135,4 @@
 > 💁:[Home](https://github.com/Minho979/CS_Study/blob/main/README.md)
 > - Reference
 > - [구현회. 운영체제-그림으로 배우는 구조와 원리, 개정3판. 한빛아카데미]
+> - [[운영체제(OS)] 8. 메모리 관리(Memory Management)](https://rebro.kr/178)
