@@ -84,4 +84,4 @@
 - [데드락(DeadLock)](<https://github.com/Minho979/CS_Study/blob/main/contents/Operating%20System/%EA%B5%90%EC%B0%A9%EC%83%81%ED%83%9C(DeadLock).md>)
 - [기아상태(Starvation)](<https://github.com/Minho979/CS_Study/blob/main/contents/Operating%20System/%EA%B8%B0%EC%95%84%EC%83%81%ED%83%9C(Starvation).md>)
 - [프로세서 스케줄링](<https://github.com/Minho979/CS_Study/blob/main/contents/Operating%20System/%ED%94%84%EB%A1%9C%EC%84%B8%EC%84%9C%20%EC%8A%A4%EC%BC%80%EC%A4%84%EB%A7%81.md>)
-
+- [메모리 관리(Memory Management)](<https://github.com/Minho979/CS_Study/blob/main/contents/Operating%20System/%EB%A9%94%EB%AA%A8%EB%A6%AC%20%EA%B4%80%EB%A6%AC(Memory%20Management).md>)
