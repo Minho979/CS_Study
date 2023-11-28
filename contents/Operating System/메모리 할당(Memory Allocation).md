@@ -2,6 +2,8 @@
 운영체제가 새 프로세스를 실행시키거나 실행중인 프로세스가 메모리를 필요로 할 때 물리 메모리를 할당하는 것으로 운영체제 커널에 의해 이루어진다.  
 방식에는 연속 메모리 할당(Contiguous Memory Allocation)과 분할 메모리 할당(Non-contiguous Memory Allocation)이 있다.
 
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Memory-Allocation.png' width='600'>
+
 ## 연속 메모리 할당(Contiguous Memory Allocation)
 - 초기 컴퓨터 시스템의 메모리 관리 기법으로 프로세스 1개에 연속된 메모리 블록을 할당하는 기법이다. 
 - 프로세스에 하나의 연속된 메모리를 할당하므로 메모리 할당의 유연성이 부족하다. 
@@ -31,23 +33,36 @@
 - 프로세스에게 할당된 메모리 영역 내에 활용할 수 없는 홀이 생기는 경우이다.
 - 할당받은 공간보다 프로세스가 더 작으면, 낭비되는 메모리가 생기는 현상이다.
 - 고정 크기 할당에서 발생한다.
+
+- 예)
+  
+  <img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Memory-Allocation-Contiguous-multi-fixed-internal.png' width='300'>
+
 ### 외부 단편화 (External Fragmentation)
 - 할당된 메모리 사이에 활용할 수 없는 홀이 생기는 경우이다.
 - 메모리 전체 빈 공간 양은 충분하더라도 너무 작은 공간들로 나누어져 있어서 어느 프로세스의 요구도 들어줄 수 없는 상태이다.
 - 크기가 서로 다른 프로세스들이 연속된 메모리를 할당받고 반납하는 과정이 반복되며 사용가능공간이 여러 개의 작은 공간(hole)로 단편화 될 수 있다.
 
 - 예)
+
+  <img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Memory-Allocation-Contiguous-multi-variable-external.png' width='600'>
   
 - 해결 방법
   - 메모리 통합(coalescing)
     - 하나의 작업이 끝났을 때 반납할 hole이 다른 hole과 인접한지를 검사하여 인접한 경우 hole을 하나로 합친다.
     - 메모리 통합을 수행하더라도 메모리 전반에 흩어져 있는 hole들을 모두 하나의 사용가능공간으로 합치기는 어렵다.
-
+   
+    <img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Memory-Allocation-Contiguous-multi-variable-coalescing.png' width='500'>
+    
   - 메모리 압축(compaction)
     - 사용 중인 메모리 공간의 내용들을 적절히 이동하여 사용가능 공간을 하나의 큰 hole로 모은다.
     - 동적(실행 시간) 주소 재배치가 가능한 경우에만 이용이 가능하다.
     - 메모리 압축 과정에서는 모든 작업을 중지해야 한다.
     - 압축 방법에 따라 이동량에 차이가 있다.
+
+    <img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Memory-Allocation-Contiguous-multi-variable-compaction.png' width='350'>  
+ 
+    <img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Memory-Allocation-Contiguous-multi-variable-compaction1.png' width='600'>
 
 ## 단일 프로그래밍 환경의 연속 메모리 할당
 - 사용자 프로세스가 1개인 경우이다.
@@ -55,9 +70,13 @@
 - 한 번에 한 프로세스만 메모리 사용이 가능하다.
 
 #### 구조
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Memory-Allocation-Contiguous-single.png' width='350'>
 
 #### 메모리 보호 기법
-사용자 프로세스가 운영체제 영역에 접근하는 것을 막기 위해 프로세서 내에 경계 레지스터(boundart register)를 두고, 사용자 프로세스가 메모리를 참조할 때마다 경계 레지스터로 주소를 검사한다. \
+사용자 프로세스가 운영체제 영역에 접근하는 것을 막기 위해 프로세서 내에 경계 레지스터(boundart register)를 두고, 사용자 프로세스가 메모리를 참조할 때마다 경계 레지스터로 주소를 검사한다.
+
+- 예) 경계 레지스터 값 = 100, 사용자 프로세스 = 80  
+  경계 레지스터 값보다 100보다 작다. 이 경우 사용자라 프로세스가 운영체제 영역을 침범하기에 할당하지 않는다.
 
 ## 다중 프로그래밍 환경의 연속 메모리 할당
 사용자 프로세스가 메모리에 여러 개가 적재된다.
@@ -67,13 +86,27 @@
 
 #### 구조 
 - 각 영역별로 독립된 큐가 있는 경우
+
+  <img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Memory-Allocation-Contiguous-multi-fixed-queue.png' width='500'>
+
+  - 할당된 공간이 정해진다.
+  - if Q2 → 2KB, Q6 → 6KB, Q12 → 12KB 
+
 - 통합된 대기 큐가 있는 경우
+
+  <img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Memory-Allocation-Contiguous-multi-fixed-queue1.png' width='500'>
+
+  - 어느 곳이든 할당 가능하다.
+  - if 5KB → 12KB, 7KB → 12KB .. 등  할당될 공간이 정해져있지 않다.
 
 #### 메모리 보호 기법
 - 프로세서가 생성한 모든 주소를 기준 레지스터, 한계 레지스터로 검사하여 다른 사용자 프로그램과 운영체제를 보호한다. 
 - 기준 레지스터 한계 레지스트를 사용하여 분할된 영역을 보호한다.
   - 기준 레지스터(base register): 분할 시작 물리 메모리 주소
   - 한계 레지스터(limit register): 분할의 크기
+
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Memory-Allocation-Contiguous-multi-fixed-memory.png' width='300'>
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Memory-Allocation-Contiguous-multi-fixed-memory1.png' width='500'>
 
 #### 성능에 영향을 미치는 결정 사항
 - 분할 영역의 개수와 크기 결정
@@ -86,11 +119,20 @@
 ### 가변 분할 다중 프로그래밍
 - 고정된 경계를 없애고 프로세스가 필요로 하는 만큼 메모리를 할당한다.
 
+#### 가변 분할 동작)
+<img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Memory-Allocation-Contiguous-multi-variable-ex.png' width='600'>
+
 #### 메모리 보호 기법
 - 각 프로세스(분할 영역)을 나타내기 위해 기준 레지스터, 한계 레지스터를 사용한다.
   - 기준 레지스터(base register): 프로세스의 메모리 시작 주소
   - 한계 레지스터(limit register): 프로세스의 크기 
 - 프로세서 스케줄러가 프로세스 선택 시, 디스패처는 기준, 한계 레지스터에 새로운 값을 로드한다. 
+
+  <img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Memory-Allocation-Contiguous-multi-variable.png' width='600'>
+
+  - P3의 경우, 한계 레지스터 250, 기준 레지스터 5034, 물리적 주소 5034, 물리메모리 5034~5284  
+    if 논리적 주소가 100인 경우 오류가 발생하지 않음  
+    but 논리적 주소가 한계 레지스터보다 큰 경우 주소 오류가 발생함
 
 #### 배치 정책(placement strategy)
 - 가변 분할 다중 프로그래밍 시스템에서는 메모리 할당과 반납을 반복하다 보면 크기가 다양한 여러 빈 공간(hole)이 메모리에 생긴다.
@@ -99,18 +141,22 @@
 - 일반적으로 최초 적합, 최적 적합이 최악 적합보다 효율적이다.
 - 최초 적합이 최적 적합보다 메모리를 더 빠르게 할당한다. 
 
- 최초 적합(first-fit)
+#### 최초 적합(first-fit)
 - 사용가능공간 리스트에서 프로세스가 요구한 크기 이상인 첫번째 hole을 할당한다.
 - 리스트의 처음부터 검색하거나 지난번 검색을 마친 곳부터 검색한다.
 - 검색은 빠르나 공간 활용률이 떨어진다.
 
-최적 적합(best-fit)
+  <img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Memory-Allocation-Contiguous-multi-variable-first.png' width='500'>
+
+#### 최적 적합(best-fit)
 - 사용가능공간 리스트에서 프로세스가 요구한 크기 이상인 hole들 중에서 가장 작은 hole을 할당한다.
 - 사용가능공간 리스트를 hole 크기 오름차순으로 유지해야 하며, 오름차순으로 정렬되어 있지 않은 경우 전체 리스트를 검색해야 한다.
 - 공간 활욜률이 뛰어나지만 할당, 반납 시간이 오래 걸린다.
 - 매우 작은 hole들이 생성될 수 있다.
 
-최악 적합(worst-fit)
+  <img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Memory-Allocation-Contiguous-multi-variable-best.png' width='500'>
+
+#### 최악 적합(worst-fit)
 - 사용가능공간 리스트에서 가장 큰 hole을 할당한다.
 - 사용가능공간 리스트를 hole 크기 내림차순으로 유지해야하며, 내림차순으로 정렬되어 있지 않은 경우 전체 리스트를 검색해야 한다.
 - 매우 작은 hole들이 생기는 문제는 없지만, 매우 큰 hole이 남아 있지 않는다는 문제가 있다. 
@@ -122,6 +168,8 @@
 - 고정 분할과 가변 분할의 단편화 현상을 해결하는 방법
 - 큰 버퍼 들을 요청에 맞게 이등분하여 작은 버퍼들을 얻고, 가능할 때마다 이등분 되었던 인접한 빈 버퍼들을 합치는 과정을 반복한다.
 - 이 때, 한 버퍼를 나누어 얻은 두 버퍼를 서로의 버디라고 한다.  
+
+  <img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Memory-Allocation-Contiguous-multi-variable-buddy.png' width='650'>
 
 ## 페이징(paging)
 ## 세그먼테이션(segmentation)
