@@ -19,9 +19,9 @@
 - 연속 메모리 할당과 달리 하나의 프로세스를 메인 메모리에 분산하여 불연속적으로 할당할 수 있게 허용하여 분산 할당한다. 
 
 ### 할당 방식
-- [페이징(paging)](#페이징paging)
-- [세그먼테이션(segmentation)](#세그먼테이션segmentation)
-- [페이지화된 세그먼테이션(pageed segmentation)](#페이지화된-세그먼테이션pageed-segmentation)
+- 고정 분할: [페이징(paging)](#페이징paging)
+- 가변 분할: [세그먼테이션(segmentation)](#세그먼테이션segmentation)
+- 고정 분할 + 가변 분할: [페이지화된 세그먼테이션(pageed segmentation)](#페이지화된-세그먼테이션pageed-segmentation)
 
 ## 단편화
 - 프로세스에게 할당할 수 없는 작은 크기의 홀(hole, 조각 메모리)이 생기는 현상이다.
