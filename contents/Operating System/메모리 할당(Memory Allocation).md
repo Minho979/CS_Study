@@ -172,6 +172,11 @@
   <img src='https://github.com/Minho979/CS_Study/blob/main/contents/images/Memory-Allocation-Contiguous-multi-variable-buddy.png' width='650'>
 
 ## 페이징(paging)
+- 메모리를 일정한 크기의 페이지로 나누어 처리한다.
+  - 메인 메모리(물리 메모리): 페이지 프레임(page frame)이라 불리는 고정 크기 블록으로 나눈다.
+  - 프로세스 논리 메모리: 페이지(page)라 불리는 고정 크기 블록으로 나눈다. 페이지의 크기는 페이지 프레임과 동일하다.
+- 
+
 ## 세그먼테이션(segmentation)
 ## 페이지화된 세그먼테이션(pageed segmentation)
 
