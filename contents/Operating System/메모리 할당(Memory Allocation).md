@@ -185,7 +185,7 @@
 - 연속되어 저장되지 않기 때문에 외부 단편화가 발생하지 않는다.
 - 배치(placement) 전략이 따로 필요 하지 않다.
 - 할당과 해제가 빠르다.
-- swap out이 간단하다.
+- [swap out](<https://github.com/Minho979/CS_Study/blob/main/contents/Operating%20System/메모리%20관리(Memory%20Management).md#스와핑swapping>)이 간단하다.
 
 #### 단점
 - 연속 메모리 할당 방식에 비해 운영체제의 메모리 관리 부담이 커진다.
